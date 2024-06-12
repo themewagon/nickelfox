@@ -1,9 +1,5 @@
-function App() {
-  return (
-    <>
-      <p>Click on the Vite and React logos to learn more</p>
-    </>
-  );
-}
+import { Outlet } from 'react-router-dom';
+
+const App = () => <Outlet />;
 
 export default App;
