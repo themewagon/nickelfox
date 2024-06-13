@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
 import Image from 'components/base/Image';
 
 interface SaleCardProps {
@@ -11,16 +11,20 @@ interface SaleCardProps {
 
 const SaleCard = ({ icon, title, subtitle, increment, color }: SaleCardProps) => {
   return (
-    <Box px={3} py={2.5} borderRadius={2.5} bgcolor="background.default">
+    <Stack gap={3} px={3} py={2.5} borderRadius={2.5} bgcolor="background.default">
       <Image src={icon} alt={subtitle} width={26} height={26} />
-      <Stack>
-        <Typography variant="h4">{title}</Typography>
-        <Typography variant="body1">{subtitle}</Typography>
-        <Typography variant="body2" color={color}>
+      <Stack gap={1.25}>
+        <Typography variant="h4" color="common.white">
+          {title}
+        </Typography>
+        <Typography variant="body1" color="text.secondary">
+          {subtitle}
+        </Typography>
+        <Typography variant="body2" color={color} whiteSpace="nowrap">
           +{increment}% from yesterday
         </Typography>
       </Stack>
-    </Box>
+    </Stack>
   );
 };
 

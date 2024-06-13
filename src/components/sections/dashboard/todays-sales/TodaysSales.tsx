@@ -10,8 +10,12 @@ const TodaysSales = () => {
   return (
     <Paper sx={{ px: 3.5, py: 5 }}>
       <Stack gap={1} mb={5}>
-        <Typography variant="h4">Today’s Sales</Typography>
-        <Typography variant="h6">Sales Summary</Typography>
+        <Typography variant="h4" color="common.white">
+          Today’s Sales
+        </Typography>
+        <Typography variant="h6" color="text.disabled">
+          Sales Summary
+        </Typography>
       </Stack>
       <Grid container columns={12} spacing={5}>
         <Grid xs={3}>
