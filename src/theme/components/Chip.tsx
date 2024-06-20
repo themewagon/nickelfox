@@ -1,6 +1,5 @@
-import { Theme } from '@mui/material';
+import { Theme, alpha } from '@mui/material';
 import { Components } from '@mui/material/styles/components';
-import hexToRgba from 'theme/functions/hex-to-rgba';
 
 const Chip: Components<Omit<Theme, 'components'>>['MuiChip'] = {
   defaultProps: {
@@ -26,27 +25,27 @@ const Chip: Components<Omit<Theme, 'components'>>['MuiChip'] = {
     }),
     colorPrimary: ({ theme }) => ({
       color: theme.palette.primary.main,
-      backgroundColor: hexToRgba(theme.palette.primary.main, 12),
+      backgroundColor: alpha(theme.palette.primary.main, 0.12),
     }),
     colorSecondary: ({ theme }) => ({
       color: theme.palette.secondary.main,
-      backgroundColor: hexToRgba(theme.palette.secondary.main, 12),
+      backgroundColor: alpha(theme.palette.secondary.main, 0.12),
     }),
     colorInfo: ({ theme }) => ({
       color: theme.palette.info.main,
-      backgroundColor: hexToRgba(theme.palette.info.main, 12),
+      backgroundColor: alpha(theme.palette.info.main, 0.12),
     }),
     colorSuccess: ({ theme }) => ({
       color: theme.palette.success.main,
-      backgroundColor: hexToRgba(theme.palette.success.main, 12),
+      backgroundColor: alpha(theme.palette.success.main, 0.12),
     }),
     colorWarning: ({ theme }) => ({
       color: theme.palette.warning.main,
-      backgroundColor: hexToRgba(theme.palette.warning.main, 12),
+      backgroundColor: alpha(theme.palette.warning.main, 0.12),
     }),
     colorError: ({ theme }) => ({
       color: theme.palette.error.main,
-      backgroundColor: hexToRgba(theme.palette.error.main, 12),
+      backgroundColor: alpha(theme.palette.error.main, 0.12),
     }),
   },
 };

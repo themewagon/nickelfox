@@ -31,6 +31,10 @@ const palette: PaletteOptions = {
   divider: '#2C2D33',
   action: {
     focus: '#D2D2D2',
+    disabled: '#D9D9D9',
+  },
+  grey: {
+    '300': '#D9D9D9',
   },
 };
 

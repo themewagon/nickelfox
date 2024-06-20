@@ -2,6 +2,10 @@ import { Box, Drawer, Toolbar } from '@mui/material';
 import { PropsWithChildren, useState } from 'react';
 import Sidebar from './Sidebar';
 import Topbar from './Topbar';
+import { closedMixin, openedMixin } from 'theme/mixins';
+
+export const drawerOpenWidth = 160;
+export const drawerCloseWidth = 88;
 
 const MainLayout = ({ children }: PropsWithChildren) => {
   const [open, setOpen] = useState(false);
@@ -14,12 +18,16 @@ const MainLayout = ({ children }: PropsWithChildren) => {
       <Drawer
         variant="permanent"
         open={open}
-        sx={{
-          width: open ? 148 : 88,
+        sx={(theme) => ({
+          width: open ? drawerOpenWidth : drawerCloseWidth,
+          ...(open && openedMixin(theme)),
+          ...(!open && closedMixin(theme)),
           '& .MuiDrawer-paper': {
-            width: open ? 148 : 88,
+            width: open ? drawerOpenWidth : drawerCloseWidth,
+            ...(open && openedMixin(theme)),
+            ...(!open && closedMixin(theme)),
           },
-        }}
+        })}
       >
         <Sidebar open={open} />
       </Drawer>

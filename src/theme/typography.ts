@@ -20,7 +20,7 @@ const typography: TypographyOptions = {
     fontWeight: 600,
   },
   h5: {
-    fontSize: pxToRem(15),
+    fontSize: pxToRem(14),
     fontWeight: 500,
   },
   h6: {
