@@ -35,6 +35,7 @@ const palette: PaletteOptions = {
   },
   grey: {
     '300': '#D9D9D9',
+    '900': '#2B2B36',
   },
 };
 

@@ -9,6 +9,7 @@ const Button: Components<Omit<Theme, 'components'>>['MuiButton'] = {
   styleOverrides: {
     root: ({ theme }) => ({
       borderRadius: theme.shape.borderRadius * 1.5,
+      textTransform: 'none',
     }),
     sizeSmall: ({ theme }) => ({
       padding: theme.spacing(1.25, 2),

@@ -1,44 +1,55 @@
-import { SxProps } from '@mui/material';
-import ReactEChart from 'components/base/ReactEChart';
-import { BarSeriesOption } from 'echarts';
+import { ReactElement, useMemo } from 'react';
 import * as echarts from 'echarts';
+import { LineSeriesOption } from 'echarts';
 import { EChartsOption } from 'echarts-for-react';
+import ReactEChart from 'components/base/ReactEChart';
 import EChartsReactCore from 'echarts-for-react/lib/core';
-import React, { ReactElement, useMemo } from 'react';
+import { SxProps } from '@mui/material';
 
-type LevelChartProps = {
+type CustomerFulfillmentChartProps = {
   chartRef: React.MutableRefObject<EChartsReactCore | null>;
-  seriesData?: BarSeriesOption[];
+  seriesData?: LineSeriesOption[];
   legendData?: any;
   colors?: string[];
   sx?: SxProps;
 };
 
-const LevelChart = ({
+const CustomerFulfillmentChart = ({
   chartRef,
   seriesData,
   legendData,
   colors,
   ...rest
-}: LevelChartProps): ReactElement => {
+}: CustomerFulfillmentChartProps): ReactElement => {
   const option: EChartsOption = useMemo(
     () => ({
+      color: colors,
       tooltip: {
         trigger: 'axis',
         axisPointer: {
-          type: 'shadow',
+          type: 'line',
+          label: {
+            backgroundColor: '#6a7985',
+          },
         },
       },
       legend: {
         show: false,
         data: legendData,
       },
+      grid: {
+        top: '0%',
+        right: '2%',
+        bottom: '-13%',
+        left: '-15%',
+        containLabel: true,
+      },
       xAxis: [
         {
           type: 'category',
+          boundaryGap: false,
           show: false,
-          axisTick: { show: false },
-          data: ['Level 1', 'Level 2', 'Level 3', 'Level 4', 'Level 5', 'Level 6'],
+          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
         },
       ],
       yAxis: [
@@ -47,12 +58,6 @@ const LevelChart = ({
           show: false,
         },
       ],
-      grid: {
-        left: 0,
-        right: 0,
-        top: 0,
-        bottom: 0,
-      },
       series: seriesData,
     }),
     [],
@@ -61,4 +66,4 @@ const LevelChart = ({
   return <ReactEChart ref={chartRef} option={option} echarts={echarts} {...rest} />;
 };
 
-export default LevelChart;
+export default CustomerFulfillmentChart;
