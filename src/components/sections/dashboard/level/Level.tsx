@@ -114,24 +114,24 @@ const Level = (): ReactElement => {
                 p: 0.5,
                 borderRadius: 1,
                 opacity: levelType[`${dataItem.name}`] ? 0.5 : 1,
+                gap: 1,
+                alignItems: 'baseline',
               }}
               disableRipple
             >
-              <Stack direction="row" alignItems="baseline" gap={1} width={1}>
-                <Box
-                  sx={{
-                    width: 8,
-                    height: 8,
-                    bgcolor: levelType[`${dataItem.name}`]
-                      ? 'action.disabled'
-                      : barChartColors[index],
-                    borderRadius: 400,
-                  }}
-                ></Box>
-                <Typography variant="body1" color="text.disabled" flex={1} textAlign={'left'}>
-                  {dataItem.name}
-                </Typography>
-              </Stack>
+              <Box
+                sx={{
+                  width: 8,
+                  height: 8,
+                  bgcolor: levelType[`${dataItem.name}`]
+                    ? 'action.disabled'
+                    : barChartColors[index],
+                  borderRadius: 400,
+                }}
+              ></Box>
+              <Typography variant="body1" color="text.disabled" flex={1} textAlign={'left'}>
+                {dataItem.name}
+              </Typography>
             </Button>
           ))}
       </Stack>

@@ -1,10 +1,14 @@
 import { ReactElement, useMemo } from 'react';
 import * as echarts from 'echarts';
 import { LineSeriesOption } from 'echarts';
-import { EChartsOption } from 'echarts-for-react';
 import ReactEChart from 'components/base/ReactEChart';
 import EChartsReactCore from 'echarts-for-react/lib/core';
 import { SxProps } from '@mui/material';
+import {
+  GridComponentOption,
+  LegendComponentOption,
+  TooltipComponentOption,
+} from 'echarts/components';
 
 type CustomerFulfillmentChartProps = {
   chartRef: React.MutableRefObject<EChartsReactCore | null>;
@@ -14,6 +18,10 @@ type CustomerFulfillmentChartProps = {
   sx?: SxProps;
 };
 
+type CustomerFulfillmentChartOptions = echarts.ComposeOption<
+  LineSeriesOption | LegendComponentOption | TooltipComponentOption | GridComponentOption
+>;
+
 const CustomerFulfillmentChart = ({
   chartRef,
   seriesData,
@@ -21,7 +29,7 @@ const CustomerFulfillmentChart = ({
   colors,
   ...rest
 }: CustomerFulfillmentChartProps): ReactElement => {
-  const option: EChartsOption = useMemo(
+  const option: CustomerFulfillmentChartOptions = useMemo(
     () => ({
       color: colors,
       tooltip: {

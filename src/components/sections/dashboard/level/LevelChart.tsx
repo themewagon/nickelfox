@@ -2,8 +2,12 @@ import { SxProps } from '@mui/material';
 import ReactEChart from 'components/base/ReactEChart';
 import { BarSeriesOption } from 'echarts';
 import * as echarts from 'echarts';
-import { EChartsOption } from 'echarts-for-react';
 import EChartsReactCore from 'echarts-for-react/lib/core';
+import {
+  GridComponentOption,
+  LegendComponentOption,
+  TooltipComponentOption,
+} from 'echarts/components';
 import React, { ReactElement, useMemo } from 'react';
 
 type LevelChartProps = {
@@ -14,6 +18,10 @@ type LevelChartProps = {
   sx?: SxProps;
 };
 
+type LevelChartOptions = echarts.ComposeOption<
+  BarSeriesOption | LegendComponentOption | TooltipComponentOption | GridComponentOption
+>;
+
 const LevelChart = ({
   chartRef,
   seriesData,
@@ -21,7 +29,7 @@ const LevelChart = ({
   colors,
   ...rest
 }: LevelChartProps): ReactElement => {
-  const option: EChartsOption = useMemo(
+  const option: LevelChartOptions = useMemo(
     () => ({
       tooltip: {
         trigger: 'axis',

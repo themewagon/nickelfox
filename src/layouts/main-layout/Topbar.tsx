@@ -64,7 +64,7 @@ const Topbar = ({ open, handleDrawerToggle }: any) => {
             InputProps={{
               startAdornment: (
                 <InputAdornment position="end">
-                  <IconifyIcon icon="akar-icons:search" />
+                  <IconifyIcon icon="akar-icons:search" width={13} height={13} />
                 </InputAdornment>
               ),
             }}

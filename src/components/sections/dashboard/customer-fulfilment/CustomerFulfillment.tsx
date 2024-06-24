@@ -16,6 +16,7 @@ const CustomerFulfillment = () => {
 
   const seriesOption: LineSeriesOption[] = [
     {
+      id: 1,
       name: 'This Month',
       type: 'line',
       stack: 'Total',
@@ -44,6 +45,7 @@ const CustomerFulfillment = () => {
       data: [765, 795, 960, 495, 495, 660, 615, 930],
     },
     {
+      id: 2,
       name: 'Last Month',
       type: 'line',
       stack: 'Total',
@@ -104,7 +106,7 @@ const CustomerFulfillment = () => {
   }, []);
 
   return (
-    <Paper sx={{ p: 3.5 }}>
+    <Paper sx={{ p: 3.5, height: 1 }}>
       <Typography variant="h4" color="common.white">
         Customer Fulfillment
       </Typography>

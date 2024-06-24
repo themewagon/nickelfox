@@ -2,10 +2,13 @@ import { Theme } from '@mui/material';
 import { Components } from '@mui/material/styles/components';
 
 const InputBase: Components<Omit<Theme, 'components'>>['MuiInputBase'] = {
-  defaultProps: {},
+  defaultProps: {
+    autoComplete: 'off',
+  },
   styleOverrides: {
     root: ({ theme }) => ({
       borderRadius: theme.shape.borderRadius * 2,
+      padding: 0,
     }),
   },
 };

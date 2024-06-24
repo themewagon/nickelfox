@@ -20,8 +20,10 @@ const Chip: Components<Omit<Theme, 'components'>>['MuiChip'] = {
       paddingRight: theme.spacing(2.5),
       paddingLeft: theme.spacing(2.5),
     }),
-    label: () => ({
+    label: ({ theme }) => ({
       padding: 0,
+      fontSize: theme.typography.body1.fontSize,
+      fontWeight: theme.typography.body1.fontWeight,
     }),
     colorPrimary: ({ theme }) => ({
       color: theme.palette.primary.main,
