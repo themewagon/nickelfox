@@ -17,8 +17,8 @@ const TodaysSales = () => {
           Sales Summary
         </Typography>
       </Stack>
-      <Grid container columns={12} spacing={5}>
-        <Grid xs={3}>
+      <Grid container columns={12} spacing={5} overflow="auto">
+        <Grid xs={6} sm={3}>
           <SaleCard
             icon={totalSales}
             title="$5k"
@@ -27,7 +27,7 @@ const TodaysSales = () => {
             color="warning.main"
           />
         </Grid>
-        <Grid xs={3}>
+        <Grid xs={6} sm={3}>
           <SaleCard
             icon={totalOrder}
             title="500"
@@ -36,7 +36,7 @@ const TodaysSales = () => {
             color="primary.main"
           />
         </Grid>
-        <Grid xs={3}>
+        <Grid xs={6} sm={3}>
           <SaleCard
             icon={productSold}
             title="9"
@@ -45,7 +45,7 @@ const TodaysSales = () => {
             color="secondary.main"
           />
         </Grid>
-        <Grid xs={3}>
+        <Grid xs={6} sm={3}>
           <SaleCard
             icon={newCustomer}
             title="12"

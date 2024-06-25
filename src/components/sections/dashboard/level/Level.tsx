@@ -89,7 +89,12 @@ const Level = (): ReactElement => {
       </Box>
       <Stack
         direction="row"
-        justifyContent="space-between"
+        justifyContent={{
+          xs: 'space-evenly',
+          sm: 'space-around',
+          md: 'space-between',
+          lg: 'space-around',
+        }}
         divider={
           <Divider
             orientation="vertical"
@@ -124,7 +129,7 @@ const Level = (): ReactElement => {
                   width: 8,
                   height: 8,
                   bgcolor: levelType[`${dataItem.name}`]
-                    ? 'action.disabled'
+                    ? 'background.default'
                     : barChartColors[index],
                   borderRadius: 400,
                 }}

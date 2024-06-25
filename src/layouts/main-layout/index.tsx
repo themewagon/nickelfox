@@ -31,7 +31,21 @@ const MainLayout = ({ children }: PropsWithChildren) => {
       >
         <Sidebar open={open} />
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, pt: 5, pr: 6.925, pb: 6.25, pl: 7 }}>
+      <Box
+        component="main"
+        overflow="auto"
+        sx={(theme) => ({
+          flexGrow: 1,
+          pt: 5,
+          pr: { xs: 2.5875, sm: 5.175 },
+          pb: 6.25,
+          pl: { xs: 2.625, sm: 5.25 },
+          transition: theme.transitions.create('padding', {
+            easing: theme.transitions.easing.easeInOut,
+            duration: theme.transitions.duration.short,
+          }),
+        })}
+      >
         <Toolbar />
         {children}
       </Box>

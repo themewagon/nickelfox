@@ -11,7 +11,7 @@ interface SaleCardProps {
 
 const SaleCard = ({ icon, title, subtitle, increment, color }: SaleCardProps) => {
   return (
-    <Stack gap={3} px={3} py={2.5} borderRadius={2.5} bgcolor="background.default">
+    <Stack gap={3} px={3} py={2.5} borderRadius={2.5} height={1} bgcolor="background.default">
       <Image src={icon} alt={subtitle} width={26} height={26} />
       <Stack gap={1.25}>
         <Typography variant="h4" color="common.white">
@@ -20,7 +20,7 @@ const SaleCard = ({ icon, title, subtitle, increment, color }: SaleCardProps) =>
         <Typography variant="body1" color="text.secondary">
           {subtitle}
         </Typography>
-        <Typography variant="body2" color={color} whiteSpace="nowrap">
+        <Typography variant="body2" color={color} whiteSpace="nowrap" lineHeight={1.25}>
           +{increment}% from yesterday
         </Typography>
       </Stack>

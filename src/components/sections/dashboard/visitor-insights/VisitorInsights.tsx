@@ -93,7 +93,7 @@ const VisitorInsights = () => {
                     width: 5,
                     height: 5,
                     bgcolor: visitorToggle[`${dataItem.name}`]
-                      ? 'action.disabled'
+                      ? 'background.default'
                       : theme.palette.warning.main,
                     borderRadius: 400,
                   }}

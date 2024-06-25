@@ -5,6 +5,7 @@ import {
   Table,
   TableBody,
   TableCell,
+  TableContainer,
   TableHead,
   TableRow,
   Typography,
@@ -17,59 +18,69 @@ const TopProducts = () => {
       <Typography variant="h4" color="common.white">
         Top Products
       </Typography>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell align="left">#</TableCell>
-            <TableCell align="left">Name</TableCell>
-            <TableCell align="left">Popularity</TableCell>
-            <TableCell align="center">Sales</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {productTableRows.map((product) => (
-            <TableRow key={product.id}>
-              <TableCell align="left" component="th" scope="row">
-                0{product.id}
-              </TableCell>
-              <TableCell
-                align="left"
-                sx={{
-                  whiteSpace: 'nowrap',
-                }}
-              >
-                {product.name}
-              </TableCell>
-              <TableCell align="left">
-                <Box
+      <TableContainer>
+        <Table sx={{ minWidth: 440 }}>
+          <TableHead>
+            <TableRow>
+              <TableCell align="left">#</TableCell>
+              <TableCell align="left">Name</TableCell>
+              <TableCell align="left">Popularity</TableCell>
+              <TableCell align="center">Sales</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {productTableRows.map((product) => (
+              <TableRow key={product.id}>
+                <TableCell
+                  align="left"
+                  component="th"
+                  variant="head"
+                  scope="row"
                   sx={{
-                    bgcolor: 'grey.900',
-                    maxWidth: 164,
-                    width: 1,
-                    height: 3,
+                    color: 'common.white',
                   }}
                 >
+                  {product.id}
+                </TableCell>
+                <TableCell
+                  align="left"
+                  sx={{
+                    whiteSpace: 'nowrap',
+                  }}
+                >
+                  {product.name}
+                </TableCell>
+                <TableCell align="left">
                   <Box
                     sx={{
-                      bgcolor: `${product.color}.main`,
-                      width: `${product.sales}%`,
-                      height: 1,
+                      bgcolor: 'grey.900',
+                      maxWidth: 164,
+                      width: 1,
+                      height: 3,
                     }}
+                  >
+                    <Box
+                      sx={{
+                        bgcolor: `${product.color}.main`,
+                        width: `${product.sales}%`,
+                        height: 1,
+                      }}
+                    />
+                  </Box>
+                </TableCell>
+                <TableCell align="center">
+                  <Chip
+                    clickable
+                    label={`${product.sales}%`}
+                    color={product.color as any}
+                    variant="outlined"
                   />
-                </Box>
-              </TableCell>
-              <TableCell align="center">
-                <Chip
-                  clickable
-                  label={`${product.sales}%`}
-                  color={product.color as any}
-                  variant="outlined"
-                />
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </Paper>
   );
 };

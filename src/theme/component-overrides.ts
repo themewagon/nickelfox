@@ -18,6 +18,8 @@ import Paper from './components/Paper';
 import Stack from './components/Stack';
 import Chip from './components/Chip';
 import List from './components/List';
+import InputLabel from './components/InputLabel';
+import TextField from './components/TextField';
 
 const components: Components<Omit<Theme, 'components'>> = {
   MuiInputAdornment: InputAdornment,
@@ -27,8 +29,10 @@ const components: Components<Omit<Theme, 'components'>> = {
   MuiCssBaseline: CssBaseline,
   MuiFilledInput: FilledInput,
   MuiIconButton: IconButton,
+  MuiInputLabel: InputLabel,
   MuiInputBase: InputBase,
   MuiTableCell: TableCell,
+  MuiTextField: TextField,
   MuiAppBar: AppBar,
   MuiAvatar: Avatar,
   MuiButton: Button,

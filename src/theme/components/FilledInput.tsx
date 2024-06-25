@@ -41,6 +41,9 @@ const FilledInput: Components<Omit<Theme, 'components'>>['MuiFilledInput'] = {
         borderBottom: 'none',
       },
     }),
+    error: ({ theme }) => ({
+      border: `1px solid ${theme.palette.error.main}`,
+    }),
   },
 };
 

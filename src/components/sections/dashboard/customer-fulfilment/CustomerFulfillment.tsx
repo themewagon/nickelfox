@@ -21,11 +21,11 @@ const CustomerFulfillment = () => {
       type: 'line',
       stack: 'Total',
       lineStyle: {
-        width: 3,
+        width: 2,
       },
       showSymbol: true,
       symbol: 'circle',
-      symbolSize: 8,
+      symbolSize: 5,
       areaStyle: {
         opacity: 0.8,
         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
@@ -35,7 +35,7 @@ const CustomerFulfillment = () => {
           },
           {
             offset: 0,
-            color: '#F2C8ED',
+            color: areaChartColors[0],
           },
         ]),
       },
@@ -50,11 +50,11 @@ const CustomerFulfillment = () => {
       type: 'line',
       stack: 'Total',
       lineStyle: {
-        width: 3,
+        width: 2,
       },
       showSymbol: true,
       symbol: 'circle',
-      symbolSize: 8,
+      symbolSize: 5,
       areaStyle: {
         opacity: 0.8,
         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
@@ -64,7 +64,7 @@ const CustomerFulfillment = () => {
           },
           {
             offset: 0,
-            color: '#A9DFD8',
+            color: areaChartColors[1],
           },
         ]),
       },
@@ -97,10 +97,6 @@ const CustomerFulfillment = () => {
     }));
   };
 
-  // const getTotalFulfillment = (seriesData: number[]) => {
-  //   return currencyFormat(seriesData.reduce((prev, current) => prev + current, 0));
-  // };
-
   const getTotalFulfillment = useCallback((seriesData: number[]) => {
     return currencyFormat(seriesData.reduce((prev, current) => prev + current, 0));
   }, []);
@@ -128,7 +124,7 @@ const CustomerFulfillment = () => {
       </Box>
       <Stack
         direction="row"
-        justifyContent="space-between"
+        justifyContent={{ xs: 'space-around', md: 'space-between', lg: 'space-around' }}
         divider={
           <Divider
             orientation="vertical"
@@ -138,6 +134,10 @@ const CustomerFulfillment = () => {
         }
         px={2}
         pt={3}
+        sx={{
+          transitionProperty: 'all',
+          transitionDelay: '1s',
+        }}
       >
         {Array.isArray(seriesOption) &&
           seriesOption.map((dataItem, index) => (
@@ -161,7 +161,9 @@ const CustomerFulfillment = () => {
                   sx={{
                     width: 8,
                     height: 8,
-                    bgcolor: month[`${dataItem.name}`] ? 'action.disabled' : areaChartColors[index],
+                    bgcolor: month[`${dataItem.name}`]
+                      ? 'background.default'
+                      : areaChartColors[index],
                     borderRadius: 400,
                   }}
                 ></Box>

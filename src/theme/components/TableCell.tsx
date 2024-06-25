@@ -18,8 +18,8 @@ const TableCell: Components<Omit<Theme, 'components'>>['MuiTableCell'] = {
       color: theme.palette.text.primary,
     }),
     body: ({ theme }) => ({
-      fontSize: theme.typography.h6.fontSize,
-      fontWeight: theme.typography.h6.fontWeight,
+      fontSize: theme.typography.body1.fontSize,
+      fontWeight: theme.typography.body1.fontWeight,
       color: theme.palette.common.white,
     }),
   },
