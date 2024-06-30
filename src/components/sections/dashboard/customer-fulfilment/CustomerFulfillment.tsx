@@ -1,18 +1,62 @@
-import { useCallback, useRef, useState } from 'react';
+import { ReactElement, useCallback, useRef, useState } from 'react';
 import { Box, Button, Divider, Paper, Stack, Typography, alpha, useTheme } from '@mui/material';
 import * as echarts from 'echarts';
 import { LineSeriesOption } from 'echarts';
 import EChartsReactCore from 'echarts-for-react/lib/core';
 import CustomerFulfillmentChart from './CustomerFulfillmentChart';
 import { currencyFormat } from 'helpers/format-functions';
+import {
+  GridOption,
+  LegendOption,
+  TooltipOption,
+  XAXisOption,
+  YAXisOption,
+} from 'echarts/types/dist/shared.js';
 
-const CustomerFulfillment = () => {
+const CustomerFulfillment = (): ReactElement => {
   const theme = useTheme();
   const chartRef = useRef<EChartsReactCore | null>(null);
 
   const areaChartColors = [theme.palette.secondary.main, theme.palette.primary.main];
 
-  const legendData = ['This Month', 'Last Month'];
+  const legendData: LegendOption = {
+    show: false,
+    data: ['This Month', 'Last Month'],
+  };
+
+  const grid: GridOption = {
+    top: '0%',
+    right: '2%',
+    bottom: '-13%',
+    left: '-15%',
+    containLabel: true,
+  };
+
+  const tooltip: TooltipOption = {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'line',
+      label: {
+        backgroundColor: '#6A7985',
+      },
+    },
+  };
+
+  const xAxis: XAXisOption[] = [
+    {
+      type: 'category',
+      boundaryGap: false,
+      show: false,
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    },
+  ];
+
+  const yAxis: YAXisOption[] = [
+    {
+      type: 'value',
+      show: false,
+    },
+  ];
 
   const seriesOption: LineSeriesOption[] = [
     {
@@ -97,9 +141,12 @@ const CustomerFulfillment = () => {
     }));
   };
 
-  const getTotalFulfillment = useCallback((seriesData: number[]) => {
-    return currencyFormat(seriesData.reduce((prev, current) => prev + current, 0));
-  }, []);
+  const getTotalFulfillment = useCallback(
+    (seriesData: number[]) => {
+      return currencyFormat(seriesData.reduce((prev, current) => prev + current, 0));
+    },
+    [seriesOption],
+  );
 
   return (
     <Paper sx={{ p: 3.5, height: 1 }}>
@@ -118,7 +165,11 @@ const CustomerFulfillment = () => {
           chartRef={chartRef}
           sx={{ height: '115px !important' }}
           seriesData={seriesOption}
+          tooltip={tooltip}
           legendData={legendData}
+          grid={grid}
+          xAxis={xAxis}
+          yAxis={yAxis}
           colors={areaChartColors}
         />
       </Box>
@@ -153,6 +204,9 @@ const CustomerFulfillment = () => {
                 p: 0.5,
                 borderRadius: 1,
                 opacity: month[`${dataItem.name}`] ? 0.5 : 1,
+                '&:hover': {
+                  bgcolor: 'transparent',
+                },
               }}
               disableRipple
             >

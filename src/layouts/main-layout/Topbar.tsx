@@ -11,9 +11,15 @@ import {
 import IconifyIcon from 'components/base/IconifyIcon';
 import profile from 'assets/account/Profile.png';
 import { drawerCloseWidth, drawerOpenWidth } from '.';
-// import { bgBlur } from 'theme/functions/bgBlur';
+import { ReactElement } from 'react';
 
-const Topbar = ({ open, handleDrawerToggle }: any) => {
+const Topbar = ({
+  open,
+  handleDrawerToggle,
+}: {
+  open: boolean;
+  handleDrawerToggle: () => void;
+}): ReactElement => {
   return (
     <AppBar
       position="fixed"
@@ -75,7 +81,7 @@ const Topbar = ({ open, handleDrawerToggle }: any) => {
           gap={3.75}
           alignItems="center"
           justifyContent="flex-end"
-          mr={5}
+          mr={3.75}
           flex="1 1 20%"
         >
           <Badge

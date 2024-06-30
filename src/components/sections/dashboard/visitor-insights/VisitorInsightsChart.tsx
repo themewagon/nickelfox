@@ -9,12 +9,22 @@ import {
   TooltipComponentOption,
 } from 'echarts/components';
 import { ReactElement, useMemo } from 'react';
+import {
+  GridOption,
+  LegendOption,
+  TooltipOption,
+  XAXisOption,
+  YAXisOption,
+} from 'echarts/types/dist/shared.js';
 
 type VisitorInsightsChartProps = {
   chartRef: React.MutableRefObject<EChartsReactCore | null>;
   seriesData?: LineSeriesOption[];
-  legendData?: any;
-  colors?: string[];
+  tooltip?: TooltipOption;
+  grid?: GridOption;
+  legendData?: LegendOption;
+  xAxis?: XAXisOption[];
+  yAxis?: YAXisOption[];
   sx?: SxProps;
 };
 
@@ -25,90 +35,20 @@ type VisitorInsightsChartOptions = echarts.ComposeOption<
 const VisitorInsightsChart = ({
   chartRef,
   seriesData,
+  tooltip,
   legendData,
-  colors,
+  grid,
+  xAxis,
+  yAxis,
   ...rest
 }: VisitorInsightsChartProps): ReactElement => {
   const option: VisitorInsightsChartOptions = useMemo(
     () => ({
-      color: colors,
-      tooltip: {
-        trigger: 'axis',
-        axisPointer: {
-          type: 'line',
-          lineStyle: {
-            color: '#FCB859',
-          },
-          label: {
-            backgroundColor: '#FCB859',
-          },
-        },
-      },
-      legend: {
-        show: false,
-        data: legendData,
-      },
-      grid: {
-        top: '15%',
-        right: '1%',
-        bottom: '2.5%',
-        left: '1%',
-        containLabel: true,
-      },
-      xAxis: [
-        {
-          type: 'category',
-          boundaryGap: false,
-          data: [
-            'January',
-            'February',
-            'March',
-            'April',
-            'May',
-            'June',
-            'July',
-            'August',
-            'September',
-            'October',
-            'November',
-            'December',
-          ],
-          axisLine: {
-            show: false,
-          },
-          axisTick: {
-            show: false,
-          },
-          axisLabel: {
-            formatter: (value: string) => value.substring(0, 3),
-            padding: [1, 20, 1, 10],
-            fontSize: 10,
-            fontWeight: 600,
-            color: '#FFF',
-          },
-        },
-      ],
-      yAxis: [
-        {
-          type: 'value',
-          min: 0,
-          max: 500,
-          axisLine: {
-            show: false,
-          },
-          axisTick: {
-            show: false,
-          },
-          splitLine: {
-            show: false,
-          },
-          axisLabel: {
-            fontSize: 10,
-            fontWeight: 600,
-            color: '#FFF',
-          },
-        },
-      ],
+      tooltip: tooltip,
+      legend: legendData,
+      grid: grid,
+      xAxis: xAxis,
+      yAxis: yAxis,
       series: seriesData,
     }),
     [],

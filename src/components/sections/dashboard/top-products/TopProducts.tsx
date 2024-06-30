@@ -1,6 +1,4 @@
 import {
-  Box,
-  Chip,
   Paper,
   Table,
   TableBody,
@@ -11,8 +9,10 @@ import {
   Typography,
 } from '@mui/material';
 import { productTableRows } from 'data/product-data';
+import { ReactElement } from 'react';
+import ProductItem from './ProductItem';
 
-const TopProducts = () => {
+const TopProducts = (): ReactElement => {
   return (
     <Paper sx={{ p: 3.5 }}>
       <Typography variant="h4" color="common.white">
@@ -30,53 +30,13 @@ const TopProducts = () => {
           </TableHead>
           <TableBody>
             {productTableRows.map((product) => (
-              <TableRow key={product.id}>
-                <TableCell
-                  align="left"
-                  component="th"
-                  variant="head"
-                  scope="row"
-                  sx={{
-                    color: 'common.white',
-                  }}
-                >
-                  {product.id}
-                </TableCell>
-                <TableCell
-                  align="left"
-                  sx={{
-                    whiteSpace: 'nowrap',
-                  }}
-                >
-                  {product.name}
-                </TableCell>
-                <TableCell align="left">
-                  <Box
-                    sx={{
-                      bgcolor: 'grey.900',
-                      maxWidth: 164,
-                      width: 1,
-                      height: 3,
-                    }}
-                  >
-                    <Box
-                      sx={{
-                        bgcolor: `${product.color}.main`,
-                        width: `${product.sales}%`,
-                        height: 1,
-                      }}
-                    />
-                  </Box>
-                </TableCell>
-                <TableCell align="center">
-                  <Chip
-                    clickable
-                    label={`${product.sales}%`}
-                    color={product.color as any}
-                    variant="outlined"
-                  />
-                </TableCell>
-              </TableRow>
+              <ProductItem
+                key={product.id}
+                id={product.id}
+                name={product.name}
+                color={product.color}
+                sales={product.sales}
+              />
             ))}
           </TableBody>
         </Table>

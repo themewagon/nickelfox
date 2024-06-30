@@ -9,41 +9,74 @@ import {
   Toolbar,
 } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
-import Scrollbar from 'components/scrollbar/Scrollbar';
 import navItems from 'data/nav-items';
+import { ReactElement } from 'react';
+import SimpleBar from 'simplebar-react';
 
-const Sidebar = ({ open }: { open: boolean }) => {
-  // const theme = useTheme();
+const Sidebar = ({ open }: { open: boolean }): ReactElement => {
   return (
     <>
-      <Scrollbar>
+      <SimpleBar style={{ maxHeight: '100vh' }}>
         <Toolbar />
         <List
           sx={{
-            mx: 4,
             py: 2.5,
           }}
         >
           {navItems.map((navItem) => (
-            <ListItem key={navItem.id} disablePadding sx={{ display: 'block' }}>
+            <ListItem
+              key={navItem.id}
+              disablePadding
+              sx={(theme) => ({
+                display: 'block',
+                px: 4,
+                borderRight: !open
+                  ? navItem.active
+                    ? `3px solid ${theme.palette.primary.main}`
+                    : `3px solid transparent`
+                  : '',
+              })}
+            >
               <ListItemButton
                 LinkComponent={Link}
                 href={navItem.path}
-                sx={{
-                  bgcolor: navItem.active ? 'primary.main' : 'background.default',
+                sx={(theme) => ({
+                  bgcolor: navItem.active ? (open ? 'primary.main' : '') : 'background.default',
                   '&:hover': {
-                    bgcolor: navItem.active ? 'primary.dark' : 'background.paper',
+                    bgcolor: navItem.active ? (open ? 'primary.dark' : '') : 'background.default',
                   },
                   '& .MuiTouchRipple-root': {
                     color: navItem.active ? 'primary.main' : 'text.disabled',
                   },
-                }}
+                  transition: open
+                    ? theme.transitions.create('all', {
+                        easing: theme.transitions.easing.sharp,
+                        duration: theme.transitions.duration.enteringScreen,
+                      })
+                    : theme.transitions.create('all', {
+                        easing: theme.transitions.easing.sharp,
+                        duration: theme.transitions.duration.leavingScreen,
+                      }),
+                })}
               >
                 <ListItemIcon
-                  sx={{
+                  sx={(theme) => ({
                     mr: open ? 'auto' : 0,
-                    color: navItem.active ? 'background.default' : 'text.primary',
-                  }}
+                    color: navItem.active
+                      ? open
+                        ? 'background.default'
+                        : 'primary.main'
+                      : 'text.primary',
+                    transition: open
+                      ? theme.transitions.create('all', {
+                          easing: theme.transitions.easing.sharp,
+                          duration: theme.transitions.duration.enteringScreen,
+                        })
+                      : theme.transitions.create('all', {
+                          easing: theme.transitions.easing.sharp,
+                          duration: theme.transitions.duration.leavingScreen,
+                        }),
+                  })}
                 >
                   <IconifyIcon icon={navItem.icon} width={1} height={1} />
                 </ListItemIcon>
@@ -59,7 +92,7 @@ const Sidebar = ({ open }: { open: boolean }) => {
             </ListItem>
           ))}
         </List>
-      </Scrollbar>
+      </SimpleBar>
     </>
   );
 };

@@ -2,15 +2,36 @@ import { Box, Button, Paper, Stack, Typography, useTheme } from '@mui/material';
 import { LineSeriesOption } from 'echarts/charts';
 import * as echarts from 'echarts';
 import VisitorInsightsChart from './VisitorInsightsChart';
-import { useRef, useState } from 'react';
+import { ReactElement, useRef, useState } from 'react';
 import EChartsReactCore from 'echarts-for-react/lib/core';
+import {
+  GridOption,
+  LegendOption,
+  TooltipOption,
+  XAXisOption,
+  YAXisOption,
+} from 'echarts/types/dist/shared.js';
 
-const VisitorInsights = () => {
+const VisitorInsights = (): ReactElement => {
   const theme = useTheme();
   const chartRef = useRef<EChartsReactCore | null>(null);
-  const lineChartColors = [theme.palette.primary.main];
 
-  const legendData = ['New Visitors'];
+  const tooltip: TooltipOption = {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'line',
+      lineStyle: {
+        color: theme.palette.warning.main,
+      },
+      label: {
+        backgroundColor: theme.palette.warning.main,
+      },
+    },
+  };
+  const legendData: LegendOption = {
+    show: false,
+    data: ['New Visitors'],
+  };
 
   const seriesOption: LineSeriesOption[] = [
     {
@@ -19,8 +40,10 @@ const VisitorInsights = () => {
       type: 'line',
       stack: 'Total',
       smooth: false,
+      color: theme.palette.primary.main,
       lineStyle: {
         width: 2,
+        color: theme.palette.primary.main,
       },
       showSymbol: false,
       areaStyle: {
@@ -32,16 +55,79 @@ const VisitorInsights = () => {
           },
           {
             offset: 0.01,
-            color: lineChartColors[0],
+            color: theme.palette.primary.main,
           },
         ]),
       },
       emphasis: {
         focus: 'series',
       },
-      data: [100, 30, 440, 370, 320, 500, 270, 450, 381, 245, 212, 333],
+      data: [210, 115, 440, 370, 320, 500, 270, 450, 381, 245, 212, 333],
     },
   ];
+
+  const xAxis: XAXisOption[] = [
+    {
+      type: 'category',
+      boundaryGap: false,
+      data: [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December',
+      ],
+      axisLine: {
+        show: false,
+      },
+      axisTick: {
+        show: false,
+      },
+      axisLabel: {
+        formatter: (value: string) => value.substring(0, 3),
+        padding: [1, 20, 1, 10],
+        fontSize: theme.typography.body1.fontSize,
+        fontWeight: theme.typography.subtitle1.fontWeight as number,
+        color: theme.palette.common.white,
+      },
+    },
+  ];
+  const yAxis: YAXisOption[] = [
+    {
+      type: 'value',
+      min: 0,
+      max: 500,
+      axisLine: {
+        show: false,
+      },
+      axisTick: {
+        show: false,
+      },
+      splitLine: {
+        show: false,
+      },
+      axisLabel: {
+        fontSize: theme.typography.body1.fontSize,
+        fontWeight: theme.typography.subtitle1.fontWeight as number,
+        color: theme.palette.common.white,
+      },
+    },
+  ];
+
+  const grid: GridOption = {
+    top: '15%',
+    right: '1%',
+    bottom: '2.5%',
+    left: '1%',
+    containLabel: true,
+  };
 
   const onChartLegendSelectChanged = (name: string) => {
     if (chartRef.current) {
@@ -52,7 +138,6 @@ const VisitorInsights = () => {
       });
     }
   };
-
   const [visitorToggle, setVisitorToggle] = useState<any>({
     'New Visitors': false,
   });
@@ -84,6 +169,9 @@ const VisitorInsights = () => {
                 p: 0.5,
                 borderRadius: 1,
                 opacity: visitorToggle[`${dataItem.name}`] ? 0.5 : 1,
+                '&:hover': {
+                  bgcolor: 'transparent',
+                },
               }}
               disableRipple
             >
@@ -94,7 +182,7 @@ const VisitorInsights = () => {
                     height: 5,
                     bgcolor: visitorToggle[`${dataItem.name}`]
                       ? 'background.default'
-                      : theme.palette.warning.main,
+                      : 'warning.main',
                     borderRadius: 400,
                   }}
                 ></Box>
@@ -110,8 +198,11 @@ const VisitorInsights = () => {
           chartRef={chartRef}
           sx={{ height: '200px !important' }}
           seriesData={seriesOption}
+          tooltip={tooltip}
+          grid={grid}
           legendData={legendData}
-          colors={lineChartColors}
+          xAxis={xAxis}
+          yAxis={yAxis}
         />
       </Box>
     </Paper>

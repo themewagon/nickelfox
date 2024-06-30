@@ -31,9 +31,6 @@ const FilledInput: Components<Omit<Theme, 'components'>>['MuiFilledInput'] = {
       fontSize: theme.typography.subtitle1.fontSize,
       fontWeight: theme.typography.subtitle2.fontWeight,
       color: theme.palette.action.focus,
-      '::placeholder': {
-        color: theme.palette.action.focus,
-      },
     }),
     disabled: ({ theme }) => ({
       backgroundColor: theme.palette.divider,

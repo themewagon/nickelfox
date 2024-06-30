@@ -9,7 +9,7 @@ export interface NavItem {
 const navItems: NavItem[] = [
   {
     id: 1,
-    path: '',
+    path: '/',
     title: 'Dashboard',
     icon: 'mingcute:home-1-fill',
     active: true,

@@ -10,6 +10,12 @@ const InputBase: Components<Omit<Theme, 'components'>>['MuiInputBase'] = {
       borderRadius: theme.shape.borderRadius * 2,
       padding: 0,
     }),
+    input: ({ theme }) => ({
+      '&::placeholder': {
+        // opacity: 1,
+        color: theme.palette.action.focus,
+      },
+    }),
   },
 };
 

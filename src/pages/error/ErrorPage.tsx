@@ -1,8 +1,9 @@
+import { ReactElement } from 'react';
 import { Stack, Typography } from '@mui/material';
 
-const ErrorPage = () => {
+const ErrorPage = (): ReactElement => {
   return (
-    <Stack height="100vh" justifyContent="center">
+    <Stack height="100vh" justifyContent="center" alignItems="center">
       <Typography variant="h2" color="common.text">
         404
       </Typography>

@@ -30,7 +30,7 @@ const routes: RouteObject[] = [
         ),
         children: [
           {
-            path: '',
+            path: '/',
             element: <Dashboard />,
           },
         ],
@@ -43,5 +43,9 @@ const routes: RouteObject[] = [
   },
 ];
 
-const router = createBrowserRouter(routes);
+const options: { basename: string } = {
+  basename: '/nickelfox-sales-management',
+};
+
+const router = createBrowserRouter(routes, options);
 export default router;

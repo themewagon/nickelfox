@@ -20,10 +20,12 @@ import Chip from './components/Chip';
 import List from './components/List';
 import InputLabel from './components/InputLabel';
 import TextField from './components/TextField';
+import OutlinedInput from './components/OutlinedInput';
 
 const components: Components<Omit<Theme, 'components'>> = {
   MuiInputAdornment: InputAdornment,
   MuiListItemButton: ListItemButton,
+  MuiOutlinedInput: OutlinedInput,
   MuiListItemIcon: ListItemIcon,
   MuiListItemText: ListItemText,
   MuiCssBaseline: CssBaseline,

@@ -9,11 +9,22 @@ import {
   LegendComponentOption,
   TooltipComponentOption,
 } from 'echarts/components';
+import {
+  LegendOption,
+  TooltipOption,
+  XAXisOption,
+  YAXisOption,
+  GridOption,
+} from 'echarts/types/dist/shared.js';
 
 type CustomerFulfillmentChartProps = {
   chartRef: React.MutableRefObject<EChartsReactCore | null>;
   seriesData?: LineSeriesOption[];
-  legendData?: any;
+  tooltip?: TooltipOption;
+  legendData?: LegendOption;
+  grid?: GridOption;
+  xAxis?: XAXisOption[];
+  yAxis?: YAXisOption[];
   colors?: string[];
   sx?: SxProps;
 };
@@ -25,47 +36,22 @@ type CustomerFulfillmentChartOptions = echarts.ComposeOption<
 const CustomerFulfillmentChart = ({
   chartRef,
   seriesData,
+  tooltip,
   legendData,
+  grid,
+  xAxis,
+  yAxis,
   colors,
   ...rest
 }: CustomerFulfillmentChartProps): ReactElement => {
   const option: CustomerFulfillmentChartOptions = useMemo(
     () => ({
       color: colors,
-      tooltip: {
-        trigger: 'axis',
-        axisPointer: {
-          type: 'line',
-          label: {
-            backgroundColor: '#6a7985',
-          },
-        },
-      },
-      legend: {
-        show: false,
-        data: legendData,
-      },
-      grid: {
-        top: '0%',
-        right: '2%',
-        bottom: '-13%',
-        left: '-15%',
-        containLabel: true,
-      },
-      xAxis: [
-        {
-          type: 'category',
-          boundaryGap: false,
-          show: false,
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-        },
-      ],
-      yAxis: [
-        {
-          type: 'value',
-          show: false,
-        },
-      ],
+      tooltip: tooltip,
+      legend: legendData,
+      grid: grid,
+      xAxis: xAxis,
+      yAxis: yAxis,
       series: seriesData,
     }),
     [],

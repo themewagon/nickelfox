@@ -3,6 +3,13 @@ import EChartsReactCore from 'echarts-for-react/lib/core';
 import { ReactElement, useRef, useState } from 'react';
 import LevelChart from './LevelChart';
 import { BarSeriesOption } from 'echarts';
+import {
+  GridOption,
+  LegendOption,
+  TooltipOption,
+  XAXisOption,
+  YAXisOption,
+} from 'echarts/types/dist/shared.js';
 
 const Level = (): ReactElement => {
   const theme = useTheme();
@@ -10,28 +17,46 @@ const Level = (): ReactElement => {
 
   const barChartColors = [theme.palette.grey[900], theme.palette.primary.main];
 
-  const legendData = ['Volume', 'Service'];
+  const tooltip: TooltipOption = {
+    trigger: 'axis',
+    axisPointer: {
+      type: 'shadow',
+    },
+  };
+
+  const grid: GridOption = {
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+  };
+
+  const legendData: LegendOption = {
+    show: false,
+    data: ['Service', 'Volume'],
+  };
 
   const seriesOption: BarSeriesOption[] = [
     {
       id: 1,
       name: 'Service',
       type: 'bar',
-      barGap: '-100%',
+      stack: 'Service',
       barWidth: 15,
       emphasis: {
         focus: 'series',
       },
-      data: [87, 107, 87, 79, 61, 66],
+      data: [43, 52, 51, 57, 29, 22],
       color: barChartColors[0],
       itemStyle: {
-        borderRadius: [5, 5, 0, 0],
+        borderRadius: 4,
       },
     },
     {
       id: 2,
       name: 'Volume',
       type: 'bar',
+      stack: 'Service',
       barWidth: 15,
       emphasis: {
         focus: 'series',
@@ -39,8 +64,24 @@ const Level = (): ReactElement => {
       data: [44, 55, 36, 22, 32, 44],
       color: barChartColors[1],
       itemStyle: {
-        borderRadius: [5, 5, 0, 0],
+        borderRadius: 4,
       },
+    },
+  ];
+
+  const xAxis: XAXisOption[] = [
+    {
+      type: 'category',
+      show: false,
+      axisTick: { show: false },
+      data: ['Level 1', 'Level 2', 'Level 3', 'Level 4', 'Level 5', 'Level 6'],
+    },
+  ];
+
+  const yAxis: YAXisOption[] = [
+    {
+      type: 'value',
+      show: false,
     },
   ];
 
@@ -82,9 +123,12 @@ const Level = (): ReactElement => {
         <LevelChart
           chartRef={chartRef}
           sx={{ height: '115px !important' }}
+          tooltip={tooltip}
           seriesData={seriesOption}
           legendData={legendData}
-          colors={barChartColors}
+          grid={grid}
+          xAxis={xAxis}
+          yAxis={yAxis}
         />
       </Box>
       <Stack
@@ -121,6 +165,9 @@ const Level = (): ReactElement => {
                 opacity: levelType[`${dataItem.name}`] ? 0.5 : 1,
                 gap: 1,
                 alignItems: 'baseline',
+                '&:hover': {
+                  bgcolor: 'transparent',
+                },
               }}
               disableRipple
             >

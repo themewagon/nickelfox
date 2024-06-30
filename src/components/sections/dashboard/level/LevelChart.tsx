@@ -8,13 +8,23 @@ import {
   LegendComponentOption,
   TooltipComponentOption,
 } from 'echarts/components';
+import {
+  GridOption,
+  LegendOption,
+  TooltipOption,
+  XAXisOption,
+  YAXisOption,
+} from 'echarts/types/dist/shared.js';
 import React, { ReactElement, useMemo } from 'react';
 
 type LevelChartProps = {
   chartRef: React.MutableRefObject<EChartsReactCore | null>;
   seriesData?: BarSeriesOption[];
-  legendData?: any;
-  colors?: string[];
+  tooltip?: TooltipOption;
+  legendData?: LegendOption;
+  grid?: GridOption;
+  xAxis?: XAXisOption[];
+  yAxis?: YAXisOption[];
   sx?: SxProps;
 };
 
@@ -25,42 +35,20 @@ type LevelChartOptions = echarts.ComposeOption<
 const LevelChart = ({
   chartRef,
   seriesData,
+  tooltip,
+  grid,
   legendData,
-  colors,
+  xAxis,
+  yAxis,
   ...rest
 }: LevelChartProps): ReactElement => {
   const option: LevelChartOptions = useMemo(
     () => ({
-      tooltip: {
-        trigger: 'axis',
-        axisPointer: {
-          type: 'shadow',
-        },
-      },
-      legend: {
-        show: false,
-        data: legendData,
-      },
-      xAxis: [
-        {
-          type: 'category',
-          show: false,
-          axisTick: { show: false },
-          data: ['Level 1', 'Level 2', 'Level 3', 'Level 4', 'Level 5', 'Level 6'],
-        },
-      ],
-      yAxis: [
-        {
-          type: 'value',
-          show: false,
-        },
-      ],
-      grid: {
-        left: 0,
-        right: 0,
-        top: 0,
-        bottom: 0,
-      },
+      tooltip: tooltip,
+      legend: legendData,
+      xAxis: xAxis,
+      yAxis: yAxis,
+      grid: grid,
       series: seriesData,
     }),
     [],

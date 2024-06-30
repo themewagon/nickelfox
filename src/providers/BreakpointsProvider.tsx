@@ -1,5 +1,12 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { createContext, PropsWithChildren, useContext, useEffect, useState } from 'react';
+import {
+  createContext,
+  PropsWithChildren,
+  ReactElement,
+  useContext,
+  useEffect,
+  useState,
+} from 'react';
 import { Breakpoint, Theme } from '@mui/material';
 import { useMediaQuery } from '@mui/material';
 
@@ -13,7 +20,7 @@ interface BreakpointContextInterface {
 
 export const BreakpointContext = createContext({} as BreakpointContextInterface);
 
-const BreakpointsProvider = ({ children }: PropsWithChildren) => {
+const BreakpointsProvider = ({ children }: PropsWithChildren): ReactElement => {
   const [currentBreakpoint, setCurrentBreakpoint] = useState<Breakpoint>('xs');
   const up = (key: Breakpoint | number) =>
     useMediaQuery<Theme>((theme) => theme.breakpoints.up(key));
