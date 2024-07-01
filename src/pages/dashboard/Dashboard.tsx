@@ -13,16 +13,16 @@ const Dashboard = (): ReactElement => {
   return (
     <>
       <Grid container columns={12} spacing={3.5} mx={0}>
-        <Grid xs={12} md={8}>
+        <Grid xs={12} md={8} lg={9}>
           <TodaysSales />
         </Grid>
-        <Grid xs={12} md={4}>
+        <Grid xs={12} md={4} lg={3}>
           <Level />
         </Grid>
-        <Grid xs={12} md={8}>
+        <Grid xs={12} md={8} lg={9}>
           <TopProducts />
         </Grid>
-        <Grid xs={12} sm={6} md={4}>
+        <Grid xs={12} sm={6} md={4} lg={3}>
           <CustomerFulfillment />
         </Grid>
         <Grid xs={12} sm={6} md={4}>
@@ -33,6 +33,9 @@ const Dashboard = (): ReactElement => {
         </Grid>
         <Grid xs={12} lg={6}>
           <TrendingNow />
+        </Grid>
+        <Grid xs={12} lg={6}>
+          <></>
         </Grid>
       </Grid>
     </>

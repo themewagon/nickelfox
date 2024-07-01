@@ -1,5 +1,5 @@
-import { Swiper } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar } from 'swiper/modules';
+import { Swiper, SwiperClass } from 'swiper/react';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -12,10 +12,12 @@ import { useBreakpoints } from 'providers/BreakpointsProvider';
 const ReactSwiper = ({
   children,
   swiperRef,
+  onSwiper,
   ...rest
 }: {
   children: any;
   swiperRef?: RefObject<any>;
+  onSwiper: React.Dispatch<React.SetStateAction<SwiperClass | undefined>>;
   rest?: any;
 }) => {
   const { up } = useBreakpoints();
@@ -23,7 +25,7 @@ const ReactSwiper = ({
     <Box
       component={Swiper}
       ref={swiperRef}
-      modules={[Navigation, Pagination, Scrollbar]}
+      modules={[Navigation, Pagination, Scrollbar, A11y]}
       spaceBetween={50}
       slidesPerView={up('sm') ? 2 : 1}
       width={1}
@@ -32,11 +34,11 @@ const ReactSwiper = ({
         swiper.navigation.update();
       }}
       navigation={{
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        prevEl: '.prev-arrow',
+        nextEl: '.next-arrow',
       }}
-      onSwiper={(swiper: SwiperType) => console.log(swiper)}
-      onSlideChange={() => console.log('Slide changed')}
+      onSwiper={onSwiper}
+      // onSlideChange={() => console.log('Slide changed')}
       {...rest}
     >
       {children}

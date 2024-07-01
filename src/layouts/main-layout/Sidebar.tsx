@@ -35,6 +35,12 @@ const Sidebar = ({ open }: { open: boolean }): ReactElement => {
                     ? `3px solid ${theme.palette.primary.main}`
                     : `3px solid transparent`
                   : '',
+                transition: navItem.active
+                  ? theme.transitions.create('all', {
+                      easing: theme.transitions.easing.sharp,
+                      duration: theme.transitions.duration.leavingScreen,
+                    })
+                  : '',
               })}
             >
               <ListItemButton
@@ -43,7 +49,11 @@ const Sidebar = ({ open }: { open: boolean }): ReactElement => {
                 sx={(theme) => ({
                   bgcolor: navItem.active ? (open ? 'primary.main' : '') : 'background.default',
                   '&:hover': {
-                    bgcolor: navItem.active ? (open ? 'primary.dark' : '') : 'background.default',
+                    bgcolor: navItem.active
+                      ? open
+                        ? 'primary.dark'
+                        : 'background.paper'
+                      : 'background.paper',
                   },
                   '& .MuiTouchRipple-root': {
                     color: navItem.active ? 'primary.main' : 'text.disabled',

@@ -2,13 +2,19 @@ import { Components, Theme } from '@mui/material';
 
 import InputAdornment from './components/InputAdornment';
 import ListItemButton from './components/ListItemButton';
+import OutlinedInput from './components/OutlinedInput';
 import ListItemIcon from './components/ListItemIcon';
 import ListItemText from './components/ListItemText';
 import CssBaseline from './components/CssBaseline';
 import FilledInput from './components/FilledInput';
+import ButtonBase from './components/ButtonBase';
 import IconButton from './components/IconButton';
+import InputLabel from './components/InputLabel';
 import InputBase from './components/InputBase';
 import TableCell from './components/TableCell';
+import TextField from './components/TextField';
+import MenuItem from './components/MenuItem';
+import Divider from './components/Divider';
 import AppBar from './components/Appbar';
 import Avatar from './components/Avatar';
 import Button from './components/Button';
@@ -18,9 +24,9 @@ import Paper from './components/Paper';
 import Stack from './components/Stack';
 import Chip from './components/Chip';
 import List from './components/List';
-import InputLabel from './components/InputLabel';
-import TextField from './components/TextField';
-import OutlinedInput from './components/OutlinedInput';
+import Menu from './components/Menu';
+
+import DataGrid from './components/DataGrid/DataGrid';
 
 const components: Components<Omit<Theme, 'components'>> = {
   MuiInputAdornment: InputAdornment,
@@ -30,11 +36,15 @@ const components: Components<Omit<Theme, 'components'>> = {
   MuiListItemText: ListItemText,
   MuiCssBaseline: CssBaseline,
   MuiFilledInput: FilledInput,
+  MuiButtonBase: ButtonBase,
   MuiIconButton: IconButton,
   MuiInputLabel: InputLabel,
   MuiInputBase: InputBase,
   MuiTableCell: TableCell,
   MuiTextField: TextField,
+  MuiDataGrid: DataGrid,
+  MuiMenuItem: MenuItem,
+  MuiDivider: Divider,
   MuiAppBar: AppBar,
   MuiAvatar: Avatar,
   MuiButton: Button,
@@ -44,6 +54,7 @@ const components: Components<Omit<Theme, 'components'>> = {
   MuiStack: Stack,
   MuiChip: Chip,
   MuiList: List,
+  MuiMenu: Menu,
 };
 
 export default components;

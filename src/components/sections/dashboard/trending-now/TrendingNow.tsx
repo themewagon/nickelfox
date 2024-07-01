@@ -1,4 +1,5 @@
-import { Box, Button, Paper, Stack, Typography } from '@mui/material';
+import { Box, Button, IconButton, Paper, Stack, Typography } from '@mui/material';
+import IconifyIcon from 'components/base/IconifyIcon';
 import ReactSwiper from 'components/base/ReactSwiper';
 import { Fragment, ReactElement, useCallback, useMemo, useState } from 'react';
 // import { Swiper as SwiperType } from 'swiper';
@@ -12,10 +13,12 @@ const TrendingNow = (): ReactElement => {
   const theSlides = useMemo(() => ['slide one', 'slide two', 'slide three', 'slide four'], []);
 
   const handlePrevious = useCallback(() => {
+    console.log(swiperRef);
     swiperRef?.slidePrev();
   }, [swiperRef]);
 
   const handleNext = useCallback(() => {
+    console.log(swiperRef);
     swiperRef?.slideNext();
   }, [swiperRef]);
 
@@ -67,19 +70,54 @@ const TrendingNow = (): ReactElement => {
     //     </Fragment>
     //   </ReactSwiper>
     // </Paper>
-    <div>
-      <div>
-        <button onClick={handlePrevious}>previous</button>
-      </div>
+    <Paper
+      sx={{
+        p: 3.5,
+      }}
+    >
+      <Stack direction="row" justifyContent="space-between" alignItems="center">
+        <Typography variant="h4" color="common.white">
+          Trending Now
+        </Typography>
+        <Stack direction="row" gap={1}>
+          <IconButton
+            className={`prev-arrow`}
+            sx={{
+              '&:disabled': {
+                opacity: 0.5,
+                cursor: 'default',
+              },
+              '&:hover': {
+                bgcolor: 'transparent',
+              },
+            }}
+            centerRipple
+          >
+            <IconifyIcon icon="mingcute:left-line" />
+          </IconButton>
+          <IconButton
+            className={`next-arrow`}
+            sx={{
+              '&:disabled': {
+                opacity: 0.5,
+                cursor: 'default',
+              },
+              '&:hover': {
+                bgcolor: 'transparent',
+              },
+            }}
+            centerRipple
+          >
+            <IconifyIcon icon="mingcute:right-line" />
+          </IconButton>
+        </Stack>
+      </Stack>
       <ReactSwiper onSwiper={setSwiperRef}>
         {theSlides.map((slide) => (
           <SwiperSlide key={slide}>{slide}</SwiperSlide>
         ))}
       </ReactSwiper>
-      <div>
-        <button onClick={handleNext}>Next</button>
-      </div>
-    </div>
+    </Paper>
   );
 };
 
