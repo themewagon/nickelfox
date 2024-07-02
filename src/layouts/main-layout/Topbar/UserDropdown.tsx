@@ -29,6 +29,7 @@ const UserDropdown = (): ReactElement => {
         aria-haspopup="true"
         aria-expanded={menuOpen ? 'true' : undefined}
         onClick={handleClick}
+        disableRipple
         sx={{
           borderRadius: 2,
           gap: 3.75,

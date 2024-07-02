@@ -75,7 +75,7 @@ const CustomerFulfillment = (): ReactElement => {
         color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
           {
             offset: 1,
-            color: '#1D1E26',
+            color: theme.palette.grey.A400,
           },
           {
             offset: 0,

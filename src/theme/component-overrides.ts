@@ -27,9 +27,12 @@ import List from './components/List';
 import Menu from './components/Menu';
 
 import DataGrid from './components/DataGrid/DataGrid';
+import Card from './components/Card';
+import LinearProgress from './components/LinearProgress';
 
 const components: Components<Omit<Theme, 'components'>> = {
   MuiInputAdornment: InputAdornment,
+  MuiLinearProgress: LinearProgress,
   MuiListItemButton: ListItemButton,
   MuiOutlinedInput: OutlinedInput,
   MuiListItemIcon: ListItemIcon,
@@ -52,6 +55,7 @@ const components: Components<Omit<Theme, 'components'>> = {
   MuiGrid2: Grid2,
   MuiPaper: Paper,
   MuiStack: Stack,
+  MuiCard: Card,
   MuiChip: Chip,
   MuiList: List,
   MuiMenu: Menu,

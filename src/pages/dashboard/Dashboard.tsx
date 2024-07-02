@@ -5,9 +5,10 @@ import CustomerFulfillment from 'components/sections/dashboard/customer-fulfilme
 import VisitorInsights from 'components/sections/dashboard/visitor-insights/VisitorInsights';
 import TodaysSales from 'components/sections/dashboard/todays-sales/TodaysSales';
 import TopProducts from 'components/sections/dashboard/top-products/TopProducts';
+import TrendingNow from 'components/sections/dashboard/trending-now/TrendingNow';
 import Earnings from 'components/sections/dashboard/earnings/Earnings';
 import Level from 'components/sections/dashboard/level/Level';
-import TrendingNow from 'components/sections/dashboard/trending-now/TrendingNow';
+import Customers from 'components/sections/dashboard/customers/Customers';
 
 const Dashboard = (): ReactElement => {
   return (
@@ -35,7 +36,7 @@ const Dashboard = (): ReactElement => {
           <TrendingNow />
         </Grid>
         <Grid xs={12} lg={6}>
-          <></>
+          <Customers />
         </Grid>
       </Grid>
     </>

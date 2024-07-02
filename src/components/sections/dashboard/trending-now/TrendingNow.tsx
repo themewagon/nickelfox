@@ -1,81 +1,24 @@
-import { Box, Button, IconButton, Paper, Stack, Typography } from '@mui/material';
+import { IconButton, Paper, Stack, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import ReactSwiper from 'components/base/ReactSwiper';
-import { Fragment, ReactElement, useCallback, useMemo, useState } from 'react';
-// import { Swiper as SwiperType } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { ReactElement, useMemo, useState } from 'react';
+import { SwiperSlide } from 'swiper/react';
 import { Swiper as SwiperClass } from 'swiper/types';
+import SlideItem from './SlideItem';
+import { trendingItems } from 'data/trending-items';
+
 const TrendingNow = (): ReactElement => {
-  //   const swiperRef = useRef<SwiperType>(null);
+  const [, setSwiperRef] = useState<SwiperClass>();
 
-  const [swiperRef, setSwiperRef] = useState<SwiperClass>();
-
-  const theSlides = useMemo(() => ['slide one', 'slide two', 'slide three', 'slide four'], []);
-
-  const handlePrevious = useCallback(() => {
-    console.log(swiperRef);
-    swiperRef?.slidePrev();
-  }, [swiperRef]);
-
-  const handleNext = useCallback(() => {
-    console.log(swiperRef);
-    swiperRef?.slideNext();
-  }, [swiperRef]);
+  const trendingItemsSlides = useMemo(() => trendingItems, []);
 
   return (
-    // <Paper sx={{ p: 3.5 }}>
-    //   <Stack direction="row" justifyContent="space-between" alignItems="center">
-    //     <Typography variant="h4" color="common.white">
-    //       Trending Now
-    //     </Typography>
-    //     <Stack direction="row" gap={2}>
-    //       <Button
-    //         variant="text"
-    //         className="swiper-button-prev"
-    //         sx={{
-    //           position: 'static',
-    //           ':hover': {
-    //             bgcolor: 'transparent',
-    //           },
-    //         }}
-    //         centerRipple
-    //       />
-    //       <Button
-    //         variant="text"
-    //         className="swiper-button-next"
-    //         sx={{
-    //           position: 'static',
-    //           ':hover': {
-    //             bgcolor: 'transparent',
-    //           },
-    //         }}
-    //         centerRipple
-    //       />
-    //     </Stack>
-    //   </Stack>
-    //   <ReactSwiper>
-    //     <Fragment>
-    //       <SwiperSlide>
-    //         <Box height={200}>Slide 1</Box>
-    //       </SwiperSlide>
-    //       <SwiperSlide>
-    //         <Box height={200}>Slide 2</Box>
-    //       </SwiperSlide>
-    //       <SwiperSlide>
-    //         <Box height={200}>Slide 3</Box>
-    //       </SwiperSlide>
-    //       <SwiperSlide>
-    //         <Box height={200}>Slide 4</Box>
-    //       </SwiperSlide>
-    //     </Fragment>
-    //   </ReactSwiper>
-    // </Paper>
     <Paper
       sx={{
         p: 3.5,
       }}
     >
-      <Stack direction="row" justifyContent="space-between" alignItems="center">
+      <Stack direction="row" justifyContent="space-between" alignItems="center" mb={5} mr={-2}>
         <Typography variant="h4" color="common.white">
           Trending Now
         </Typography>
@@ -113,8 +56,15 @@ const TrendingNow = (): ReactElement => {
         </Stack>
       </Stack>
       <ReactSwiper onSwiper={setSwiperRef}>
-        {theSlides.map((slide) => (
-          <SwiperSlide key={slide}>{slide}</SwiperSlide>
+        {trendingItemsSlides.map((slide) => (
+          <SwiperSlide key={slide.id}>
+            <SlideItem
+              name={slide.name}
+              imgsrc={slide.imgsrc}
+              popularity={slide.popularity}
+              users={slide.users}
+            />
+          </SwiperSlide>
         ))}
       </ReactSwiper>
     </Paper>

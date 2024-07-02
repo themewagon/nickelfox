@@ -102,14 +102,6 @@ const Topbar = ({
               <IconifyIcon icon="ph:bell-bold" width={15} height={17} />
             </IconButton>
           </Badge>
-          {/* <Avatar src={profile} sx={{ width: 29, height: 29 }} />
-          <IconButton
-            sx={{
-              padding: 1,
-            }}
-          >
-            <IconifyIcon icon="mingcute:down-fill" width={15} height={15} />
-          </IconButton> */}
           <UserDropdown />
         </Stack>
       </Toolbar>

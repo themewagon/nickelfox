@@ -1,6 +1,7 @@
+import { ReactElement } from 'react';
 import { Box, CircularProgress, Stack, StackOwnProps, useTheme } from '@mui/material';
 
-const PageLoader = (props: StackOwnProps) => {
+const PageLoader = (props: StackOwnProps): ReactElement => {
   const theme = useTheme();
   return (
     <Stack width={1} height={1} justifyContent="center" alignItems="center" {...props}>

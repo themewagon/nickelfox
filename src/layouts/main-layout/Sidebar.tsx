@@ -1,4 +1,4 @@
-// import { useTheme } from '@emotion/react';
+import { ReactElement } from 'react';
 import {
   Link,
   List,
@@ -10,7 +10,6 @@ import {
 } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import navItems from 'data/nav-items';
-import { ReactElement } from 'react';
 import SimpleBar from 'simplebar-react';
 
 const Sidebar = ({ open }: { open: boolean }): ReactElement => {

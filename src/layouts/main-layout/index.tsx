@@ -1,8 +1,8 @@
 import { Box, Drawer, Toolbar } from '@mui/material';
-import { PropsWithChildren, ReactElement, useState } from 'react';
-import Sidebar from './Sidebar';
-import Topbar from './Topbar/Topbar';
+import { PropsWithChildren, ReactElement, useCallback, useState } from 'react';
 import { closedMixin, openedMixin } from 'theme/mixins';
+import Topbar from './Topbar/Topbar';
+import Sidebar from './Sidebar';
 
 export const drawerOpenWidth = 160;
 export const drawerCloseWidth = 88;
@@ -10,7 +10,7 @@ export const drawerCloseWidth = 88;
 const MainLayout = ({ children }: PropsWithChildren): ReactElement => {
   const [open, setOpen] = useState<boolean>(false);
 
-  const handleDrawerToggle = () => setOpen(!open);
+  const handleDrawerToggle = useCallback(() => setOpen(!open), [open]);
 
   return (
     <Box sx={{ display: 'flex', minHeight: '100vh' }}>

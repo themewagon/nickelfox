@@ -6,7 +6,6 @@ import 'swiper/css/navigation';
 
 import { Box } from '@mui/material';
 import { RefObject } from 'react';
-import { Swiper as SwiperType } from 'swiper';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 
 const ReactSwiper = ({
@@ -38,7 +37,6 @@ const ReactSwiper = ({
         nextEl: '.next-arrow',
       }}
       onSwiper={onSwiper}
-      // onSlideChange={() => console.log('Slide changed')}
       {...rest}
     >
       {children}
