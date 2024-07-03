@@ -18,7 +18,14 @@ const TrendingNow = (): ReactElement => {
         p: 3.5,
       }}
     >
-      <Stack direction="row" justifyContent="space-between" alignItems="center" mb={5} mr={-2}>
+      <Stack
+        direction="row"
+        justifyContent="space-between"
+        alignItems="center"
+        mb={5}
+        mr={-2}
+        flexWrap="wrap"
+      >
         <Typography variant="h4" color="common.white">
           Trending Now
         </Typography>

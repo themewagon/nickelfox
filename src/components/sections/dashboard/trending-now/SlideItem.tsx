@@ -19,12 +19,7 @@ const SlideItem = ({ name, imgsrc, popularity, users }: TrendingItem): ReactElem
         bgcolor: 'background.default',
       }}
     >
-      <CardMedia
-        image={imgsrc}
-        sx={{
-          height: 110,
-        }}
-      />
+      <CardMedia image={imgsrc} />
       <CardContent>
         <Typography variant="subtitle1" color="text.secondary">
           {name}

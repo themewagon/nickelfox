@@ -151,7 +151,7 @@ const VisitorInsights = (): ReactElement => {
 
   return (
     <Paper sx={{ p: 3.5 }}>
-      <Stack direction="row" justifyContent="space-between" alignItems="center">
+      <Stack direction="row" justifyContent="space-between" alignItems="center" flexWrap="wrap">
         <Typography variant="h4" color="common.white">
           Visitor Insights
         </Typography>

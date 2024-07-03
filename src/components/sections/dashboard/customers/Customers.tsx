@@ -1,20 +1,36 @@
-import { InputAdornment, Paper, Stack, TextField, Typography } from '@mui/material';
+import { ChangeEvent, ReactElement, useCallback, useState } from 'react';
+import { Box, InputAdornment, Paper, Stack, TextField, Typography } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
-import { ReactElement } from 'react';
+import CustomerTable from './CustomerTable';
 
 const Customers = (): ReactElement => {
+  const [search, setSearch] = useState<string>('');
+
+  const handleChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.currentTarget.value);
+  }, []);
+
   return (
     <Paper sx={{ p: 3.5 }}>
-      <Stack direction="row" justifyContent="space-between" alignItems="center">
+      <Stack
+        direction="row"
+        justifyContent="space-between"
+        alignItems="center"
+        mb={5}
+        flexWrap="wrap"
+      >
         <Typography variant="h4" color="common.white">
           Customers
         </Typography>
         <TextField
-          variant="filled"
+          variant="outlined"
           placeholder="Search..."
+          value={search}
+          onChange={handleChange}
           sx={{
-            bgcolor: 'background.default',
+            // bgcolor: 'background.default',
             borderRadius: 2,
+            height: 40,
           }}
           InputProps={{
             startAdornment: (
@@ -23,11 +39,14 @@ const Customers = (): ReactElement => {
               </InputAdornment>
             ),
             sx: {
-              bgcolor: 'background.default',
+              // bgcolor: 'background.default',
             },
           }}
         />
       </Stack>
+      <Box width={1} height={238}>
+        <CustomerTable searchText={search} />
+      </Box>
     </Paper>
   );
 };

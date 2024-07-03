@@ -32,10 +32,10 @@ const Dashboard = (): ReactElement => {
         <Grid xs={12} md={8}>
           <VisitorInsights />
         </Grid>
-        <Grid xs={12} lg={6}>
+        <Grid xs={12} lg={6} xl={4}>
           <TrendingNow />
         </Grid>
-        <Grid xs={12} lg={6}>
+        <Grid xs={12} lg={6} xl={8}>
           <Customers />
         </Grid>
       </Grid>

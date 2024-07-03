@@ -1,18 +1,24 @@
 import { Components, Theme } from '@mui/material';
 
+import SnackbarContent from './components/SnackbarContent';
 import InputAdornment from './components/InputAdornment';
+import LinearProgress from './components/LinearProgress';
 import ListItemButton from './components/ListItemButton';
 import OutlinedInput from './components/OutlinedInput';
+import DataGrid from './components/DataGrid/DataGrid';
 import ListItemIcon from './components/ListItemIcon';
 import ListItemText from './components/ListItemText';
+import CardContent from './components/CardContent';
 import CssBaseline from './components/CssBaseline';
 import FilledInput from './components/FilledInput';
 import ButtonBase from './components/ButtonBase';
 import IconButton from './components/IconButton';
 import InputLabel from './components/InputLabel';
+import CardMedia from './components/CardMedia';
 import InputBase from './components/InputBase';
 import TableCell from './components/TableCell';
 import TextField from './components/TextField';
+import Checkbox from './components/Checkbox';
 import MenuItem from './components/MenuItem';
 import Divider from './components/Divider';
 import AppBar from './components/Appbar';
@@ -22,29 +28,30 @@ import Drawer from './components/Drawer';
 import Grid2 from './components/Grid2';
 import Paper from './components/Paper';
 import Stack from './components/Stack';
+import Card from './components/Card';
 import Chip from './components/Chip';
 import List from './components/List';
 import Menu from './components/Menu';
 
-import DataGrid from './components/DataGrid/DataGrid';
-import Card from './components/Card';
-import LinearProgress from './components/LinearProgress';
-
 const components: Components<Omit<Theme, 'components'>> = {
+  MuiSnackbarContent: SnackbarContent,
   MuiInputAdornment: InputAdornment,
   MuiLinearProgress: LinearProgress,
   MuiListItemButton: ListItemButton,
   MuiOutlinedInput: OutlinedInput,
   MuiListItemIcon: ListItemIcon,
   MuiListItemText: ListItemText,
+  MuiCardContent: CardContent,
   MuiCssBaseline: CssBaseline,
   MuiFilledInput: FilledInput,
   MuiButtonBase: ButtonBase,
   MuiIconButton: IconButton,
   MuiInputLabel: InputLabel,
+  MuiCardMedia: CardMedia,
   MuiInputBase: InputBase,
   MuiTableCell: TableCell,
   MuiTextField: TextField,
+  MuiCheckbox: Checkbox,
   MuiDataGrid: DataGrid,
   MuiMenuItem: MenuItem,
   MuiDivider: Divider,
