@@ -1,21 +1,63 @@
-import { Avatar, Button, Divider, ListItemIcon, ListItemText, Menu, MenuItem } from '@mui/material';
+import { Avatar, Button, ListItemIcon, ListItemText, Menu, MenuItem, Tooltip } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import profile from 'assets/account/Profile.png';
-import { ReactElement, SetStateAction, useCallback, useState } from 'react';
+import { MouseEvent, ReactElement, useCallback, useState } from 'react';
+
+interface UserMenuItem {
+  id: number;
+  title: string;
+  icon: string;
+  color?: string;
+}
+
+const userMenuItems: UserMenuItem[] = [
+  {
+    id: 1,
+    title: 'View Profile',
+    icon: 'mingcute:user-2-fill',
+    color: 'text.primary',
+  },
+  {
+    id: 2,
+    title: 'Account Settings',
+    icon: 'material-symbols:settings-account-box-rounded',
+    color: 'text.primary',
+  },
+  {
+    id: 3,
+    title: 'Notifications',
+    icon: 'ion:notifications',
+    color: 'text.primary',
+  },
+  {
+    id: 4,
+    title: 'Switch Account',
+    icon: 'material-symbols:switch-account',
+    color: 'text.primary',
+  },
+  {
+    id: 5,
+    title: 'Help Center',
+    icon: 'material-symbols:live-help',
+    color: 'text.primary',
+  },
+  {
+    id: 6,
+    title: 'Logout',
+    icon: 'material-symbols:logout',
+    color: 'error.main',
+  },
+];
 
 const UserDropdown = (): ReactElement => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const menuOpen = Boolean(anchorEl);
 
-  // let angle = 0;
-  const handleClick = useCallback(
-    (event: { currentTarget: SetStateAction<HTMLElement | null> }) => {
-      setAnchorEl(event.currentTarget);
-    },
-    [],
-  );
+  const handleUserClick = useCallback((event: MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  }, []);
 
-  const handleClose = useCallback(() => {
+  const handleUserClose = useCallback(() => {
     setAnchorEl(null);
   }, []);
 
@@ -28,16 +70,21 @@ const UserDropdown = (): ReactElement => {
         aria-controls={menuOpen ? 'account-dropdown-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={menuOpen ? 'true' : undefined}
-        onClick={handleClick}
+        onClick={handleUserClick}
         disableRipple
         sx={{
           borderRadius: 2,
           gap: 3.75,
           px: { xs: 0, sm: 0.625 },
           py: 0.625,
+          '&:hover': {
+            bgcolor: 'transparent',
+          },
         }}
       >
-        <Avatar src={profile} sx={{ width: 29, height: 29 }} />
+        <Tooltip title="Nickelfox" arrow placement="bottom">
+          <Avatar src={profile} sx={{ width: 29, height: 29 }} />
+        </Tooltip>
         <IconifyIcon
           color="common.white"
           icon="mingcute:down-fill"
@@ -56,110 +103,39 @@ const UserDropdown = (): ReactElement => {
         id="account-dropdown-menu"
         anchorEl={anchorEl}
         open={menuOpen}
-        onClose={handleClose}
+        onClose={handleUserClose}
         MenuListProps={{
           'aria-labelledby': 'account-dropdown-button',
         }}
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon
-            sx={{
-              minWidth: `0 !important`,
-              color: 'text.primary',
-              width: 14,
-              height: 10,
-            }}
-          >
-            <IconifyIcon icon="ion:home-sharp" />
-          </ListItemIcon>
-          <ListItemText
-            sx={(theme) => ({
-              '& .MuiListItemText-primary': {
-                fontSize: theme.typography.subtitle2.fontSize,
-                fontFamily: theme.typography.subtitle2.fontFamily,
-                fontWeight: theme.typography.subtitle2.fontWeight,
-              },
-            })}
-          >
-            Home
-          </ListItemText>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon
-            sx={{
-              minWidth: `0 !important`,
-              color: 'text.primary',
-              width: 14,
-              height: 10,
-            }}
-          >
-            <IconifyIcon icon="mdi:account-outline" />
-          </ListItemIcon>
-          <ListItemText
-            sx={(theme) => ({
-              '& .MuiListItemText-primary': {
-                fontSize: theme.typography.subtitle2.fontSize,
-                fontFamily: theme.typography.subtitle2.fontFamily,
-                fontWeight: theme.typography.subtitle2.fontWeight,
-              },
-            })}
-          >
-            Profile
-          </ListItemText>
-        </MenuItem>
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon
-            sx={{
-              minWidth: `0 !important`,
-              color: 'text.primary',
-              width: 14,
-              height: 10,
-            }}
-          >
-            <IconifyIcon icon="material-symbols:settings" />
-          </ListItemIcon>
-          <ListItemText
-            sx={(theme) => ({
-              '& .MuiListItemText-primary': {
-                fontSize: theme.typography.subtitle2.fontSize,
-                fontFamily: theme.typography.subtitle2.fontFamily,
-                fontWeight: theme.typography.subtitle2.fontWeight,
-              },
-            })}
-          >
-            Settings
-          </ListItemText>
-        </MenuItem>
-        <Divider
-          sx={{
-            my: 0,
-          }}
-        />
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon
-            sx={{
-              minWidth: `0 !important`,
-              color: 'error.main',
-              width: 14,
-              height: 10,
-            }}
-          >
-            <IconifyIcon icon="ri:logout-circle-line" color="error.main" />
-          </ListItemIcon>
-          <ListItemText
-            sx={{
-              color: 'error.main',
-              '& .MuiListItemText-primary': {
-                fontSize: 'subtitle2.fontSize',
-                fontWeight: 'subtitle2.fontWeight',
-              },
-            }}
-          >
-            Logout
-          </ListItemText>
-        </MenuItem>
+        {userMenuItems.map((userMenuItem) => (
+          <MenuItem key={userMenuItem.id} onClick={handleUserClose}>
+            <ListItemIcon
+              sx={{
+                minWidth: `0 !important`,
+                color: userMenuItem.color,
+                width: 14,
+                height: 10,
+              }}
+            >
+              <IconifyIcon icon={userMenuItem.icon} color={userMenuItem.color} />
+            </ListItemIcon>
+            <ListItemText
+              sx={(theme) => ({
+                color: userMenuItem.color,
+                '& .MuiListItemText-primary': {
+                  fontSize: theme.typography.subtitle2.fontSize,
+                  fontFamily: theme.typography.subtitle2.fontFamily,
+                  fontWeight: theme.typography.subtitle2.fontWeight,
+                },
+              })}
+            >
+              {userMenuItem.title}
+            </ListItemText>
+          </MenuItem>
+        ))}
       </Menu>
     </>
   );

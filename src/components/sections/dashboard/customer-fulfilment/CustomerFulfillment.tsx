@@ -1,151 +1,23 @@
-import { ReactElement, useCallback, useRef, useState } from 'react';
+import { ReactElement, useCallback, useRef } from 'react';
 import { Box, Button, Divider, Paper, Stack, Typography, alpha, useTheme } from '@mui/material';
-import * as echarts from 'echarts';
-import { LineSeriesOption } from 'echarts';
 import EChartsReactCore from 'echarts-for-react/lib/core';
 import CustomerFulfillmentChart from './CustomerFulfillmentChart';
 import { currencyFormat } from 'helpers/format-functions';
-import {
-  GridOption,
-  LegendOption,
-  TooltipOption,
-  XAXisOption,
-  YAXisOption,
-} from 'echarts/types/dist/shared.js';
+
+const customerFulfillmentChartData = {
+  'This Month': [765, 795, 960, 495, 495, 660, 615, 930],
+  'Last Month': [680, 221, 884, 629, 731, 272, 612, 660],
+};
 
 const CustomerFulfillment = (): ReactElement => {
   const theme = useTheme();
   const chartRef = useRef<EChartsReactCore | null>(null);
 
-  const areaChartColors = [theme.palette.secondary.main, theme.palette.primary.main];
-
-  const legendData: LegendOption = {
-    show: false,
-    data: ['This Month', 'Last Month'],
-  };
-
-  const grid: GridOption = {
-    top: '0%',
-    right: '2%',
-    bottom: '-13%',
-    left: '-15%',
-    containLabel: true,
-  };
-
-  const tooltip: TooltipOption = {
-    trigger: 'axis',
-    axisPointer: {
-      type: 'line',
-      label: {
-        backgroundColor: '#6A7985',
-      },
-    },
-  };
-
-  const xAxis: XAXisOption[] = [
-    {
-      type: 'category',
-      boundaryGap: false,
-      show: false,
-      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-    },
-  ];
-
-  const yAxis: YAXisOption[] = [
-    {
-      type: 'value',
-      show: false,
-    },
-  ];
-
-  const seriesOption: LineSeriesOption[] = [
-    {
-      id: 1,
-      name: 'This Month',
-      type: 'line',
-      stack: 'Total',
-      lineStyle: {
-        width: 2,
-      },
-      showSymbol: true,
-      symbol: 'circle',
-      symbolSize: 5,
-      areaStyle: {
-        opacity: 0.8,
-        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-          {
-            offset: 1,
-            color: theme.palette.grey.A400,
-          },
-          {
-            offset: 0,
-            color: areaChartColors[0],
-          },
-        ]),
-      },
-      emphasis: {
-        focus: 'series',
-      },
-      data: [765, 795, 960, 495, 495, 660, 615, 930],
-    },
-    {
-      id: 2,
-      name: 'Last Month',
-      type: 'line',
-      stack: 'Total',
-      lineStyle: {
-        width: 2,
-      },
-      showSymbol: true,
-      symbol: 'circle',
-      symbolSize: 5,
-      areaStyle: {
-        opacity: 0.8,
-        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-          {
-            offset: 1,
-            color: '#1D1E26',
-          },
-          {
-            offset: 0,
-            color: areaChartColors[1],
-          },
-        ]),
-      },
-      emphasis: {
-        focus: 'series',
-      },
-      data: [680, 221, 884, 629, 731, 272, 612],
-    },
-  ];
-
-  const onChartLegendSelectChanged = (name: string) => {
-    if (chartRef.current) {
-      const instance = chartRef.current.getEchartsInstance();
-      instance.dispatchAction({
-        type: 'legendToggleSelect',
-        name: name,
-      });
-    }
-  };
-
-  const [month, setMonth] = useState<any>({
-    'This Month': false,
-    'Last Month': false,
-  });
-
-  const toggleClicked = (name: string) => {
-    setMonth((prevState: any) => ({
-      ...prevState,
-      [name]: !prevState[name],
-    }));
-  };
-
   const getTotalFulfillment = useCallback(
-    (seriesData: number[]) => {
-      return currencyFormat(seriesData.reduce((prev, current) => prev + current, 0));
+    (chartData: number[]) => {
+      return currencyFormat(chartData.reduce((prev, current) => prev + current, 0));
     },
-    [seriesOption],
+    [customerFulfillmentChartData],
   );
 
   return (
@@ -164,13 +36,7 @@ const CustomerFulfillment = (): ReactElement => {
         <CustomerFulfillmentChart
           chartRef={chartRef}
           sx={{ height: '115px !important' }}
-          seriesData={seriesOption}
-          tooltip={tooltip}
-          legendData={legendData}
-          grid={grid}
-          xAxis={xAxis}
-          yAxis={yAxis}
-          colors={areaChartColors}
+          data={customerFulfillmentChartData}
         />
       </Box>
       <Stack
@@ -190,46 +56,64 @@ const CustomerFulfillment = (): ReactElement => {
           transitionDelay: '1s',
         }}
       >
-        {Array.isArray(seriesOption) &&
-          seriesOption.map((dataItem, index) => (
-            <Button
-              key={dataItem.id}
-              variant="text"
-              onClick={() => {
-                toggleClicked(dataItem.name as string);
-                onChartLegendSelectChanged(dataItem.name as string);
-              }}
+        <Button
+          variant="text"
+          sx={{
+            flexDirection: 'column',
+            p: 0.5,
+            borderRadius: 1,
+            '&:hover': {
+              bgcolor: 'transparent',
+            },
+          }}
+          disableRipple
+        >
+          <Stack direction="row" alignItems="baseline" gap={1} width={1}>
+            <Box
               sx={{
-                flexDirection: 'column',
-                p: 0.5,
-                borderRadius: 1,
-                opacity: month[`${dataItem.name}`] ? 0.5 : 1,
-                '&:hover': {
-                  bgcolor: 'transparent',
-                },
+                width: 8,
+                height: 8,
+                bgcolor: 'secondary.main',
+                borderRadius: 400,
               }}
-              disableRipple
-            >
-              <Stack direction="row" alignItems="baseline" gap={1} width={1}>
-                <Box
-                  sx={{
-                    width: 8,
-                    height: 8,
-                    bgcolor: month[`${dataItem.name}`]
-                      ? 'background.default'
-                      : areaChartColors[index],
-                    borderRadius: 400,
-                  }}
-                ></Box>
-                <Typography variant="body1" color="text.disabled" flex={1} textAlign={'left'}>
-                  {dataItem.name}
-                </Typography>
-              </Stack>
-              <Typography variant="body1" color="common.white">
-                {getTotalFulfillment(dataItem.data as number[])}
-              </Typography>
-            </Button>
-          ))}
+            ></Box>
+            <Typography variant="body1" color="text.disabled" flex={1} textAlign={'left'}>
+              This Month
+            </Typography>
+          </Stack>
+          <Typography variant="body1" color="common.white">
+            {getTotalFulfillment(customerFulfillmentChartData['This Month'] as number[])}
+          </Typography>
+        </Button>
+        <Button
+          variant="text"
+          sx={{
+            flexDirection: 'column',
+            p: 0.5,
+            borderRadius: 1,
+            '&:hover': {
+              bgcolor: 'transparent',
+            },
+          }}
+          disableRipple
+        >
+          <Stack direction="row" alignItems="baseline" gap={1} width={1}>
+            <Box
+              sx={{
+                width: 8,
+                height: 8,
+                bgcolor: 'primary.main',
+                borderRadius: 400,
+              }}
+            ></Box>
+            <Typography variant="body1" color="text.disabled" flex={1} textAlign={'left'}>
+              Last Month
+            </Typography>
+          </Stack>
+          <Typography variant="body1" color="common.white">
+            {getTotalFulfillment(customerFulfillmentChartData['Last Month'] as number[])}
+          </Typography>
+        </Button>
       </Stack>
     </Paper>
   );

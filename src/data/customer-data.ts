@@ -7,7 +7,7 @@ export const rows: GridRowsProp = [
     email: 'alex@example.com',
     phone: '(555) 123-4567',
     'billing-address': '123 Elm Street, Springfield, IL',
-    'total-spent': 0,
+    'total-spent': 981,
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ export const rows: GridRowsProp = [
     email: 'brian@example.com',
     phone: '(555) 234-5678',
     'billing-address': '456 Oak Street, Lincoln, NE',
-    'total-spent': 0,
+    'total-spent': 199,
   },
   {
     id: 3,
@@ -23,7 +23,7 @@ export const rows: GridRowsProp = [
     email: 'george@example.com',
     phone: '(555) 345-6789',
     'billing-address': '789 Maple Avenue, Madison, WI',
-    'total-spent': 0,
+    'total-spent': 609,
   },
   {
     id: 4,
@@ -31,7 +31,7 @@ export const rows: GridRowsProp = [
     email: 'isaac@example.com',
     phone: '(555) 456-7890',
     'billing-address': '101 Pine Road, Orlando, FL',
-    'total-spent': 0,
+    'total-spent': 923,
   },
   {
     id: 5,
@@ -39,7 +39,7 @@ export const rows: GridRowsProp = [
     email: 'james@example.com',
     phone: '(555) 567-8901',
     'billing-address': '202 Cedar Lane, Austin, TX',
-    'total-spent': 0,
+    'total-spent': 119,
   },
   {
     id: 6,
@@ -47,7 +47,7 @@ export const rows: GridRowsProp = [
     email: 'david@example.com',
     phone: '(555) 678-9012',
     'billing-address': '303 Birch Blvd, Denver, CO',
-    'total-spent': 0,
+    'total-spent': 595,
   },
   {
     id: 7,
@@ -55,7 +55,7 @@ export const rows: GridRowsProp = [
     email: 'henry@example.com',
     phone: '(555) 789-0123',
     'billing-address': '404 Walnut Street, Portland, OR',
-    'total-spent': 0,
+    'total-spent': 472,
   },
   {
     id: 8,
@@ -63,7 +63,7 @@ export const rows: GridRowsProp = [
     email: 'kevin@example.com',
     phone: '(555) 890-1234',
     'billing-address': '505 Cherry Court, Phoenix, AZ',
-    'total-spent': 0,
+    'total-spent': 98,
   },
   {
     id: 9,
@@ -71,7 +71,7 @@ export const rows: GridRowsProp = [
     email: 'michael@example.com',
     phone: '(555) 901-2345',
     'billing-address': '606 Chestnut Drive, Seattle, WA',
-    'total-spent': 0,
+    'total-spent': 931,
   },
   {
     id: 10,
@@ -79,7 +79,7 @@ export const rows: GridRowsProp = [
     email: 'nathan@example.com',
     phone: '(555) 012-3456',
     'billing-address': '707 Willow Way, San Diego, CA',
-    'total-spent': 0,
+    'total-spent': 55300,
   },
   {
     id: 11,
@@ -87,7 +87,7 @@ export const rows: GridRowsProp = [
     email: 'rachel@example.com',
     phone: '(555) 123-4568',
     'billing-address': '808 Aspen Avenue, Boston, MA',
-    'total-spent': 0,
+    'total-spent': 232,
   },
   {
     id: 12,
@@ -95,7 +95,7 @@ export const rows: GridRowsProp = [
     email: 'sarah@example.com',
     phone: '(555) 234-5679',
     'billing-address': '909 Redwood Road, Columbus, OH',
-    'total-spent': 0,
+    'total-spent': 427,
   },
   {
     id: 13,
@@ -103,7 +103,7 @@ export const rows: GridRowsProp = [
     email: 'ulysses@example.com',
     phone: '(555) 345-6780',
     'billing-address': '1010 Spruce Street, Miami, FL',
-    'total-spent': 0,
+    'total-spent': 368,
   },
   {
     id: 14,
@@ -111,7 +111,7 @@ export const rows: GridRowsProp = [
     email: 'william@example.com',
     phone: '(555) 456-7891',
     'billing-address': '1111 Palm Drive, Las Vegas, NV',
-    'total-spent': 0,
+    'total-spent': 822,
   },
   {
     id: 15,
@@ -119,6 +119,6 @@ export const rows: GridRowsProp = [
     email: 'scott@example.com',
     phone: '(555) 345-2247',
     'billing-address': '1010 Spruce Street, Miami, FL',
-    'total-spent': 0,
+    'total-spent': 375,
   },
 ];

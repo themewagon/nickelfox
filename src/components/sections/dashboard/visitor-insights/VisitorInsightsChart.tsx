@@ -1,4 +1,4 @@
-import { SxProps } from '@mui/material';
+import { SxProps, useTheme } from '@mui/material';
 import ReactEChart from 'components/base/ReactEChart';
 import * as echarts from 'echarts';
 import EChartsReactCore from 'echarts-for-react/lib/core';
@@ -9,22 +9,10 @@ import {
   TooltipComponentOption,
 } from 'echarts/components';
 import { ReactElement, useMemo } from 'react';
-import {
-  GridOption,
-  LegendOption,
-  TooltipOption,
-  XAXisOption,
-  YAXisOption,
-} from 'echarts/types/dist/shared.js';
 
 type VisitorInsightsChartProps = {
   chartRef: React.MutableRefObject<EChartsReactCore | null>;
-  seriesData?: LineSeriesOption[];
-  tooltip?: TooltipOption;
-  grid?: GridOption;
-  legendData?: LegendOption;
-  xAxis?: XAXisOption[];
-  yAxis?: YAXisOption[];
+  data?: any;
   sx?: SxProps;
 };
 
@@ -34,22 +22,121 @@ type VisitorInsightsChartOptions = echarts.ComposeOption<
 
 const VisitorInsightsChart = ({
   chartRef,
-  seriesData,
-  tooltip,
-  legendData,
-  grid,
-  xAxis,
-  yAxis,
+  data,
   ...rest
 }: VisitorInsightsChartProps): ReactElement => {
+  const theme = useTheme();
   const option: VisitorInsightsChartOptions = useMemo(
     () => ({
-      tooltip: tooltip,
-      legend: legendData,
-      grid: grid,
-      xAxis: xAxis,
-      yAxis: yAxis,
-      series: seriesData,
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'line',
+          lineStyle: {
+            color: theme.palette.warning.main,
+          },
+          label: {
+            backgroundColor: theme.palette.warning.main,
+          },
+        },
+      },
+      legend: {
+        show: false,
+        data: ['New Visitors'],
+      },
+      grid: {
+        top: '15%',
+        right: '1%',
+        bottom: '2.5%',
+        left: '1%',
+        containLabel: true,
+      },
+      xAxis: [
+        {
+          type: 'category',
+          boundaryGap: false,
+          data: [
+            'January',
+            'February',
+            'March',
+            'April',
+            'May',
+            'June',
+            'July',
+            'August',
+            'September',
+            'October',
+            'November',
+            'December',
+          ],
+          axisLine: {
+            show: false,
+          },
+          axisTick: {
+            show: false,
+          },
+          axisLabel: {
+            formatter: (value: string) => value.substring(0, 3),
+            padding: [1, 20, 1, 10],
+            fontSize: theme.typography.body1.fontSize,
+            fontWeight: theme.typography.subtitle1.fontWeight as number,
+            color: theme.palette.common.white,
+          },
+        },
+      ],
+      yAxis: [
+        {
+          type: 'value',
+          min: 0,
+          max: 500,
+          axisLine: {
+            show: false,
+          },
+          axisTick: {
+            show: false,
+          },
+          splitLine: {
+            show: false,
+          },
+          axisLabel: {
+            fontSize: theme.typography.body1.fontSize,
+            fontWeight: theme.typography.subtitle1.fontWeight as number,
+            color: theme.palette.common.white,
+          },
+        },
+      ],
+      series: [
+        {
+          id: 1,
+          name: 'New Visitors',
+          type: 'line',
+          stack: 'Total',
+          smooth: false,
+          color: theme.palette.primary.main,
+          lineStyle: {
+            width: 2,
+            color: theme.palette.primary.main,
+          },
+          showSymbol: false,
+          areaStyle: {
+            opacity: 1,
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              {
+                offset: 1,
+                color: theme.palette.grey.A400,
+              },
+              {
+                offset: 0,
+                color: theme.palette.primary.main,
+              },
+            ]),
+          },
+          emphasis: {
+            focus: 'series',
+          },
+          data: data?.['New Visitors'],
+        },
+      ],
     }),
     [],
   );

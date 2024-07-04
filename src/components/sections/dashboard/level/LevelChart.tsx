@@ -1,4 +1,4 @@
-import { SxProps } from '@mui/material';
+import { SxProps, useTheme } from '@mui/material';
 import ReactEChart from 'components/base/ReactEChart';
 import { BarSeriesOption } from 'echarts';
 import * as echarts from 'echarts';
@@ -8,23 +8,11 @@ import {
   LegendComponentOption,
   TooltipComponentOption,
 } from 'echarts/components';
-import {
-  GridOption,
-  LegendOption,
-  TooltipOption,
-  XAXisOption,
-  YAXisOption,
-} from 'echarts/types/dist/shared.js';
 import React, { ReactElement, useMemo } from 'react';
 
 type LevelChartProps = {
   chartRef: React.MutableRefObject<EChartsReactCore | null>;
-  seriesData?: BarSeriesOption[];
-  tooltip?: TooltipOption;
-  legendData?: LegendOption;
-  grid?: GridOption;
-  xAxis?: XAXisOption[];
-  yAxis?: YAXisOption[];
+  data: any;
   sx?: SxProps;
 };
 
@@ -32,24 +20,72 @@ type LevelChartOptions = echarts.ComposeOption<
   BarSeriesOption | LegendComponentOption | TooltipComponentOption | GridComponentOption
 >;
 
-const LevelChart = ({
-  chartRef,
-  seriesData,
-  tooltip,
-  grid,
-  legendData,
-  xAxis,
-  yAxis,
-  ...rest
-}: LevelChartProps): ReactElement => {
+const LevelChart = ({ chartRef, data, ...rest }: LevelChartProps): ReactElement => {
+  const theme = useTheme();
   const option: LevelChartOptions = useMemo(
     () => ({
-      tooltip: tooltip,
-      legend: legendData,
-      xAxis: xAxis,
-      yAxis: yAxis,
-      grid: grid,
-      series: seriesData,
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'shadow',
+        },
+      },
+      legend: {
+        show: false,
+        data: ['Service', 'Volume'],
+      },
+      xAxis: [
+        {
+          type: 'category',
+          show: false,
+          axisTick: { show: false },
+          data: ['Level 1', 'Level 2', 'Level 3', 'Level 4', 'Level 5', 'Level 6'],
+        },
+      ],
+      yAxis: [
+        {
+          type: 'value',
+          show: false,
+        },
+      ],
+      grid: {
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0,
+      },
+      series: [
+        {
+          id: 1,
+          name: 'Service',
+          type: 'bar',
+          stack: 'Service',
+          barWidth: 15,
+          emphasis: {
+            focus: 'series',
+          },
+          data: data.Service,
+          color: theme.palette.grey[900],
+          itemStyle: {
+            borderRadius: 4,
+          },
+        },
+        {
+          id: 2,
+          name: 'Volume',
+          type: 'bar',
+          stack: 'Service',
+          barWidth: 15,
+          emphasis: {
+            focus: 'series',
+          },
+          data: data.Volume,
+          color: theme.palette.primary.main,
+          itemStyle: {
+            borderRadius: 4,
+          },
+        },
+      ],
     }),
     [],
   );

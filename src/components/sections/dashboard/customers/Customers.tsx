@@ -23,12 +23,29 @@ const Customers = (): ReactElement => {
           Customers
         </Typography>
         <TextField
-          variant="outlined"
+          variant="filled"
           placeholder="Search..."
           value={search}
           onChange={handleChange}
           sx={{
-            // bgcolor: 'background.default',
+            ':focus': {
+              bgcolor: 'background.default',
+            },
+            ':focus-within': {
+              bgcolor: 'background.default',
+            },
+            '.MuiFilledInput-root': {
+              bgcolor: 'background.default',
+              ':hover': {
+                bgcolor: 'background.default',
+              },
+              ':focus': {
+                bgcolor: 'background.default',
+              },
+              ':focus-within': {
+                bgcolor: 'background.default',
+              },
+            },
             borderRadius: 2,
             height: 40,
           }}

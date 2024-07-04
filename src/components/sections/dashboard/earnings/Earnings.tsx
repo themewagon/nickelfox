@@ -1,78 +1,17 @@
-import { Box, Paper, Stack, Typography, useTheme } from '@mui/material';
+import { Box, Paper, Stack, Typography } from '@mui/material';
 import EarningsChart from './EarningsChart';
 import { ReactElement, useRef } from 'react';
 import EChartsReactCore from 'echarts-for-react/lib/core';
-import { GaugeSeriesOption } from 'echarts/charts';
 
 const Earnings = (): ReactElement => {
-  const theme = useTheme();
   const chartRef = useRef<EChartsReactCore | null>(null);
-
-  const seriesOption: GaugeSeriesOption[] = [
-    {
-      type: 'gauge',
-      startAngle: 180,
-      endAngle: 0,
-      min: 0,
-      max: 100,
-      radius: '150%',
-      center: ['50%', '100%'],
-      splitNumber: 10,
-      itemStyle: {
-        color: theme.palette.primary.main,
-        borderWidth: 0,
-      },
-      progress: {
-        show: true,
-        roundCap: false,
-        width: 22,
-      },
-      pointer: {
-        icon: 'roundRect',
-        length: '60%',
-        width: 5,
-        offsetCenter: [0, -48],
-        itemStyle: {
-          borderWidth: 20,
-        },
-      },
-      axisLine: {
-        roundCap: false,
-        lineStyle: {
-          width: 22,
-          color: [[1, theme.palette.grey[900]]],
-        },
-      },
-      axisTick: {
-        show: false,
-      },
-      splitLine: {
-        show: false,
-      },
-      axisLabel: {
-        show: false,
-      },
-      title: {
-        show: false,
-      },
-      detail: {
-        show: false,
-      },
-      data: [
-        {
-          value: 80,
-        },
-      ],
-    },
-  ];
-
   return (
     <Paper sx={{ px: 3.5, py: 5, height: 1 }}>
       <Stack gap={1}>
         <Typography variant="h4" color="common.white">
           Earnings
         </Typography>
-        <Typography variant="h6" color="text.primary">
+        <Typography variant="body1" color="text.primary">
           Total Expense
         </Typography>
         <Stack gap={2.25}>
@@ -80,7 +19,7 @@ const Earnings = (): ReactElement => {
             $6078.76
           </Typography>
           <Typography variant="subtitle2" color="text.primary">
-            Total Expense
+            Profit is 48% More than last Month
           </Typography>
         </Stack>
       </Stack>
@@ -90,11 +29,7 @@ const Earnings = (): ReactElement => {
           position: 'relative',
         }}
       >
-        <EarningsChart
-          chartRef={chartRef}
-          seriesData={seriesOption}
-          sx={{ height: '110px !important' }}
-        />
+        <EarningsChart chartRef={chartRef} sx={{ height: '110px !important' }} />
         <Typography
           variant="h1"
           color="common.white"

@@ -14,16 +14,16 @@ const Dashboard = (): ReactElement => {
   return (
     <>
       <Grid container columns={12} spacing={3.5} mx={0}>
-        <Grid xs={12} md={8} lg={9}>
+        <Grid xs={12} md={8}>
           <TodaysSales />
         </Grid>
-        <Grid xs={12} md={4} lg={3}>
+        <Grid xs={12} md={4}>
           <Level />
         </Grid>
-        <Grid xs={12} md={8} lg={9}>
+        <Grid xs={12} md={8}>
           <TopProducts />
         </Grid>
-        <Grid xs={12} sm={6} md={4} lg={3}>
+        <Grid xs={12} sm={6} md={4}>
           <CustomerFulfillment />
         </Grid>
         <Grid xs={12} sm={6} md={4}>

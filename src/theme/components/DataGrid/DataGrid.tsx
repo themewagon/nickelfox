@@ -1,4 +1,4 @@
-import { Theme } from '@mui/material';
+import { Theme, alpha } from '@mui/material';
 import type { DataGridComponents } from '@mui/x-data-grid/themeAugmentation';
 
 const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
@@ -7,7 +7,7 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
     root: ({ theme }) => ({
       borderColor: 'transparent',
       borderRadius: theme.shape.borderRadius * 2.5,
-      '--DataGrid-rowBorderColor': theme.palette.background.default,
+      '--DataGrid-rowBorderColor': alpha(theme.palette.common.white, 0.06),
       '&:hover, &:focus': {
         '*::-webkit-scrollbar, *::-webkit-scrollbar-thumb': {
           visibility: 'visible',
@@ -15,6 +15,9 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
         '*::-webkit-scrollbar-thumb': {
           background: theme.palette.info.main,
         },
+      },
+      '& .MuiDataGrid-container--top [role=row]': {
+        background: theme.palette.background.paper,
       },
       '& .MuiDataGrid-scrollbar--vertical': {
         visibility: 'hidden',
@@ -36,9 +39,9 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
     cell: ({ theme }) => ({
       display: 'flex',
       alignItems: 'center',
+      color: theme.palette.common.white,
       fontSize: theme.typography.body1.fontSize,
       fontWeight: theme.typography.body1.fontWeight,
-      borderTop: 'none',
       '&:focus': {
         outline: 'none !important',
       },
@@ -46,8 +49,12 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
         outline: 'none !important',
       },
     }),
+    overlay: ({ theme }) => ({
+      backgroundColor: theme.palette.background.paper,
+    }),
     footerContainer: ({ theme }) => ({
-      backgroundColor: theme.palette.background.default,
+      justifyContent: 'normal',
+      backgroundColor: theme.palette.background.paper,
       borderBottomLeftRadius: theme.shape.borderRadius * 2.5,
       borderBottomRightRadius: theme.shape.borderRadius * 2.5,
     }),
@@ -60,6 +67,7 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       },
     }),
     columnHeaderTitle: ({ theme }) => ({
+      color: theme.palette.text.primary,
       fontSize: theme.typography.h6.fontSize,
       fontWeight: theme.typography.h6.fontWeight,
     }),
@@ -71,12 +79,12 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
     }),
     row: ({ theme }) => ({
       backgroundColor: theme.palette.background.paper,
-      '&:nth-of-type(2n)': {
-        backgroundColor: theme.palette.background.default,
+      '&:hover': {
+        backgroundColor: theme.palette.background.paper,
       },
     }),
     withBorderColor: ({ theme }) => ({
-      borderColor: theme.palette.background.default,
+      borderColor: alpha(theme.palette.common.white, 0.06),
     }),
     scrollbar: () => ({
       '&.MuiDataGrid-scrollbar--horizontal': {

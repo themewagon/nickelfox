@@ -1,10 +1,10 @@
-import { Box, Chip, TableCell, TableRow } from '@mui/material';
+import { Chip, LinearProgress, LinearProgressProps, TableCell, TableRow } from '@mui/material';
 import { ReactElement } from 'react';
 
 type ProductItemProps = {
   id: string;
   name: string;
-  color: string;
+  color: LinearProgressProps['color'];
   sales: number;
 };
 
@@ -31,22 +31,14 @@ const ProductItem = ({ id, name, color, sales }: ProductItemProps): ReactElement
         {name}
       </TableCell>
       <TableCell align="left">
-        <Box
+        <LinearProgress
+          variant="determinate"
+          color={color}
+          value={sales}
           sx={{
             bgcolor: 'grey.900',
-            maxWidth: 164,
-            width: 1,
-            height: 3,
           }}
-        >
-          <Box
-            sx={{
-              bgcolor: `${color}.main`,
-              width: `${sales}%`,
-              height: 1,
-            }}
-          />
-        </Box>
+        />
       </TableCell>
       <TableCell align="center">
         <Chip label={`${sales}%`} color={color as any} variant="outlined" />

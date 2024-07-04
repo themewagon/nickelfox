@@ -3,6 +3,7 @@ import { Outlet, RouteObject, createBrowserRouter } from 'react-router-dom';
 
 import PageLoader from 'components/loading/PageLoader';
 import Splash from 'components/loading/Splash';
+import AuthLayout from 'layouts/auth-layout';
 
 const App = lazy(() => import('App'));
 
@@ -32,6 +33,26 @@ const routes: RouteObject[] = [
           {
             path: '/',
             element: <Dashboard />,
+          },
+        ],
+      },
+      {
+        path: 'authentication',
+        element: (
+          <AuthLayout>
+            <Suspense fallback={<PageLoader />}>
+              <Outlet />
+            </Suspense>
+          </AuthLayout>
+        ),
+        children: [
+          {
+            path: 'login',
+            element: <></>,
+          },
+          {
+            path: 'register',
+            element: <></>,
           },
         ],
       },
