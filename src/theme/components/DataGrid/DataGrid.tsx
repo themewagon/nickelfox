@@ -2,7 +2,7 @@ import { Theme, alpha } from '@mui/material';
 import type { DataGridComponents } from '@mui/x-data-grid/themeAugmentation';
 
 const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
-  defaultProps: {},
+  defaultProps: { disableColumnMenu: true, disableRowSelectionOnClick: true },
   styleOverrides: {
     root: ({ theme }) => ({
       borderColor: 'transparent',
@@ -24,6 +24,7 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       },
       '& .MuiDataGrid-scrollbar--horizontal': {
         visibility: 'hidden',
+        display: 'none',
       },
       '& .MuiDataGrid-filler': {
         height: '0 !important',
@@ -53,6 +54,7 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       backgroundColor: theme.palette.background.paper,
     }),
     footerContainer: ({ theme }) => ({
+      minHeight: theme.spacing(10.5),
       justifyContent: 'normal',
       backgroundColor: theme.palette.background.paper,
       borderBottomLeftRadius: theme.shape.borderRadius * 2.5,
@@ -90,6 +92,17 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       '&.MuiDataGrid-scrollbar--horizontal': {
         scrollbarWidth: 'none',
       },
+    }),
+    virtualScroller: ({ theme }) => ({
+      [theme.breakpoints.up('xs')]: {
+        overflowY: 'scroll',
+      },
+      [theme.breakpoints.up('sm')]: {
+        overflowY: 'hidden',
+      },
+    }),
+    selectedRowCount: ({}) => ({
+      display: 'none',
     }),
   },
 };

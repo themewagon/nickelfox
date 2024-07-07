@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tsconfigPaths from 'vite-tsconfig-paths';
-import { resolve, dirname } from 'node:path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -17,7 +16,4 @@ export default defineConfig({
     port: 3000,
   },
   base: '/nickelfox-sales-management',
-  resolve: {
-    alias: [{ find: '@', replacement: resolve(__dirname, './src') }],
-  },
 });

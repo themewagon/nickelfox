@@ -1,37 +1,39 @@
 import { PaletteOptions } from '@mui/material';
+import { bluishCyan, fuchsia, green, grey, pinkishRed, stone, teal, yellowOrange } from './colors';
 
 const palette: PaletteOptions = {
   primary: {
-    main: '#A9DFD8',
+    light: teal[50],
+    main: teal[100],
   },
   secondary: {
-    main: '#F2C8ED',
+    main: fuchsia[100],
   },
   success: {
-    main: '#029F04',
+    main: green[600],
   },
   info: {
-    main: '#20AEF3',
+    main: bluishCyan[500],
   },
   warning: {
-    main: '#FCB859',
+    main: yellowOrange[300],
   },
   error: {
-    main: '#FC003C',
+    main: pinkishRed[600],
   },
   background: {
-    default: '#171821',
-    paper: '#21222D',
+    default: stone[900],
+    paper: grey[900],
   },
   text: {
-    primary: '#87888C',
-    secondary: '#E8E8E8',
-    disabled: '#A0A0A0',
+    primary: stone[600],
+    secondary: stone[200],
+    disabled: stone[500],
   },
-  divider: '#2C2D33',
+  divider: stone[700],
   action: {
-    focus: '#D2D2D2',
-    disabled: '#D9D9D9',
+    focus: stone[400],
+    disabled: stone[300],
   },
   grey: {
     '300': '#D9D9D9',

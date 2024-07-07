@@ -4,6 +4,8 @@ import SnackbarContent from './components/SnackbarContent';
 import InputAdornment from './components/InputAdornment';
 import LinearProgress from './components/LinearProgress';
 import ListItemButton from './components/ListItemButton';
+import PaginationItem from './components/PaginationItem';
+import TableContainer from './components/TableContainer';
 import OutlinedInput from './components/OutlinedInput';
 import DataGrid from './components/DataGrid/DataGrid';
 import ListItemIcon from './components/ListItemIcon';
@@ -30,6 +32,7 @@ import Paper from './components/Paper';
 import Stack from './components/Stack';
 import Card from './components/Card';
 import Chip from './components/Chip';
+import Link from './components/Link';
 import List from './components/List';
 import Menu from './components/Menu';
 
@@ -38,6 +41,8 @@ const components: Components<Omit<Theme, 'components'>> = {
   MuiInputAdornment: InputAdornment,
   MuiLinearProgress: LinearProgress,
   MuiListItemButton: ListItemButton,
+  MuiPaginationItem: PaginationItem,
+  MuiTableContainer: TableContainer,
   MuiOutlinedInput: OutlinedInput,
   MuiListItemIcon: ListItemIcon,
   MuiListItemText: ListItemText,
@@ -64,6 +69,7 @@ const components: Components<Omit<Theme, 'components'>> = {
   MuiStack: Stack,
   MuiCard: Card,
   MuiChip: Chip,
+  MuiLink: Link,
   MuiList: List,
   MuiMenu: Menu,
 };

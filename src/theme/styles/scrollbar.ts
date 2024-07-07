@@ -7,8 +7,8 @@ const scrollbar = (theme: Theme) => ({
   '*::-webkit-scrollbar': {
     visibility: 'hidden',
     WebkitAppearance: 'none',
-    width: 6,
-    height: 6,
+    width: 0,
+    height: 0,
     backgroundColor: 'transparent',
   },
   '*::-webkit-scrollbar-thumb': {

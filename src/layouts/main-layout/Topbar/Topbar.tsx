@@ -45,6 +45,8 @@ const Topbar = ({
         justifyContent="space-between"
         sx={{
           bgcolor: 'background.default',
+          height: 1,
+          minHeight: 64,
         }}
       >
         <Stack direction="row" gap={2} alignItems="center" ml={5} flex="1 1 51%">
@@ -59,12 +61,21 @@ const Topbar = ({
               color="common.white"
             />
           </IconButton>
+          <IconButton
+            color="inherit"
+            sx={{
+              display: { xs: 'flex', sm: 'none' },
+            }}
+          >
+            <IconifyIcon icon="mdi:search" />
+          </IconButton>
           <TextField
             variant="filled"
             fullWidth
             placeholder="Search here..."
             sx={{
               maxWidth: 504,
+              display: { xs: 'none', sm: 'flex' },
             }}
             InputProps={{
               startAdornment: (

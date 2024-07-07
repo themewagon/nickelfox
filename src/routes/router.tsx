@@ -4,6 +4,10 @@ import { Outlet, RouteObject, createBrowserRouter } from 'react-router-dom';
 import PageLoader from 'components/loading/PageLoader';
 import Splash from 'components/loading/Splash';
 import AuthLayout from 'layouts/auth-layout';
+import { rootPaths } from './paths';
+import paths from './paths';
+import Login from 'pages/authentication/Login';
+import SignUp from 'pages/authentication/SignUp';
 
 const App = lazy(() => import('App'));
 
@@ -21,7 +25,7 @@ const routes: RouteObject[] = [
     ),
     children: [
       {
-        path: '',
+        path: paths.home,
         element: (
           <MainLayout>
             <Suspense fallback={<PageLoader />}>
@@ -31,13 +35,14 @@ const routes: RouteObject[] = [
         ),
         children: [
           {
-            path: '/',
+            index: true,
+            // path: paths.home,
             element: <Dashboard />,
           },
         ],
       },
       {
-        path: 'authentication',
+        path: rootPaths.authRoot,
         element: (
           <AuthLayout>
             <Suspense fallback={<PageLoader />}>
@@ -47,12 +52,12 @@ const routes: RouteObject[] = [
         ),
         children: [
           {
-            path: 'login',
-            element: <></>,
+            path: paths.login,
+            element: <Login />,
           },
           {
-            path: 'register',
-            element: <></>,
+            path: paths.signup,
+            element: <SignUp />,
           },
         ],
       },
@@ -69,4 +74,5 @@ const options: { basename: string } = {
 };
 
 const router = createBrowserRouter(routes, options);
+
 export default router;

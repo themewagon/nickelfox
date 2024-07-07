@@ -9,6 +9,7 @@ import {
   LegendComponentOption,
   TooltipComponentOption,
 } from 'echarts/components';
+import { stone } from 'theme/colors';
 
 type CustomerFulfillmentChartProps = {
   chartRef: React.MutableRefObject<EChartsReactCore | null>;
@@ -77,7 +78,7 @@ const CustomerFulfillmentChart = ({
             color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
               {
                 offset: 1,
-                color: theme.palette.grey.A400,
+                color: stone[800],
               },
               {
                 offset: 0,
@@ -106,7 +107,7 @@ const CustomerFulfillmentChart = ({
             color: new echarts.graphic.LinearGradient(0, 0, 0, 0.8, [
               {
                 offset: 1,
-                color: theme.palette.grey.A400,
+                color: stone[800],
               },
               {
                 offset: 0,

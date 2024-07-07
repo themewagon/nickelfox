@@ -21,7 +21,7 @@ const SaleCard = ({ icon, title, subtitle, increment, color }: SaleCardProps): R
         <Typography variant="body1" color="text.secondary">
           {subtitle}
         </Typography>
-        <Typography variant="body2" color={color} whiteSpace="nowrap" lineHeight={1.25}>
+        <Typography variant="body2" color={color} lineHeight={1.25}>
           +{increment}% from yesterday
         </Typography>
       </Stack>
