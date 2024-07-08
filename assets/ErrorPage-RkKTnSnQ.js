@@ -1,1 +1,0 @@
-import{j as r,S as o}from"./index-CgNcXDMp.js";import{T as t}from"./Typography-Be-Sy0Bs.js";const a=()=>r.jsxs(o,{height:"100vh",justifyContent:"center",alignItems:"center",children:[r.jsx(t,{variant:"h2",color:"common.text",children:"404"}),r.jsx(t,{variant:"h4",color:"common.primary",children:"Page does not exist!"})]});export{a as default};
