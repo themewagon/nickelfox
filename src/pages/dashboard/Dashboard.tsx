@@ -6,9 +6,9 @@ import VisitorInsights from 'components/sections/dashboard/visitor-insights/Visi
 import TodaysSales from 'components/sections/dashboard/todays-sales/TodaysSales';
 import TopProducts from 'components/sections/dashboard/top-products/TopProducts';
 import TrendingNow from 'components/sections/dashboard/trending-now/TrendingNow';
+import Customers from 'components/sections/dashboard/customers/Customers';
 import Earnings from 'components/sections/dashboard/earnings/Earnings';
 import Level from 'components/sections/dashboard/level/Level';
-import Customers from 'components/sections/dashboard/customers/Customers';
 
 const Dashboard = (): ReactElement => {
   return (

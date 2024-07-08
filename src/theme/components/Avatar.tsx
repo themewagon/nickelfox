@@ -12,7 +12,6 @@ const Avatar: Components<Omit<Theme, 'components'>>['MuiAvatar'] = {
       fontSize: theme.typography.body1.fontSize,
       fontWeight: theme.typography.body1.fontWeight,
     }),
-    img: () => ({}),
   },
 };
 

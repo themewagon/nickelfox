@@ -19,7 +19,7 @@ const PageLoader = (props: StackOwnProps): ReactElement => {
         <CircularProgress
           size={150}
           thickness={5}
-          sx={{ svg_circle: { stroke: 'url(#page_loader_gradient)' } }}
+          sx={{ 'svg circle': { stroke: `url(#page_loader_gradient)` } }}
         />
       </Box>
     </Stack>

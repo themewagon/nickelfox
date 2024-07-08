@@ -7,6 +7,7 @@ const palette: PaletteOptions = {
     main: teal[100],
   },
   secondary: {
+    light: fuchsia[50],
     main: fuchsia[100],
   },
   success: {

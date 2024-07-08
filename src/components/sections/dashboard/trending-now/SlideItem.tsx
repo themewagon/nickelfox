@@ -28,14 +28,7 @@ const SlideItem = ({ name, imgsrc, popularity, users }: TrendingItem): ReactElem
           <Typography variant="subtitle2">Popularity</Typography>
           <Typography variant="subtitle2">{popularity}%</Typography>
         </Stack>
-        <LinearProgress
-          variant="determinate"
-          color="info"
-          value={popularity}
-          sx={{
-            my: 2,
-          }}
-        />
+        <LinearProgress variant="determinate" color="info" value={popularity} />
         <AvatarGroup max={4}>
           {users.map((user, idx) => (
             <Avatar key={idx} {...stringAvatar(user)} />

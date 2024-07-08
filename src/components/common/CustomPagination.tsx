@@ -29,14 +29,26 @@ const CustomPagination = (): ReactElement => {
     >
       {available !== 0 ? (
         <>
-          <Typography variant="body1" color="text.secondary">
+          <Typography
+            variant="body1"
+            color="text.secondary"
+            sx={{
+              textWrap: 'wrap',
+            }}
+          >
             Showing {(paginationRowRange?.firstRowIndex as number) + 1}-
             {(paginationRowRange?.lastRowIndex as number) + 1} out of {available} data
           </Typography>
         </>
       ) : (
         <>
-          <Typography variant="body1" color="text.secondary">
+          <Typography
+            variant="body1"
+            color="text.secondary"
+            sx={{
+              textWrap: 'wrap',
+            }}
+          >
             Showing 0-0 out of {available} data
           </Typography>
         </>

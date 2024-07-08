@@ -11,8 +11,11 @@ import {
 import IconifyIcon from 'components/base/IconifyIcon';
 import navItems from 'data/nav-items';
 import SimpleBar from 'simplebar-react';
+import { useLocation } from 'react-router-dom';
 
 const Sidebar = ({ open }: { open: boolean }): ReactElement => {
+  const { pathname } = useLocation();
+
   return (
     <>
       <SimpleBar style={{ maxHeight: '100vh' }}>
@@ -30,32 +33,40 @@ const Sidebar = ({ open }: { open: boolean }): ReactElement => {
                 display: 'block',
                 px: 4,
                 borderRight: !open
-                  ? navItem.active
+                  ? pathname === navItem.path
                     ? `3px solid ${theme.palette.primary.main}`
                     : `3px solid transparent`
                   : '',
-                transition: navItem.active
-                  ? theme.transitions.create('all', {
-                      easing: theme.transitions.easing.sharp,
-                      duration: theme.transitions.duration.leavingScreen,
-                    })
-                  : '',
+                transition:
+                  pathname === navItem.path
+                    ? theme.transitions.create('all', {
+                        easing: theme.transitions.easing.sharp,
+                        duration: theme.transitions.duration.leavingScreen,
+                      })
+                    : '',
               })}
             >
               <ListItemButton
                 LinkComponent={Link}
                 href={navItem.path}
+                // disabled={!navItem.active}
                 sx={(theme) => ({
-                  bgcolor: navItem.active ? (open ? 'primary.main' : '') : 'background.default',
+                  opacity: navItem.active ? 1 : 0.5,
+                  bgcolor:
+                    pathname === navItem.path ? (open ? 'primary.main' : '') : 'background.default',
                   '&:hover': {
-                    bgcolor: navItem.active
-                      ? open
-                        ? 'primary.dark'
-                        : 'background.paper'
-                      : 'background.paper',
+                    // '.MuiListItemIcon-root, .MuiListItemText-root': {
+                    //   color: pathname !== navItem.path && navItem.active ? 'primary.main' : '',
+                    // },
+                    bgcolor:
+                      pathname === navItem.path
+                        ? open
+                          ? 'primary.dark'
+                          : 'background.paper'
+                        : 'background.paper',
                   },
                   '& .MuiTouchRipple-root': {
-                    color: navItem.active ? 'primary.main' : 'text.disabled',
+                    color: pathname === navItem.path ? 'primary.main' : 'text.disabled',
                   },
                   transition: open
                     ? theme.transitions.create('all', {
@@ -71,11 +82,12 @@ const Sidebar = ({ open }: { open: boolean }): ReactElement => {
                 <ListItemIcon
                   sx={(theme) => ({
                     mr: open ? 'auto' : 0,
-                    color: navItem.active
-                      ? open
-                        ? 'background.default'
-                        : 'primary.main'
-                      : 'text.primary',
+                    color:
+                      pathname === navItem.path
+                        ? open
+                          ? 'background.default'
+                          : 'primary.main'
+                        : 'text.primary',
                     transition: open
                       ? theme.transitions.create('all', {
                           easing: theme.transitions.easing.sharp,
@@ -94,7 +106,7 @@ const Sidebar = ({ open }: { open: boolean }): ReactElement => {
                   sx={{
                     display: open ? 'inline-block' : 'none',
                     opacity: open ? 1 : 0,
-                    color: navItem.active ? 'background.default' : '',
+                    color: pathname === navItem.path ? 'background.default' : '',
                   }}
                 />
               </ListItemButton>

@@ -1,6 +1,6 @@
 import { Box, Drawer, Toolbar } from '@mui/material';
 import { PropsWithChildren, ReactElement, useCallback, useState } from 'react';
-import { closedMixin, openedMixin } from 'theme/mixins';
+import { closedMixin, openedMixin } from 'theme/functions/sidebar-mixins';
 import Topbar from './Topbar/Topbar';
 import Sidebar from './Sidebar';
 

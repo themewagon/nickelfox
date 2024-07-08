@@ -5,7 +5,7 @@ const InputAdornment: Components<Omit<Theme, 'components'>>['MuiInputAdornment']
   defaultProps: {},
   styleOverrides: {
     root: ({ theme }) => ({
-      color: theme.palette.grey[300],
+      color: theme.palette.action.disabled,
     }),
   },
 };

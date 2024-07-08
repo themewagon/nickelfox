@@ -1,6 +1,5 @@
 import { Components, Theme } from '@mui/material';
 
-import SnackbarContent from './components/SnackbarContent';
 import InputAdornment from './components/InputAdornment';
 import LinearProgress from './components/LinearProgress';
 import ListItemButton from './components/ListItemButton';
@@ -16,6 +15,7 @@ import FilledInput from './components/FilledInput';
 import ButtonBase from './components/ButtonBase';
 import IconButton from './components/IconButton';
 import InputLabel from './components/InputLabel';
+import Pagination from './components/Pagination';
 import CardMedia from './components/CardMedia';
 import InputBase from './components/InputBase';
 import TableCell from './components/TableCell';
@@ -37,7 +37,6 @@ import List from './components/List';
 import Menu from './components/Menu';
 
 const components: Components<Omit<Theme, 'components'>> = {
-  MuiSnackbarContent: SnackbarContent,
   MuiInputAdornment: InputAdornment,
   MuiLinearProgress: LinearProgress,
   MuiListItemButton: ListItemButton,
@@ -52,6 +51,7 @@ const components: Components<Omit<Theme, 'components'>> = {
   MuiButtonBase: ButtonBase,
   MuiIconButton: IconButton,
   MuiInputLabel: InputLabel,
+  MuiPagination: Pagination,
   MuiCardMedia: CardMedia,
   MuiInputBase: InputBase,
   MuiTableCell: TableCell,

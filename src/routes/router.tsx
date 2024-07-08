@@ -1,20 +1,24 @@
-import { Suspense, lazy } from 'react';
+import { PropsWithChildren, ReactElement, Suspense, lazy } from 'react';
 import { Outlet, RouteObject, createBrowserRouter } from 'react-router-dom';
 
 import PageLoader from 'components/loading/PageLoader';
 import Splash from 'components/loading/Splash';
-import AuthLayout from 'layouts/auth-layout';
 import { rootPaths } from './paths';
 import paths from './paths';
-import Login from 'pages/authentication/Login';
-import SignUp from 'pages/authentication/SignUp';
 
-const App = lazy(() => import('App'));
+const App = lazy<() => ReactElement>(() => import('App'));
 
-const MainLayout = lazy(() => import('layouts/main-layout'));
+const MainLayout = lazy<({ children }: PropsWithChildren) => ReactElement>(
+  () => import('layouts/main-layout'),
+);
+const AuthLayout = lazy<({ children }: PropsWithChildren) => ReactElement>(
+  () => import('layouts/auth-layout'),
+);
 
-const ErrorPage = lazy(() => import('pages/error/ErrorPage'));
-const Dashboard = lazy(() => import('pages/dashboard/Dashboard'));
+const Dashboard = lazy<() => ReactElement>(() => import('pages/dashboard/Dashboard'));
+const Login = lazy<() => ReactElement>(() => import('pages/authentication/Login'));
+const SignUp = lazy<() => ReactElement>(() => import('pages/authentication/SignUp'));
+const ErrorPage = lazy<() => ReactElement>(() => import('pages/error/ErrorPage'));
 
 const routes: RouteObject[] = [
   {

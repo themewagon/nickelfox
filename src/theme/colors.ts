@@ -90,21 +90,21 @@ export const pinkishRed: Color = {
 };
 
 export const grey: Color = {
-  50: '#f6f6ff',
-  100: '#f2f1ff',
-  200: '#ebebf9',
-  300: '#cac9d7',
-  400: '#acacb9',
-  500: '#82818f',
-  600: '#6d6d7a',
-  700: '#4d4d59',
+  50: '#F6F6FF',
+  100: '#F2F1FF',
+  200: '#EBEBF9',
+  300: '#CAC9D7',
+  400: '#ACACB9',
+  500: '#82818F',
+  600: '#6D6D7A',
+  700: '#4D4D59',
   800: '#2B2B36',
   900: '#21222D',
 };
 
 export const stone: Color = {
-  50: '#f8f8f8',
-  100: '#efefef',
+  50: '#F8F8F8',
+  100: '#EFEFEF',
   200: '#E8E8E8',
   300: '#D9D9D9',
   400: '#D2D2D2',

@@ -79,10 +79,17 @@ const navItems: NavItem[] = [
   },
   {
     id: 11,
-    path: '#!',
-    title: 'Signout',
-    icon: 'akar-icons:sign-out',
-    active: false,
+    path: 'authentication/login',
+    title: 'Login',
+    icon: 'tabler:login',
+    active: true,
+  },
+  {
+    id: 12,
+    path: 'authentication/sign-up',
+    title: 'Sign In',
+    icon: 'tdesign:user-add',
+    active: true,
   },
 ];
 

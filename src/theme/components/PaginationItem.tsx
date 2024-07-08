@@ -13,7 +13,7 @@ const PaginationItem: Components<Omit<Theme, 'components'>>['MuiPaginationItem']
     }),
     page: ({ theme }) => ({
       borderRadius: theme.shape.borderRadius * 10,
-      fontSize: theme.typography.body1.fontSize,
+      fontSize: theme.typography.subtitle1.fontSize,
       fontWeight: theme.typography.body1.fontWeight,
     }),
   },
