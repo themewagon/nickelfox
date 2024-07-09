@@ -3,7 +3,7 @@ import totalOrder from 'assets/images/todays-sales/total-order.png';
 import productSold from 'assets/images/todays-sales/product-sold.png';
 import newCustomer from 'assets/images/todays-sales/new-customer.png';
 
-interface saleItem {
+export interface SaleItem {
   id?: number;
   icon: string;
   title: string;
@@ -12,7 +12,7 @@ interface saleItem {
   color: string;
 }
 
-const salesData: saleItem[] = [
+const salesData: SaleItem[] = [
   {
     id: 1,
     icon: totalSales,

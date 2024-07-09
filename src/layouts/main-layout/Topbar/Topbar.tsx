@@ -25,7 +25,7 @@ const Topbar = ({
       sx={(theme) => ({
         zIndex: theme.zIndex.drawer + 1,
         left: 0,
-        ml: open ? 40 : 22,
+        ml: open ? 70 : 38.5,
         width: open ? `calc(100% - ${drawerOpenWidth}px)` : `calc(100% - ${drawerCloseWidth}px)`,
         transition: open
           ? theme.transitions.create(['width', 'margin'], {
@@ -45,8 +45,7 @@ const Topbar = ({
         justifyContent="space-between"
         sx={{
           bgcolor: 'background.default',
-          height: 1,
-          minHeight: 64,
+          height: 116,
         }}
       >
         <Stack direction="row" gap={2} alignItems="center" ml={5} flex="1 1 51%">
@@ -110,7 +109,7 @@ const Topbar = ({
                 padding: 1,
               }}
             >
-              <IconifyIcon icon="ph:bell-bold" width={15} height={17} />
+              <IconifyIcon icon="ph:bell-bold" width={29} height={32} />
             </IconButton>
           </Badge>
           <UserDropdown />

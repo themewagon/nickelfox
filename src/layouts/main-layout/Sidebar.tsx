@@ -19,7 +19,11 @@ const Sidebar = ({ open }: { open: boolean }): ReactElement => {
   return (
     <>
       <SimpleBar style={{ maxHeight: '100vh' }}>
-        <Toolbar />
+        <Toolbar
+          sx={{
+            height: 98,
+          }}
+        />
         <List
           sx={{
             py: 2.5,
@@ -31,7 +35,7 @@ const Sidebar = ({ open }: { open: boolean }): ReactElement => {
               disablePadding
               sx={(theme) => ({
                 display: 'block',
-                px: 4,
+                px: 10,
                 borderRight: !open
                   ? pathname === navItem.path
                     ? `3px solid ${theme.palette.primary.main}`
@@ -55,9 +59,6 @@ const Sidebar = ({ open }: { open: boolean }): ReactElement => {
                   bgcolor:
                     pathname === navItem.path ? (open ? 'primary.main' : '') : 'background.default',
                   '&:hover': {
-                    // '.MuiListItemIcon-root, .MuiListItemText-root': {
-                    //   color: pathname !== navItem.path && navItem.active ? 'primary.main' : '',
-                    // },
                     bgcolor:
                       pathname === navItem.path
                         ? open
@@ -81,6 +82,8 @@ const Sidebar = ({ open }: { open: boolean }): ReactElement => {
               >
                 <ListItemIcon
                   sx={(theme) => ({
+                    width: 20,
+                    height: 20,
                     mr: open ? 'auto' : 0,
                     color:
                       pathname === navItem.path

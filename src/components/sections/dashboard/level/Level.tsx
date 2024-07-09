@@ -13,14 +13,14 @@ const Level = (): ReactElement => {
   const chartRef = useRef<EChartsReactCore | null>(null);
 
   return (
-    <Paper sx={{ p: 3.5, minHeight: 201, height: 1 }}>
+    <Paper sx={{ p: 8, height: 1 }}>
       <Typography variant="h4" color="common.white">
         Level
       </Typography>
       <Stack
         flex={1}
         pt={5.5}
-        borderBottom={1}
+        borderBottom={0.5}
         justifyContent="flex-end"
         sx={{
           borderBottomColor: alpha(theme.palette.common.white, 0.06),
@@ -29,7 +29,7 @@ const Level = (): ReactElement => {
         <LevelChart
           chartRef={chartRef}
           data={levelChartData}
-          sx={{ height: '115px !important', flexGrow: 1 }}
+          sx={{ height: '181px !important', flexGrow: 1 }}
         />
       </Stack>
       <Stack
@@ -57,24 +57,26 @@ const Level = (): ReactElement => {
             p: 0.5,
             borderRadius: 1,
             gap: 1,
+            color: 'text.disabled',
+            fontSize: 'body2.fontSize',
             alignItems: 'baseline',
             '&:hover': {
               bgcolor: 'transparent',
             },
           }}
           disableRipple
+          startIcon={
+            <Box
+              sx={{
+                width: 8,
+                height: 8,
+                bgcolor: 'grey.900',
+                borderRadius: 400,
+              }}
+            />
+          }
         >
-          <Box
-            sx={{
-              width: 8,
-              height: 8,
-              bgcolor: 'grey.900',
-              borderRadius: 400,
-            }}
-          ></Box>
-          <Typography variant="body1" color="text.disabled" flex={1} textAlign={'left'}>
-            Service
-          </Typography>
+          Service
         </Button>
         <Button
           variant="text"
@@ -83,24 +85,29 @@ const Level = (): ReactElement => {
             p: 0.5,
             borderRadius: 1,
             gap: 1,
+            color: 'text.disabled',
+            fontSize: 'body2.fontSize',
             alignItems: 'baseline',
             '&:hover': {
               bgcolor: 'transparent',
             },
+            '& .MuiButton-startIcon': {
+              mx: 0,
+            },
           }}
           disableRipple
+          startIcon={
+            <Box
+              sx={{
+                width: 8,
+                height: 8,
+                bgcolor: 'primary.main',
+                borderRadius: 400,
+              }}
+            />
+          }
         >
-          <Box
-            sx={{
-              width: 8,
-              height: 8,
-              bgcolor: 'primary.main',
-              borderRadius: 400,
-            }}
-          ></Box>
-          <Typography variant="body1" color="text.disabled" flex={1} textAlign={'left'}>
-            Volume
-          </Typography>
+          Volume
         </Button>
       </Stack>
     </Paper>

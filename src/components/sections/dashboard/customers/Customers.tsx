@@ -12,7 +12,7 @@ const Customers = (): ReactElement => {
   }, []);
 
   return (
-    <Paper sx={{ p: 3.5 }}>
+    <Paper sx={{ p: 8, height: 1 }}>
       <Stack
         direction="row"
         justifyContent="space-between"
@@ -57,7 +57,7 @@ const Customers = (): ReactElement => {
           }}
         />
       </Stack>
-      <Box width={1} height={238}>
+      <Box width={1} minHeight={238}>
         <CustomerTable searchText={search} />
       </Box>
     </Paper>

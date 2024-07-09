@@ -4,8 +4,8 @@ import { closedMixin, openedMixin } from 'theme/functions/sidebar-mixins';
 import Topbar from './Topbar/Topbar';
 import Sidebar from './Sidebar';
 
-export const drawerOpenWidth = 160;
-export const drawerCloseWidth = 88;
+export const drawerOpenWidth = 280;
+export const drawerCloseWidth = 154;
 
 const MainLayout = ({ children }: PropsWithChildren): ReactElement => {
   const [open, setOpen] = useState<boolean>(false);
@@ -35,7 +35,9 @@ const MainLayout = ({ children }: PropsWithChildren): ReactElement => {
         component="main"
         overflow="auto"
         sx={(theme) => ({
+          width: 1,
           flexGrow: 1,
+          // overflow: 'hidden',
           pt: 5,
           pr: { xs: 2.5875, sm: 5.175 },
           pb: 6.25,
@@ -46,7 +48,11 @@ const MainLayout = ({ children }: PropsWithChildren): ReactElement => {
           }),
         })}
       >
-        <Toolbar />
+        <Toolbar
+          sx={{
+            height: 96,
+          }}
+        />
         {children}
       </Box>
     </Box>

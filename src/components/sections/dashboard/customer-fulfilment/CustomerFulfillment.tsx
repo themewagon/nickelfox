@@ -21,7 +21,7 @@ const CustomerFulfillment = (): ReactElement => {
   );
 
   return (
-    <Paper sx={{ p: 3.5, height: 1 }}>
+    <Paper sx={{ p: 8, height: 1 }}>
       <Typography variant="h4" color="common.white">
         Customer Fulfillment
       </Typography>

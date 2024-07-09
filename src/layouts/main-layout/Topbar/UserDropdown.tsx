@@ -83,13 +83,13 @@ const UserDropdown = (): ReactElement => {
         }}
       >
         <Tooltip title="Nickelfox" arrow placement="bottom">
-          <Avatar src={profile} sx={{ width: 29, height: 29 }} />
+          <Avatar src={profile} sx={{ width: 44, height: 44 }} />
         </Tooltip>
         <IconifyIcon
           color="common.white"
           icon="mingcute:down-fill"
-          width={15}
-          height={15}
+          width={22.5}
+          height={22.5}
           sx={(theme) => ({
             transform: menuOpen ? `rotate(180deg)` : `rotate(0deg)`,
             transition: theme.transitions.create('all', {

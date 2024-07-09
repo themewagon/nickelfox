@@ -6,7 +6,7 @@ import EChartsReactCore from 'echarts-for-react/lib/core';
 const Earnings = (): ReactElement => {
   const chartRef = useRef<EChartsReactCore | null>(null);
   return (
-    <Paper sx={{ px: 3.5, py: 5, height: 1 }}>
+    <Paper sx={{ p: 8, height: 1 }}>
       <Stack gap={1}>
         <Typography variant="h4" color="common.white">
           Earnings

@@ -32,6 +32,7 @@ import Paper from './components/Paper';
 import Stack from './components/Stack';
 import Card from './components/Card';
 import Chip from './components/Chip';
+import Grid from './components/Grid';
 import Link from './components/Link';
 import List from './components/List';
 import Menu from './components/Menu';
@@ -69,6 +70,7 @@ const components: Components<Omit<Theme, 'components'>> = {
   MuiStack: Stack,
   MuiCard: Card,
   MuiChip: Chip,
+  MuiGrid: Grid,
   MuiLink: Link,
   MuiList: List,
   MuiMenu: Menu,

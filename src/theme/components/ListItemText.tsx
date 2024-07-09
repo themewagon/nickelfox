@@ -9,8 +9,8 @@ const ListItemText: Components<Omit<Theme, 'components'>>['MuiListItemText'] = {
       color: theme.palette.text.primary,
     }),
     primary: ({ theme }) => ({
-      fontSize: theme.typography.subtitle1.fontSize,
-      fontWeight: theme.typography.subtitle2.fontWeight,
+      fontSize: theme.typography.body1.fontSize,
+      fontWeight: theme.typography.body1.fontWeight,
       whiteSpace: 'nowrap',
     }),
   },

@@ -1,4 +1,4 @@
-import { SxProps, useTheme } from '@mui/material';
+import { alpha, SxProps, useTheme } from '@mui/material';
 import ReactEChart from 'components/base/ReactEChart';
 import { BarSeriesOption } from 'echarts';
 import * as echarts from 'echarts';
@@ -34,20 +34,26 @@ const LevelChart = ({ chartRef, data, ...rest }: LevelChartProps): ReactElement 
         show: false,
         data: ['Service', 'Volume'],
       },
-      xAxis: [
-        {
-          type: 'category',
-          show: false,
-          axisTick: { show: false },
-          data: ['Level 1', 'Level 2', 'Level 3', 'Level 4', 'Level 5', 'Level 6'],
-        },
-      ],
-      yAxis: [
-        {
-          type: 'value',
+      xAxis: {
+        type: 'category',
+        show: true,
+        axisTick: { show: false },
+        data: ['Level 1', 'Level 2', 'Level 3', 'Level 4', 'Level 5', 'Level 6'],
+        axisLabel: {
           show: false,
         },
-      ],
+        axisLine: {
+          show: true,
+          lineStyle: {
+            color: alpha(theme.palette.common.white, 0.06),
+            width: 1,
+          },
+        },
+      },
+      yAxis: {
+        type: 'value',
+        show: false,
+      },
       grid: {
         left: 0,
         right: 0,
@@ -60,7 +66,7 @@ const LevelChart = ({ chartRef, data, ...rest }: LevelChartProps): ReactElement 
           name: 'Service',
           type: 'bar',
           stack: 'Service',
-          barWidth: 15,
+          barWidth: 25,
           emphasis: {
             focus: 'series',
           },
@@ -75,7 +81,7 @@ const LevelChart = ({ chartRef, data, ...rest }: LevelChartProps): ReactElement 
           name: 'Volume',
           type: 'bar',
           stack: 'Service',
-          barWidth: 15,
+          barWidth: 25,
           emphasis: {
             focus: 'series',
           },
@@ -87,7 +93,7 @@ const LevelChart = ({ chartRef, data, ...rest }: LevelChartProps): ReactElement 
         },
       ],
     }),
-    [],
+    [theme],
   );
 
   return <ReactEChart ref={chartRef} option={option} echarts={echarts} {...rest} />;
