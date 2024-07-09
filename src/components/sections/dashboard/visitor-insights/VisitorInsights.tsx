@@ -44,13 +44,13 @@ const VisitorInsights = (): ReactElement => {
           </Typography>
         </Button>
       </Stack>
-      <Box flex={1}>
+      <Stack flex={1} justifyContent="flex-end">
         <VisitorInsightsChart
           chartRef={chartRef}
           data={visitorInsightsChartData}
-          sx={{ height: '200px !important' }}
+          sx={{ height: '200px !important', flexGrow: 1 }}
         />
-      </Box>
+      </Stack>
     </Paper>
   );
 };

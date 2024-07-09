@@ -1,16 +1,16 @@
 import {
-  Button,
-  Divider,
-  IconButton,
-  InputAdornment,
   Link,
   Paper,
   Stack,
+  Button,
+  Divider,
   TextField,
+  IconButton,
   Typography,
+  InputAdornment,
 } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
-import { ReactElement, useState } from 'react';
+import { useState, ReactElement } from 'react';
 import { stone } from 'theme/colors';
 
 const SignUp = (): ReactElement => {

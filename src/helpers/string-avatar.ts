@@ -26,11 +26,16 @@ function stringToColorAndContrast(name: string) {
 export function stringAvatar(name: string) {
   const { hex, contrastColor } = stringToColorAndContrast(name);
 
+  const [firstInitial, lastInitial] = [
+    name.split(' ').at(0)?.charAt(0),
+    name.split(' ').at(1)?.charAt(0),
+  ];
+
   return {
     sx: {
       bgcolor: hex,
       color: contrastColor,
     },
-    children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
+    children: `${firstInitial}${lastInitial}`,
   };
 }

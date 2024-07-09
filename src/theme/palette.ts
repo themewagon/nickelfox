@@ -1,5 +1,5 @@
 import { PaletteOptions } from '@mui/material';
-import { bluishCyan, fuchsia, green, grey, pinkishRed, stone, teal, yellowOrange } from './colors';
+import { teal, grey, green, stone, fuchsia, bluishCyan, pinkishRed, yellowOrange } from './colors';
 
 const palette: PaletteOptions = {
   primary: {

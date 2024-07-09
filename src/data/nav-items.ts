@@ -87,7 +87,7 @@ const navItems: NavItem[] = [
   {
     id: 12,
     path: 'authentication/sign-up',
-    title: 'Sign In',
+    title: 'Sign Up',
     icon: 'tdesign:user-add',
     active: true,
   },

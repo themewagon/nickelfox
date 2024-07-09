@@ -25,20 +25,21 @@ const CustomerFulfillment = (): ReactElement => {
       <Typography variant="h4" color="common.white">
         Customer Fulfillment
       </Typography>
-      <Box
+      <Stack
         flex={1}
         pt={5.5}
         borderBottom={1}
+        justifyContent="flex-end"
         sx={{
           borderBottomColor: alpha(theme.palette.common.white, 0.06),
         }}
       >
         <CustomerFulfillmentChart
           chartRef={chartRef}
-          sx={{ height: '115px !important' }}
+          sx={{ height: '115px !important', flexGrow: 1 }}
           data={customerFulfillmentChartData}
         />
-      </Box>
+      </Stack>
       <Stack
         direction="row"
         justifyContent={{ xs: 'space-around', md: 'space-between', lg: 'space-around' }}

@@ -1,6 +1,6 @@
+import { ReactElement, PropsWithChildren } from 'react';
 import { Box, Stack } from '@mui/material';
 import Grid2 from '@mui/material/Unstable_Grid2/Grid2';
-import { PropsWithChildren, ReactElement } from 'react';
 
 const AuthLayout = ({ children }: PropsWithChildren): ReactElement => {
   return (

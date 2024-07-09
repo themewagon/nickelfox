@@ -1,17 +1,17 @@
-import { ReactElement, useEffect, useMemo } from 'react';
-import { Avatar, CircularProgress, Stack, Tooltip, Typography } from '@mui/material';
+import { useMemo, useEffect, ReactElement } from 'react';
+import { Stack, Avatar, Tooltip, Typography, CircularProgress } from '@mui/material';
 import {
-  DataGrid,
-  GridActionsCellItem,
   GridApi,
-  GridColDef,
-  GridRenderCellParams,
+  DataGrid,
   GridSlots,
-  GridTreeNodeWithRender,
+  GridColDef,
   useGridApiRef,
+  GridActionsCellItem,
+  GridRenderCellParams,
+  GridTreeNodeWithRender,
 } from '@mui/x-data-grid';
-import { stringAvatar } from 'helpers/string-avatar';
 import { rows } from 'data/customer-data';
+import { stringAvatar } from 'helpers/string-avatar';
 import IconifyIcon from 'components/base/IconifyIcon';
 import { currencyFormat } from 'helpers/format-functions';
 import CustomPagination from 'components/common/CustomPagination';

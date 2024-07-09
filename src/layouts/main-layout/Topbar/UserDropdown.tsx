@@ -1,7 +1,7 @@
-import { Avatar, Button, ListItemIcon, ListItemText, Menu, MenuItem, Tooltip } from '@mui/material';
+import { Menu, Avatar, Button, Tooltip, MenuItem, ListItemIcon, ListItemText } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
-import profile from 'assets/account/Profile.png';
-import { MouseEvent, ReactElement, useCallback, useState } from 'react';
+import profile from 'assets/images/account/Profile.png';
+import { useState, MouseEvent, useCallback, ReactElement } from 'react';
 
 interface UserMenuItem {
   id: number;

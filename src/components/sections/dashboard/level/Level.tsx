@@ -17,16 +17,21 @@ const Level = (): ReactElement => {
       <Typography variant="h4" color="common.white">
         Level
       </Typography>
-      <Box
+      <Stack
         flex={1}
         pt={5.5}
         borderBottom={1}
+        justifyContent="flex-end"
         sx={{
           borderBottomColor: alpha(theme.palette.common.white, 0.06),
         }}
       >
-        <LevelChart chartRef={chartRef} data={levelChartData} sx={{ height: '115px !important' }} />
-      </Box>
+        <LevelChart
+          chartRef={chartRef}
+          data={levelChartData}
+          sx={{ height: '115px !important', flexGrow: 1 }}
+        />
+      </Stack>
       <Stack
         direction="row"
         justifyContent={{

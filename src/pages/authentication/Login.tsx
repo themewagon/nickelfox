@@ -1,19 +1,19 @@
 import {
-  Button,
-  Checkbox,
-  Divider,
-  FormControlLabel,
-  FormGroup,
-  IconButton,
-  InputAdornment,
   Link,
   Paper,
   Stack,
+  Button,
+  Divider,
+  Checkbox,
+  FormGroup,
   TextField,
+  IconButton,
   Typography,
+  InputAdornment,
+  FormControlLabel,
 } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
-import { ReactElement, useState } from 'react';
+import { useState, ReactElement } from 'react';
 import { stone } from 'theme/colors';
 
 const Login = (): ReactElement => {
@@ -111,7 +111,7 @@ const Login = (): ReactElement => {
           />
         </FormGroup>
         <Button LinkComponent={Link} href="/">
-          Sign In
+          Log In
         </Button>
         <Divider />
         <Stack

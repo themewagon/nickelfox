@@ -1,5 +1,5 @@
-import { ChangeEvent, ReactElement, useCallback, useState } from 'react';
-import { Box, InputAdornment, Paper, Stack, TextField, Typography } from '@mui/material';
+import { useState, ChangeEvent, useCallback, ReactElement } from 'react';
+import { Box, Paper, Stack, TextField, Typography, InputAdornment } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import CustomerTable from './CustomerTable';
 import { stone } from 'theme/colors';

@@ -1,11 +1,11 @@
 import {
-  AppBar,
   Badge,
+  Stack,
+  AppBar,
+  Toolbar,
+  TextField,
   IconButton,
   InputAdornment,
-  Stack,
-  TextField,
-  Toolbar,
 } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import { ReactElement } from 'react';

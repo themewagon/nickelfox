@@ -1,13 +1,13 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import {
+  useState,
+  useEffect,
+  useContext,
+  ReactElement,
   createContext,
   PropsWithChildren,
-  ReactElement,
-  useContext,
-  useEffect,
-  useState,
 } from 'react';
-import { Breakpoint, Theme } from '@mui/material';
+import { Theme, Breakpoint } from '@mui/material';
 import { useMediaQuery } from '@mui/material';
 
 interface BreakpointContextInterface {

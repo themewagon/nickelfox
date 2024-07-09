@@ -1,4 +1,4 @@
-import { PropsWithChildren, ReactElement, Suspense, lazy } from 'react';
+import { lazy, Suspense, ReactElement, PropsWithChildren } from 'react';
 import { Outlet, RouteObject, createBrowserRouter } from 'react-router-dom';
 
 import PageLoader from 'components/loading/PageLoader';

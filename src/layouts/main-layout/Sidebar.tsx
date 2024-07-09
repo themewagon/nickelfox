@@ -1,17 +1,17 @@
 import { ReactElement } from 'react';
+import { useLocation } from 'react-router-dom';
 import {
   Link,
   List,
+  Toolbar,
   ListItem,
-  ListItemButton,
   ListItemIcon,
   ListItemText,
-  Toolbar,
+  ListItemButton,
 } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import navItems from 'data/nav-items';
 import SimpleBar from 'simplebar-react';
-import { useLocation } from 'react-router-dom';
 
 const Sidebar = ({ open }: { open: boolean }): ReactElement => {
   const { pathname } = useLocation();
