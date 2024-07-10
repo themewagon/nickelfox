@@ -41,8 +41,8 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
       display: 'flex',
       alignItems: 'center',
       color: theme.palette.common.white,
-      fontSize: theme.typography.body1.fontSize,
-      fontWeight: theme.typography.body1.fontWeight,
+      fontSize: theme.typography.body2.fontSize,
+      fontWeight: theme.typography.body2.fontWeight,
       '&:focus': {
         outline: 'none !important',
       },
@@ -70,8 +70,8 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
     }),
     columnHeaderTitle: ({ theme }) => ({
       color: theme.palette.text.primary,
-      fontSize: theme.typography.h6.fontSize,
-      fontWeight: theme.typography.h6.fontWeight,
+      fontSize: theme.typography.subtitle2.fontSize,
+      fontWeight: theme.typography.subtitle2.fontWeight,
     }),
     columnSeparator: () => ({
       display: 'none',

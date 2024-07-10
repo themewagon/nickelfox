@@ -51,13 +51,10 @@ const Customers = (): ReactElement => {
                 <IconifyIcon icon="akar-icons:search" width={13} height={13} />
               </InputAdornment>
             ),
-            sx: {
-              // bgcolor: 'background.default',
-            },
           }}
         />
       </Stack>
-      <Box width={1} minHeight={238}>
+      <Box width={1} flexGrow={1} height={{ xs: 325, '2xl': 'auto' }}>
         <CustomerTable searchText={search} />
       </Box>
     </Paper>

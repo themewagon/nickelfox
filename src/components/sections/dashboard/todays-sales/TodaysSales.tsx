@@ -14,7 +14,7 @@ const TodaysSales = (): ReactElement => {
       </Typography>
       <Box display="grid" gridTemplateColumns="repeat(12, 1fr)" gap={6}>
         {salesData.map((saleItem) => (
-          <Box key={saleItem.id} gridColumn={{ xs: 'span 6', sm: 'span 3' }}>
+          <Box key={saleItem.id} gridColumn={{ xs: 'span 12', sm: 'span 6', lg: 'span 3' }}>
             <SaleCard saleItem={saleItem} />
           </Box>
         ))}

@@ -36,7 +36,7 @@ const CustomerFulfillment = (): ReactElement => {
       >
         <CustomerFulfillmentChart
           chartRef={chartRef}
-          sx={{ height: '115px !important', flexGrow: 1 }}
+          sx={{ height: '220px !important', flexGrow: 1 }}
           data={customerFulfillmentChartData}
         />
       </Stack>

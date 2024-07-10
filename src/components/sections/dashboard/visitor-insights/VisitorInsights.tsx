@@ -12,7 +12,13 @@ const VisitorInsights = (): ReactElement => {
 
   return (
     <Paper sx={{ p: 8, height: 1 }}>
-      <Stack direction="row" justifyContent="space-between" alignItems="center" flexWrap="wrap">
+      <Stack
+        direction="row"
+        justifyContent="space-between"
+        alignItems="center"
+        flexWrap="wrap"
+        mb={6}
+      >
         <Typography variant="h4" color="common.white">
           Visitor Insights
         </Typography>
@@ -55,7 +61,7 @@ const VisitorInsights = (): ReactElement => {
         <VisitorInsightsChart
           chartRef={chartRef}
           data={visitorInsightsChartData}
-          sx={{ height: '200px !important', flexGrow: 1 }}
+          sx={{ height: '342px !important', flexGrow: 1 }}
         />
       </Stack>
     </Paper>

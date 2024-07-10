@@ -1,21 +1,21 @@
+import { ReactElement } from 'react';
 import {
   Paper,
   Table,
+  TableRow,
   TableBody,
   TableCell,
-  TableContainer,
   TableHead,
-  TableRow,
   Typography,
+  TableContainer,
 } from '@mui/material';
 import { productTableRows } from 'data/product-data';
-import { ReactElement } from 'react';
-import ProductItem from './ProductItem';
+import ProductItemRow from './ProductItemRow';
 
 const TopProducts = (): ReactElement => {
   return (
     <Paper sx={{ p: 8, height: 1 }}>
-      <Typography variant="h4" color="common.white">
+      <Typography variant="h4" color="common.white" mb={6}>
         Top Products
       </Typography>
       <TableContainer>
@@ -30,13 +30,7 @@ const TopProducts = (): ReactElement => {
           </TableHead>
           <TableBody>
             {productTableRows.map((product) => (
-              <ProductItem
-                key={product.id}
-                id={product.id}
-                name={product.name}
-                color={product.color}
-                sales={product.sales}
-              />
+              <ProductItemRow key={product.id} productItem={product} />
             ))}
           </TableBody>
         </Table>

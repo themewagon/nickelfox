@@ -3,7 +3,7 @@ import * as echarts from 'echarts';
 import { LineSeriesOption } from 'echarts';
 import ReactEChart from 'components/base/ReactEChart';
 import EChartsReactCore from 'echarts-for-react/lib/core';
-import { SxProps, useTheme } from '@mui/material';
+import { alpha, SxProps, useTheme } from '@mui/material';
 import {
   GridComponentOption,
   LegendComponentOption,
@@ -47,14 +47,23 @@ const CustomerFulfillmentChart = ({
         left: '-15%',
         containLabel: true,
       },
-      xAxis: [
-        {
-          type: 'category',
-          boundaryGap: false,
+      xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        show: true,
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        axisLabel: {
           show: false,
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
         },
-      ],
+        axisLine: {
+          show: true,
+          lineStyle: {
+            color: alpha(theme.palette.common.white, 0.06),
+            width: 1,
+          },
+        },
+      },
+
       yAxis: [
         {
           type: 'value',
@@ -75,7 +84,7 @@ const CustomerFulfillmentChart = ({
           symbolSize: 5,
           areaStyle: {
             opacity: 0.8,
-            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 0.85, [
               {
                 offset: 1,
                 color: stone[800],

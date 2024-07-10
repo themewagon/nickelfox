@@ -63,15 +63,15 @@ const TrendingNow = (): ReactElement => {
           </IconButton>
         </Stack>
       </Stack>
-      <ReactSwiper onSwiper={setSwiperRef}>
+      <ReactSwiper
+        onSwiper={setSwiperRef}
+        sx={{
+          height: 1,
+        }}
+      >
         {trendingItemsSlides.map((slide) => (
           <SwiperSlide key={slide.id}>
-            <SlideItem
-              name={slide.name}
-              imgsrc={slide.imgsrc}
-              popularity={slide.popularity}
-              users={slide.users}
-            />
+            <SlideItem trendingItem={slide} />
           </SwiperSlide>
         ))}
       </ReactSwiper>

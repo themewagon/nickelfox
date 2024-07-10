@@ -34,12 +34,7 @@ const Level = (): ReactElement => {
       </Stack>
       <Stack
         direction="row"
-        justifyContent={{
-          xs: 'space-evenly',
-          sm: 'space-around',
-          md: 'space-between',
-          lg: 'space-around',
-        }}
+        justifyContent="space-around"
         divider={
           <Divider
             orientation="vertical"

@@ -30,7 +30,7 @@ const EarningsChart = ({ chartRef, ...rest }: EarningsChartProps): ReactElement 
           endAngle: 0,
           min: 0,
           max: 100,
-          radius: '150%',
+          radius: '200%',
           center: ['50%', '100%'],
           splitNumber: 10,
           itemStyle: {
@@ -40,13 +40,13 @@ const EarningsChart = ({ chartRef, ...rest }: EarningsChartProps): ReactElement 
           progress: {
             show: true,
             roundCap: false,
-            width: 22,
+            width: 40,
           },
           pointer: {
             icon: 'roundRect',
-            length: '60%',
+            length: '50%',
             width: 5,
-            offsetCenter: [0, -48],
+            offsetCenter: [0, -102],
             itemStyle: {
               borderWidth: 20,
             },
@@ -54,7 +54,7 @@ const EarningsChart = ({ chartRef, ...rest }: EarningsChartProps): ReactElement 
           axisLine: {
             roundCap: false,
             lineStyle: {
-              width: 22,
+              width: 40,
               color: [[1, theme.palette.grey[900]]],
             },
           },

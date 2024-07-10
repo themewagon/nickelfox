@@ -15,13 +15,14 @@ import { stringAvatar } from 'helpers/string-avatar';
 import IconifyIcon from 'components/base/IconifyIcon';
 import { currencyFormat } from 'helpers/format-functions';
 import CustomPagination from 'components/common/CustomPagination';
+import CustomNoResultsOverlay from 'components/common/CustomNoResultsOverlay';
 
 const columns: GridColDef<any>[] = [
   {
     field: 'id',
     headerName: 'ID',
     resizable: false,
-    flex: 0.25,
+    // flex: 0.25,
     minWidth: 60,
   },
   {
@@ -36,27 +37,27 @@ const columns: GridColDef<any>[] = [
           <Tooltip title={params.row.name} placement="top" arrow>
             <Avatar {...stringAvatar(params.row.name)} />
           </Tooltip>
-          <Typography variant="body1">{params.row.name}</Typography>
+          <Typography variant="body2">{params.row.name}</Typography>
         </Stack>
       );
     },
     resizable: false,
     flex: 1,
-    minWidth: 135,
+    minWidth: 155,
   },
   {
     field: 'email',
     headerName: 'Email',
     resizable: false,
     flex: 0.5,
-    minWidth: 125,
+    minWidth: 145,
   },
   {
     field: 'phone',
     headerName: 'Phone',
     resizable: false,
     flex: 1,
-    minWidth: 105,
+    minWidth: 115,
   },
   {
     field: 'billing-address',
@@ -64,7 +65,7 @@ const columns: GridColDef<any>[] = [
     sortable: false,
     resizable: false,
     flex: 1,
-    minWidth: 180,
+    minWidth: 250,
   },
   {
     field: 'total-spent',
@@ -74,7 +75,7 @@ const columns: GridColDef<any>[] = [
     align: 'right',
     headerAlign: 'right',
     flex: 1,
-    minWidth: 60,
+    minWidth: 80,
     valueFormatter: (value) => {
       return currencyFormat(value, { minimumFractionDigits: 2 });
     },
@@ -85,7 +86,7 @@ const columns: GridColDef<any>[] = [
     headerName: 'Actions',
     resizable: false,
     flex: 1,
-    minWidth: 60,
+    minWidth: 80,
     getActions: () => {
       return [
         <Tooltip title="Edit">
@@ -136,7 +137,7 @@ const CustomerTable = ({ searchText }: { searchText: string }): ReactElement => 
     <>
       <DataGrid
         apiRef={apiRef}
-        density="compact"
+        density="standard"
         columns={visibleColumns}
         autoHeight={false}
         rowHeight={56}
@@ -157,6 +158,7 @@ const CustomerTable = ({ searchText }: { searchText: string }): ReactElement => 
         slots={{
           loadingOverlay: CircularProgress as GridSlots['loadingOverlay'],
           pagination: CustomPagination as GridSlots['pagination'],
+          noResultsOverlay: CustomNoResultsOverlay as GridSlots['noResultsOverlay'],
         }}
         slotProps={{
           pagination: { labelRowsPerPage: rows.length },

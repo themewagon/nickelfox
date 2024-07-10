@@ -35,7 +35,7 @@ const Sidebar = ({ open }: { open: boolean }): ReactElement => {
               disablePadding
               sx={(theme) => ({
                 display: 'block',
-                px: 10,
+                px: 5,
                 borderRight: !open
                   ? pathname === navItem.path
                     ? `3px solid ${theme.palette.primary.main}`

@@ -25,7 +25,7 @@ const Topbar = ({
       sx={(theme) => ({
         zIndex: theme.zIndex.drawer + 1,
         left: 0,
-        ml: open ? 70 : 38.5,
+        ml: open ? 65 : 33.5,
         width: open ? `calc(100% - ${drawerOpenWidth}px)` : `calc(100% - ${drawerCloseWidth}px)`,
         transition: open
           ? theme.transitions.create(['width', 'margin'], {

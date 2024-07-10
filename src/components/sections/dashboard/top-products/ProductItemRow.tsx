@@ -1,14 +1,8 @@
-import { Chip, LinearProgress, LinearProgressProps, TableCell, TableRow } from '@mui/material';
+import { Chip, LinearProgress, TableCell, TableRow } from '@mui/material';
+import { ProductItem } from 'data/product-data';
 import { ReactElement } from 'react';
 
-type ProductItemProps = {
-  id: string;
-  name: string;
-  color: LinearProgressProps['color'];
-  sales: number;
-};
-
-const ProductItem = ({ id, name, color, sales }: ProductItemProps): ReactElement => {
+const ProductItemRow = ({ productItem }: { productItem: ProductItem }): ReactElement => {
   return (
     <TableRow>
       <TableCell
@@ -18,9 +12,10 @@ const ProductItem = ({ id, name, color, sales }: ProductItemProps): ReactElement
         scope="row"
         sx={{
           color: 'common.white',
+          fontSize: 'body1.fontSize',
         }}
       >
-        {id}
+        {productItem.id}
       </TableCell>
       <TableCell
         align="left"
@@ -28,23 +23,28 @@ const ProductItem = ({ id, name, color, sales }: ProductItemProps): ReactElement
           whiteSpace: 'nowrap',
         }}
       >
-        {name}
+        {productItem.name}
       </TableCell>
       <TableCell align="left">
         <LinearProgress
           variant="determinate"
-          color={color}
-          value={sales}
+          color={productItem.color}
+          value={productItem.sales}
           sx={{
             bgcolor: 'grey.900',
           }}
         />
       </TableCell>
       <TableCell align="center">
-        <Chip label={`${sales}%`} color={color as any} variant="outlined" />
+        <Chip
+          label={`${productItem.sales}%`}
+          color={productItem.color as any}
+          variant="outlined"
+          size="medium"
+        />
       </TableCell>
     </TableRow>
   );
 };
 
-export default ProductItem;
+export default ProductItemRow;

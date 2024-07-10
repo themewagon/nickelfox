@@ -4,8 +4,8 @@ import { Components } from '@mui/material/styles/components';
 const CardMedia: Components<Omit<Theme, 'components'>>['MuiCardMedia'] = {
   defaultProps: {},
   styleOverrides: {
-    root: ({ theme }) => ({
-      height: theme.spacing(27.5),
+    root: ({}) => ({
+      // height: theme.spacing(48.125),
     }),
   },
 };

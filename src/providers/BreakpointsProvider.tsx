@@ -38,7 +38,8 @@ const BreakpointsProvider = ({ children }: PropsWithChildren): ReactElement => {
   const isSm = between('sm', 'md');
   const isMd = between('md', 'lg');
   const isLg = between('lg', 'xl');
-  const isXl = up('xl');
+  const isXl = between('xl', '2xl');
+  const is2Xl = up('2xl');
 
   useEffect(() => {
     if (isXs) {
@@ -56,7 +57,10 @@ const BreakpointsProvider = ({ children }: PropsWithChildren): ReactElement => {
     if (isXl) {
       setCurrentBreakpoint('xl');
     }
-  }, [isXs, isSm, isMd, isLg, isXl]);
+    if (is2Xl) {
+      setCurrentBreakpoint('2xl');
+    }
+  }, [isXs, isSm, isMd, isLg, isXl, is2Xl]);
 
   return (
     <BreakpointContext.Provider value={{ currentBreakpoint, up, down, only, between }}>

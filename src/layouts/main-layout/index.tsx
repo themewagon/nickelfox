@@ -4,8 +4,8 @@ import { closedMixin, openedMixin } from 'theme/functions/sidebar-mixins';
 import Topbar from './Topbar/Topbar';
 import Sidebar from './Sidebar';
 
-export const drawerOpenWidth = 280;
-export const drawerCloseWidth = 154;
+export const drawerOpenWidth = 260;
+export const drawerCloseWidth = 134;
 
 const MainLayout = ({ children }: PropsWithChildren): ReactElement => {
   const [open, setOpen] = useState<boolean>(false);

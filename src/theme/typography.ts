@@ -28,7 +28,7 @@ const typography: TypographyOptions = {
     fontWeight: 600,
   },
   subtitle1: {
-    fontSize: pxToRem(20), // 1rem
+    fontSize: pxToRem(20), // 1.25rem
     fontWeight: 500,
   },
   subtitle2: {
