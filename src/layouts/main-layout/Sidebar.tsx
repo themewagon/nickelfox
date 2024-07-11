@@ -27,6 +27,8 @@ const Sidebar = ({ open }: { open: boolean }): ReactElement => {
         <List
           sx={{
             py: 2.5,
+            height: 724,
+            justifyContent: 'space-between',
           }}
         >
           {navItems.map((navItem) => (

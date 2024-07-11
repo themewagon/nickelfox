@@ -7,8 +7,8 @@ const Avatar: Components<Omit<Theme, 'components'>>['MuiAvatar'] = {
     root: ({ theme }) => ({
       alignItems: 'center',
       justifyContent: 'center',
-      width: 24,
-      height: 24,
+      width: 28,
+      height: 28,
       fontSize: theme.typography.body1.fontSize,
       fontWeight: theme.typography.body1.fontWeight,
     }),

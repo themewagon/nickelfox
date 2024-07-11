@@ -48,7 +48,7 @@ const Topbar = ({
           height: 116,
         }}
       >
-        <Stack direction="row" gap={2} alignItems="center" ml={5} flex="1 1 51%">
+        <Stack direction="row" gap={2} alignItems="center" ml={2.5} flex="1 1 52.5%">
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -73,7 +73,7 @@ const Topbar = ({
             fullWidth
             placeholder="Search here..."
             sx={{
-              maxWidth: 504,
+              // maxWidth: 504,
               display: { xs: 'none', sm: 'flex' },
             }}
             InputProps={{
@@ -99,8 +99,8 @@ const Topbar = ({
             variant="dot"
             sx={{
               '& .MuiBadge-badge': {
-                top: 5,
-                right: 5,
+                top: 11,
+                right: 11,
               },
             }}
           >

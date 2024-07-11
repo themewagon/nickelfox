@@ -1,16 +1,28 @@
 import { Box, Button, Divider, Paper, Stack, Typography, alpha, useTheme } from '@mui/material';
 import EChartsReactCore from 'echarts-for-react/lib/core';
-import { ReactElement, useRef } from 'react';
+import { ReactElement, useEffect, useRef } from 'react';
 import LevelChart from './LevelChart';
 
 const levelChartData = {
-  Service: [43, 52, 51, 57, 29, 22],
-  Volume: [44, 55, 36, 22, 32, 44],
+  Volume: [79, 80, 65, 43, 82, 105],
+  Service: [78, 77, 92, 114, 75, 52],
 };
 
 const Level = (): ReactElement => {
   const theme = useTheme();
   const chartRef = useRef<EChartsReactCore | null>(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (chartRef.current) {
+        chartRef.current.getEchartsInstance().resize();
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [chartRef]);
 
   return (
     <Paper sx={{ p: 8, height: 1 }}>
@@ -20,11 +32,13 @@ const Level = (): ReactElement => {
       <Stack
         flex={1}
         pt={5.5}
-        borderBottom={0.5}
+        // borderBottom={0.5}
         justifyContent="flex-end"
-        sx={{
-          borderBottomColor: alpha(theme.palette.common.white, 0.06),
-        }}
+        sx={
+          {
+            // borderBottomColor: alpha(theme.palette.common.white, 0.06),
+          }
+        }
       >
         <LevelChart
           chartRef={chartRef}
@@ -51,12 +65,15 @@ const Level = (): ReactElement => {
             justifyContent: 'flex-start',
             p: 0.5,
             borderRadius: 1,
-            gap: 1,
+            gap: 2.5,
             color: 'text.disabled',
             fontSize: 'body2.fontSize',
             alignItems: 'baseline',
             '&:hover': {
               bgcolor: 'transparent',
+            },
+            '& .MuiButton-startIcon': {
+              mx: 0,
             },
           }}
           disableRipple
@@ -65,13 +82,13 @@ const Level = (): ReactElement => {
               sx={{
                 width: 8,
                 height: 8,
-                bgcolor: 'grey.900',
+                bgcolor: 'primary.main',
                 borderRadius: 400,
               }}
             />
           }
         >
-          Service
+          Volume
         </Button>
         <Button
           variant="text"
@@ -96,13 +113,13 @@ const Level = (): ReactElement => {
               sx={{
                 width: 8,
                 height: 8,
-                bgcolor: 'primary.main',
+                bgcolor: 'grey.900',
                 borderRadius: 400,
               }}
             />
           }
         >
-          Volume
+          Service
         </Button>
       </Stack>
     </Paper>

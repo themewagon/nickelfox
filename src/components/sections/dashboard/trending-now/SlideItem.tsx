@@ -17,6 +17,7 @@ const SlideItem = ({ trendingItem }: { trendingItem: TrendingItem }): ReactEleme
     <Card
       sx={{
         bgcolor: 'background.default',
+        height: 1,
       }}
     >
       <CardMedia

@@ -32,7 +32,7 @@ const LevelChart = ({ chartRef, data, ...rest }: LevelChartProps): ReactElement 
       },
       legend: {
         show: false,
-        data: ['Service', 'Volume'],
+        data: ['Volume', 'Service'],
       },
       xAxis: {
         type: 'category',
@@ -58,26 +58,11 @@ const LevelChart = ({ chartRef, data, ...rest }: LevelChartProps): ReactElement 
         left: 0,
         right: 0,
         top: 0,
-        bottom: 0,
+        bottom: 1,
       },
       series: [
         {
           id: 1,
-          name: 'Service',
-          type: 'bar',
-          stack: 'Service',
-          barWidth: 25,
-          emphasis: {
-            focus: 'series',
-          },
-          data: data.Service,
-          color: theme.palette.grey[900],
-          itemStyle: {
-            borderRadius: 4,
-          },
-        },
-        {
-          id: 2,
           name: 'Volume',
           type: 'bar',
           stack: 'Service',
@@ -87,6 +72,21 @@ const LevelChart = ({ chartRef, data, ...rest }: LevelChartProps): ReactElement 
           },
           data: data.Volume,
           color: theme.palette.primary.main,
+          itemStyle: {
+            borderRadius: 4,
+          },
+        },
+        {
+          id: 2,
+          name: 'Service',
+          type: 'bar',
+          stack: 'Service',
+          barWidth: 25,
+          emphasis: {
+            focus: 'series',
+          },
+          data: data.Service,
+          color: theme.palette.grey[900],
           itemStyle: {
             borderRadius: 4,
           },

@@ -41,11 +41,10 @@ const CustomerFulfillmentChart = ({
         data: ['This Month', 'Last Month'],
       },
       grid: {
-        top: '0%',
-        right: '2%',
-        bottom: '-13%',
-        left: '-15%',
-        containLabel: true,
+        top: 0,
+        right: 5,
+        bottom: 1,
+        left: 5,
       },
       xAxis: {
         type: 'category',
@@ -84,7 +83,7 @@ const CustomerFulfillmentChart = ({
           symbolSize: 5,
           areaStyle: {
             opacity: 0.8,
-            color: new echarts.graphic.LinearGradient(0, 0, 0, 0.85, [
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 0.9, [
               {
                 offset: 1,
                 color: stone[800],
@@ -113,7 +112,7 @@ const CustomerFulfillmentChart = ({
           symbolSize: 5,
           areaStyle: {
             opacity: 0.75,
-            color: new echarts.graphic.LinearGradient(0, 0, 0, 0.8, [
+            color: new echarts.graphic.LinearGradient(0, 0, 0, 0.95, [
               {
                 offset: 1,
                 color: stone[800],

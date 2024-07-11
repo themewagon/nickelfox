@@ -30,11 +30,11 @@ const Login = (): ReactElement => {
         px: { xs: 5, sm: 7.5 },
       }}
     >
-      <Stack justifyContent="center" gap={4}>
+      <Stack justifyContent="center" gap={8}>
         <Typography variant="h2" textAlign="center" color="text.secondary">
           Log In
         </Typography>
-        <Typography variant="h4" fontWeight={500} textAlign="center" color="text.primary">
+        <Typography variant="h6" fontWeight={500} textAlign="center" color="text.primary">
           Don’t have an account?{' '}
           <Link href="/authentication/sign-up" underline="none">
             Sign up
@@ -101,7 +101,7 @@ const Login = (): ReactElement => {
             ),
           }}
         />
-        <FormGroup sx={{ ml: 1 }}>
+        <FormGroup sx={{ ml: 1, width: 'fit-content' }}>
           <FormControlLabel
             control={<Checkbox />}
             label="Keep me signed in"
@@ -110,23 +110,36 @@ const Login = (): ReactElement => {
             }}
           />
         </FormGroup>
-        <Button LinkComponent={Link} href="/">
+        <Button
+          LinkComponent={Link}
+          href="/"
+          sx={{
+            fontWeight: 'fontWeightRegular',
+          }}
+        >
           Log In
         </Button>
         <Divider />
-        <Stack
-          gap={1.5}
-          sx={{
-            mt: 4,
-          }}
-        >
+        <Stack gap={1.5}>
           <Typography textAlign="center" color="text.secondary" variant="subtitle1">
             Or sign in using:
           </Typography>
-          <Button startIcon={<IconifyIcon icon="flat-color-icons:google" />} variant="outlined">
+          <Button
+            startIcon={<IconifyIcon icon="flat-color-icons:google" />}
+            variant="outlined"
+            sx={{
+              fontWeight: 'fontWeightRegular',
+            }}
+          >
             Continue with Google
           </Button>
-          <Button startIcon={<IconifyIcon icon="logos:facebook" />} variant="outlined">
+          <Button
+            startIcon={<IconifyIcon icon="logos:facebook" />}
+            variant="outlined"
+            sx={{
+              fontWeight: 'fontWeightRegular',
+            }}
+          >
             Continue with Facebook
           </Button>
         </Stack>

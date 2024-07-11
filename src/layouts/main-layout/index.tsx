@@ -17,6 +17,7 @@ const MainLayout = ({ children }: PropsWithChildren): ReactElement => {
       <Topbar open={open} handleDrawerToggle={handleDrawerToggle} />
       <Drawer
         variant="permanent"
+        component="aside"
         open={open}
         sx={(theme) => ({
           width: open ? drawerOpenWidth : drawerCloseWidth,

@@ -46,10 +46,10 @@ const VisitorInsightsChart = ({
         data: ['New Visitors'],
       },
       grid: {
-        top: '15%',
+        top: '5%',
         right: '1%',
         bottom: '2.5%',
-        left: '1%',
+        left: '1.25%',
         containLabel: true,
       },
       xAxis: [
@@ -78,9 +78,9 @@ const VisitorInsightsChart = ({
           },
           axisLabel: {
             formatter: (value: string) => value.substring(0, 3),
-            padding: [1, 20, 1, 10],
-            fontSize: theme.typography.body1.fontSize,
-            fontWeight: theme.typography.subtitle1.fontWeight as number,
+            padding: [10, 25, 10, 15],
+            fontSize: theme.typography.body2.fontSize,
+            fontWeight: theme.typography.fontWeightMedium as number,
             color: theme.palette.common.white,
           },
         },
@@ -100,8 +100,9 @@ const VisitorInsightsChart = ({
             show: false,
           },
           axisLabel: {
-            fontSize: theme.typography.body1.fontSize,
-            fontWeight: theme.typography.subtitle1.fontWeight as number,
+            padding: [0, 10, 0, 0],
+            fontSize: theme.typography.body2.fontSize,
+            fontWeight: theme.typography.fontWeightMedium as number,
             color: theme.palette.common.white,
           },
         },

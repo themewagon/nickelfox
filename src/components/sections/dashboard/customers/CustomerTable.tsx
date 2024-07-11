@@ -133,6 +133,18 @@ const CustomerTable = ({ searchText }: { searchText: string }): ReactElement => 
     );
   }, [searchText]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (apiRef.current) {
+        apiRef.current.resize();
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [apiRef]);
+
   return (
     <>
       <DataGrid

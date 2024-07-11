@@ -9,7 +9,8 @@ const CardContent: Components<Omit<Theme, 'components'>>['MuiCardContent'] = {
       padding: theme.spacing(3.5),
       display: 'flex',
       flexDirection: 'column',
-      justifyContent: 'space-between',
+      justifyContent: 'space-around',
+      flexGrow: 1,
       '&:last-child': {
         paddingBottom: theme.spacing(3.5),
       },
