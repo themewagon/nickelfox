@@ -24,13 +24,13 @@ const Dashboard = (): ReactElement => {
           <TopProducts />
         </Box>
         <Box
-          gridColumn={{ xs: 'span 12', lg: 'span 6', xl: 'span 4' }}
+          gridColumn={{ xs: 'span 12', md: 'span 6', xl: 'span 4' }}
           order={{ xs: 3, xl: 3, '2xl': 3 }}
         >
           <CustomerFulfillment />
         </Box>
         <Box
-          gridColumn={{ xs: 'span 12', lg: 'span 6', xl: 'span 4' }}
+          gridColumn={{ xs: 'span 12', md: 'span 6', xl: 'span 4' }}
           order={{ xs: 4, xl: 5, '2xl': 4 }}
         >
           <Earnings />
