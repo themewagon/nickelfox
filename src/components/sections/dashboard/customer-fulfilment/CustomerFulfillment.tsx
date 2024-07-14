@@ -37,23 +37,11 @@ const CustomerFulfillment = (): ReactElement => {
       <Typography variant="h4" color="common.white">
         Customer Fulfillment
       </Typography>
-      <Stack
-        flex={1}
-        pt={5.5}
-        // borderBottom={1}
-        justifyContent="flex-end"
-        sx={
-          {
-            // borderBottomColor: alpha(theme.palette.common.white, 0.06),
-          }
-        }
-      >
-        <CustomerFulfillmentChart
-          chartRef={chartRef}
-          sx={{ height: '220px !important', flexGrow: 1 }}
-          data={customerFulfillmentChartData}
-        />
-      </Stack>
+      <CustomerFulfillmentChart
+        chartRef={chartRef}
+        sx={{ height: '220px !important', flexGrow: 1 }}
+        data={customerFulfillmentChartData}
+      />
       <Stack
         direction="row"
         justifyContent="space-around"
@@ -61,7 +49,7 @@ const CustomerFulfillment = (): ReactElement => {
           <Divider
             orientation="vertical"
             flexItem
-            sx={{ borderColor: alpha(theme.palette.common.white, 0.06), height: 34 }}
+            sx={{ borderColor: alpha(theme.palette.common.white, 0.06), height: 1 }}
           />
         }
         px={2}

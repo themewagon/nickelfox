@@ -1,11 +1,11 @@
-import { Pagination, PaginationItem, Stack, Typography } from '@mui/material';
+import { Stack, Pagination, Typography, PaginationItem } from '@mui/material';
 import {
-  gridExpandedRowCountSelector,
-  gridPageCountSelector,
-  gridPageSelector,
-  gridPaginationRowRangeSelector,
-  useGridApiContext,
   useGridSelector,
+  gridPageSelector,
+  useGridApiContext,
+  gridPageCountSelector,
+  gridExpandedRowCountSelector,
+  gridPaginationRowRangeSelector,
 } from '@mui/x-data-grid';
 import { ReactElement } from 'react';
 

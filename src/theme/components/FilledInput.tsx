@@ -11,7 +11,7 @@ const FilledInput: Components<Omit<Theme, 'components'>>['MuiFilledInput'] = {
       backgroundColor: theme.palette.background.paper,
       padding: 0,
       '&:hover, &.Mui-focused': {
-        backgroundColor: theme.palette.grey[900],
+        backgroundColor: theme.palette.grey[800],
       },
       '&::before, &::after': {
         borderBottom: 'none',

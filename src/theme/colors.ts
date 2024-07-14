@@ -9,6 +9,7 @@ interface Color {
   700: string;
   800: string;
   900: string;
+  A100?: string;
 }
 
 export const teal: Color = {
@@ -100,6 +101,7 @@ export const grey: Color = {
   700: '#4D4D59',
   800: '#2B2B36',
   900: '#21222D',
+  A100: '#1D1E26',
 };
 
 export const stone: Color = {

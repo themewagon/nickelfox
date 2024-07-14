@@ -55,7 +55,7 @@ const EarningsChart = ({ chartRef, ...rest }: EarningsChartProps): ReactElement 
             roundCap: false,
             lineStyle: {
               width: 40,
-              color: [[1, theme.palette.grey[900]]],
+              color: [[1, theme.palette.grey[800]]],
             },
           },
           axisTick: {

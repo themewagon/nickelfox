@@ -5,7 +5,9 @@ const Grid: Components<Omit<Theme, 'components'>>['MuiGrid'] = {
   defaultProps: {},
   styleOverrides: {
     root: ({ theme }) => ({
-      transition: theme.transitions.create('width', {
+      margin: 0,
+      width: '100%',
+      transition: theme.transitions.create('all', {
         easing: theme.transitions.easing.easeInOut,
         duration: theme.transitions.duration.short,
       }),

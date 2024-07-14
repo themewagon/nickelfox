@@ -1,4 +1,4 @@
-function stringToColorAndContrast(name: string) {
+const stringToColorAndContrast = (name: string): { hex: string; contrastColor: string } => {
   let hash = 0;
   let i;
 
@@ -21,9 +21,9 @@ function stringToColorAndContrast(name: string) {
   const contrastColor = luminance > 0.5 ? '#000000' : '#FFFFFF';
 
   return { hex, contrastColor };
-}
+};
 
-export function stringAvatar(name: string) {
+export const stringAvatar = (name: string) => {
   const { hex, contrastColor } = stringToColorAndContrast(name);
 
   const firstInitial = name.split(' ').at(0)?.charAt(0);
@@ -35,4 +35,4 @@ export function stringAvatar(name: string) {
     },
     children: `${firstInitial}`,
   };
-}
+};

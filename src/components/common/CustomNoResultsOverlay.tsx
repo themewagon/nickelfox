@@ -1,8 +1,9 @@
+import { ReactElement } from 'react';
 import { Stack, Typography } from '@mui/material';
 import Image from 'components/base/Image';
 import noResultsSvg from 'assets/images/error/no-results.svg';
 
-const CustomNoResultsOverlay = () => {
+const CustomNoResultsOverlay = (): ReactElement => {
   return (
     <Stack height={1} px={6} justifyContent="center" alignItems="center" flexGrow={1}>
       <Image

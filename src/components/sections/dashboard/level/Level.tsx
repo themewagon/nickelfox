@@ -29,23 +29,11 @@ const Level = (): ReactElement => {
       <Typography variant="h4" color="common.white">
         Level
       </Typography>
-      <Stack
-        flex={1}
-        pt={5.5}
-        // borderBottom={0.5}
-        justifyContent="flex-end"
-        sx={
-          {
-            // borderBottomColor: alpha(theme.palette.common.white, 0.06),
-          }
-        }
-      >
-        <LevelChart
-          chartRef={chartRef}
-          data={levelChartData}
-          sx={{ height: '181px !important', flexGrow: 1 }}
-        />
-      </Stack>
+      <LevelChart
+        chartRef={chartRef}
+        data={levelChartData}
+        sx={{ height: '181px !important', flexGrow: 1 }}
+      />
       <Stack
         direction="row"
         justifyContent="space-around"
@@ -53,7 +41,7 @@ const Level = (): ReactElement => {
           <Divider
             orientation="vertical"
             flexItem
-            sx={{ borderColor: alpha(theme.palette.common.white, 0.06), height: 19 }}
+            sx={{ borderColor: alpha(theme.palette.common.white, 0.06), height: 1 }}
           />
         }
         px={2}
@@ -96,7 +84,7 @@ const Level = (): ReactElement => {
             justifyContent: 'flex-start',
             p: 0.5,
             borderRadius: 1,
-            gap: 1,
+            gap: 2.5,
             color: 'text.disabled',
             fontSize: 'body2.fontSize',
             alignItems: 'baseline',
@@ -113,7 +101,7 @@ const Level = (): ReactElement => {
               sx={{
                 width: 8,
                 height: 8,
-                bgcolor: 'grey.900',
+                bgcolor: 'grey.800',
                 borderRadius: 400,
               }}
             />

@@ -1,5 +1,5 @@
 import { lazy, Suspense, ReactElement, PropsWithChildren } from 'react';
-import { Outlet, RouteObject, createBrowserRouter } from 'react-router-dom';
+import { Outlet, RouteObject, RouterProps, createBrowserRouter } from 'react-router-dom';
 
 import PageLoader from 'components/loading/PageLoader';
 import Splash from 'components/loading/Splash';
@@ -40,7 +40,6 @@ const routes: RouteObject[] = [
         children: [
           {
             index: true,
-            // path: paths.home,
             element: <Dashboard />,
           },
         ],
@@ -77,6 +76,6 @@ const options: { basename: string } = {
   basename: '/nickelfox-sales-management',
 };
 
-const router = createBrowserRouter(routes, options);
+const router: Partial<RouterProps> = createBrowserRouter(routes, options);
 
 export default router;

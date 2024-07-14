@@ -36,11 +36,7 @@ const palette: PaletteOptions = {
     focus: stone[400],
     disabled: stone[300],
   },
-  grey: {
-    '300': '#D9D9D9',
-    '900': '#2B2B36',
-    A400: '#1D1E26',
-  },
+  grey: grey,
 };
 
 export default palette;

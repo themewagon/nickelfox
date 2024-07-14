@@ -86,7 +86,7 @@ const LevelChart = ({ chartRef, data, ...rest }: LevelChartProps): ReactElement 
             focus: 'series',
           },
           data: data.Service,
-          color: theme.palette.grey[900],
+          color: theme.palette.grey[800],
           itemStyle: {
             borderRadius: 4,
           },

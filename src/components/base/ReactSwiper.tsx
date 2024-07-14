@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 import { Box, SxProps } from '@mui/material';
-import { RefObject } from 'react';
+import { ReactElement, RefObject } from 'react';
 import { useBreakpoints } from 'providers/BreakpointsProvider';
 
 const ReactSwiper = ({
@@ -15,7 +15,7 @@ const ReactSwiper = ({
   sx,
   ...rest
 }: {
-  children: any;
+  children: ReactElement[] | ReactElement;
   swiperRef?: RefObject<any>;
   onSwiper: React.Dispatch<React.SetStateAction<SwiperClass | undefined>>;
   sx?: SxProps;

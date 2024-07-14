@@ -9,7 +9,6 @@ import {
   TooltipComponentOption,
 } from 'echarts/components';
 import { ReactElement, useMemo } from 'react';
-import { stone } from 'theme/colors';
 
 type VisitorInsightsChartProps = {
   chartRef: React.MutableRefObject<EChartsReactCore | null>;
@@ -125,7 +124,7 @@ const VisitorInsightsChart = ({
             color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
               {
                 offset: 1,
-                color: stone[800],
+                color: theme.palette.grey.A100,
               },
               {
                 offset: 0,

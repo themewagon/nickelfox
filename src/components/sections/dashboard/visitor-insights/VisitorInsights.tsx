@@ -69,13 +69,11 @@ const VisitorInsights = (): ReactElement => {
           New Visitors
         </Button>
       </Stack>
-      <Stack flex={1} justifyContent="flex-end">
-        <VisitorInsightsChart
-          chartRef={chartRef}
-          data={visitorInsightsChartData}
-          sx={{ height: '342px !important', flexGrow: 1 }}
-        />
-      </Stack>
+      <VisitorInsightsChart
+        chartRef={chartRef}
+        data={visitorInsightsChartData}
+        sx={{ height: '342px !important', flexGrow: 1 }}
+      />
     </Paper>
   );
 };

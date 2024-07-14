@@ -14,7 +14,6 @@ import {
 } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import { useState, ReactElement } from 'react';
-import { stone } from 'theme/colors';
 
 const Login = (): ReactElement => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -46,7 +45,7 @@ const Login = (): ReactElement => {
           type="email"
           sx={{
             '.MuiFilledInput-root': {
-              bgcolor: stone[800],
+              bgcolor: 'grey.A100',
               ':hover': {
                 bgcolor: 'background.default',
               },
@@ -66,7 +65,7 @@ const Login = (): ReactElement => {
           type={showPassword ? 'text' : 'password'}
           sx={{
             '.MuiFilledInput-root': {
-              bgcolor: stone[800],
+              bgcolor: 'grey.A100',
               ':hover': {
                 bgcolor: 'background.default',
               },

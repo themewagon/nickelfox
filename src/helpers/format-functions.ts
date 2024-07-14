@@ -1,4 +1,7 @@
-export const currencyFormat = (amount: number | bigint, options: Intl.NumberFormatOptions = {}) => {
+export const currencyFormat = (
+  amount: number | bigint,
+  options: Intl.NumberFormatOptions = {},
+): string => {
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'usd',

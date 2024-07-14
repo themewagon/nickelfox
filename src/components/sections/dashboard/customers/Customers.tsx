@@ -2,7 +2,6 @@ import { useState, ChangeEvent, useCallback, ReactElement } from 'react';
 import { Box, Paper, Stack, TextField, Typography, InputAdornment } from '@mui/material';
 import IconifyIcon from 'components/base/IconifyIcon';
 import CustomerTable from './CustomerTable';
-import { stone } from 'theme/colors';
 
 const Customers = (): ReactElement => {
   const [search, setSearch] = useState<string>('');
@@ -31,7 +30,7 @@ const Customers = (): ReactElement => {
           onChange={handleChange}
           sx={{
             '.MuiFilledInput-root': {
-              bgcolor: stone[800],
+              bgcolor: 'grey.A100',
               ':hover': {
                 bgcolor: 'background.default',
               },

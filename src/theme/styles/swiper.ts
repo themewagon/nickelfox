@@ -17,7 +17,7 @@ const swiper = (theme: Theme) => ({
     },
   },
   '& .swiper-button-next:after, & .swiper-button-prev:after': {
-    color: theme.palette.grey[300],
+    color: theme.palette.action.disabled,
     fontSize: `${theme.typography.h4.fontSize} !important`,
     fontWeight: theme.typography.h4.fontWeight,
   },

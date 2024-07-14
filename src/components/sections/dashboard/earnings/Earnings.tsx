@@ -39,7 +39,7 @@ const Earnings = (): ReactElement => {
           position: 'relative',
         }}
       >
-        <EarningsChart chartRef={chartRef} sx={{ height: '163px !important' }} />
+        <EarningsChart chartRef={chartRef} sx={{ height: '163px !important', flexGrow: 1 }} />
         <Typography
           variant="h1"
           color="common.white"
