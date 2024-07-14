@@ -84,7 +84,7 @@ const CustomerFulfillment = (): ReactElement => {
                   bgcolor: 'secondary.main',
                   borderRadius: 400,
                 }}
-              ></Box>
+              />
             }
           >
             This Month
@@ -118,7 +118,7 @@ const CustomerFulfillment = (): ReactElement => {
                   bgcolor: 'primary.main',
                   borderRadius: 400,
                 }}
-              ></Box>
+              />
             }
           >
             Last Month

@@ -2,7 +2,7 @@ import { useState, useCallback, ReactElement, PropsWithChildren } from 'react';
 import { Box, Drawer, Toolbar } from '@mui/material';
 import { closedMixin, openedMixin } from 'theme/functions/sidebar-mixins';
 import Topbar from './Topbar/Topbar';
-import Sidebar from './Sidebar';
+import Sidebar from './Sidebar/Sidebar';
 
 export const drawerOpenWidth = 260;
 export const drawerCloseWidth = 134;

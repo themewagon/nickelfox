@@ -69,9 +69,9 @@ const TrendingNow = (): ReactElement => {
           height: 1,
         }}
       >
-        {trendingItemsSlides.map((slide) => (
-          <SwiperSlide key={slide.id}>
-            <SlideItem trendingItem={slide} />
+        {trendingItemsSlides.map((slideItem) => (
+          <SwiperSlide key={slideItem.id}>
+            <SlideItem trendingItem={slideItem} />
           </SwiperSlide>
         ))}
       </ReactSwiper>
