@@ -3,11 +3,7 @@ import { Box, Button, Divider, Paper, Stack, Typography, alpha, useTheme } from 
 import EChartsReactCore from 'echarts-for-react/lib/core';
 import CustomerFulfillmentChart from './CustomerFulfillmentChart';
 import { currencyFormat } from 'helpers/format-functions';
-
-const customerFulfillmentChartData = {
-  'This Month': [765, 795, 960, 495, 495, 660, 615],
-  'Last Month': [680, 221, 884, 629, 731, 272, 612],
-};
+import { customerFulfillmentData } from 'data/chart-data/customer-fulfillment';
 
 const CustomerFulfillment = (): ReactElement => {
   const theme = useTheme();
@@ -29,7 +25,7 @@ const CustomerFulfillment = (): ReactElement => {
     (chartData: number[]) => {
       return currencyFormat(chartData.reduce((prev, current) => prev + current, 0));
     },
-    [customerFulfillmentChartData],
+    [customerFulfillmentData],
   );
 
   return (
@@ -40,7 +36,7 @@ const CustomerFulfillment = (): ReactElement => {
       <CustomerFulfillmentChart
         chartRef={chartRef}
         sx={{ height: '220px !important', flexGrow: 1 }}
-        data={customerFulfillmentChartData}
+        data={customerFulfillmentData}
       />
       <Stack
         direction="row"
@@ -90,7 +86,7 @@ const CustomerFulfillment = (): ReactElement => {
             This Month
           </Button>
           <Typography variant="body2" color="common.white">
-            {getTotalFulfillment(customerFulfillmentChartData['This Month'] as number[])}
+            {getTotalFulfillment(customerFulfillmentData['This Month'])}
           </Typography>
         </Stack>
         <Stack gap={1.25} alignItems="center">
@@ -124,7 +120,7 @@ const CustomerFulfillment = (): ReactElement => {
             Last Month
           </Button>
           <Typography variant="body2" color="common.white">
-            {getTotalFulfillment(customerFulfillmentChartData['Last Month'] as number[])}
+            {getTotalFulfillment(customerFulfillmentData['Last Month'])}
           </Typography>
         </Stack>
       </Stack>

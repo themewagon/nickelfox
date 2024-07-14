@@ -2,10 +2,7 @@ import { Box, Button, Paper, Stack, Typography } from '@mui/material';
 import VisitorInsightsChart from './VisitorInsightsChart';
 import { ReactElement, useEffect, useRef } from 'react';
 import EChartsReactCore from 'echarts-for-react/lib/core';
-
-const visitorInsightsChartData = {
-  'New Visitors': [210, 115, 440, 370, 320, 500, 270, 450, 381, 245, 212, 333],
-};
+import { visitorInsightsData } from 'data/chart-data/visitor-insights';
 
 const VisitorInsights = (): ReactElement => {
   const chartRef = useRef<EChartsReactCore | null>(null);
@@ -71,7 +68,7 @@ const VisitorInsights = (): ReactElement => {
       </Stack>
       <VisitorInsightsChart
         chartRef={chartRef}
-        data={visitorInsightsChartData}
+        data={visitorInsightsData}
         sx={{ height: '342px !important', flexGrow: 1 }}
       />
     </Paper>

@@ -5,7 +5,7 @@ const palette: PaletteOptions = {
   primary: {
     light: teal[50],
     main: teal[100],
-    dark: teal[500],
+    dark: teal[200],
   },
   secondary: {
     light: fuchsia[50],

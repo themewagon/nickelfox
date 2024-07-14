@@ -2,11 +2,7 @@ import { Box, Button, Divider, Paper, Stack, Typography, alpha, useTheme } from 
 import EChartsReactCore from 'echarts-for-react/lib/core';
 import { ReactElement, useEffect, useRef } from 'react';
 import LevelChart from './LevelChart';
-
-const levelChartData = {
-  Volume: [79, 80, 65, 43, 82, 105],
-  Service: [78, 77, 92, 114, 75, 52],
-};
+import { levelData } from 'data/chart-data/level';
 
 const Level = (): ReactElement => {
   const theme = useTheme();
@@ -31,7 +27,7 @@ const Level = (): ReactElement => {
       </Typography>
       <LevelChart
         chartRef={chartRef}
-        data={levelChartData}
+        data={levelData}
         sx={{ height: '181px !important', flexGrow: 1 }}
       />
       <Stack
