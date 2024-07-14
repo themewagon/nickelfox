@@ -39,6 +39,7 @@ const VisitorInsights = (): ReactElement => {
               sx={{
                 width: 5,
                 height: 5,
+                mb: 1,
                 bgcolor: 'warning.main',
                 borderRadius: 400,
               }}

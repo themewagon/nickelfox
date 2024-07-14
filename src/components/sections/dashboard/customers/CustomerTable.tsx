@@ -22,7 +22,6 @@ const columns: GridColDef<any>[] = [
     field: 'id',
     headerName: 'ID',
     resizable: false,
-    // flex: 0.25,
     minWidth: 60,
   },
   {
@@ -166,7 +165,6 @@ const CustomerTable = ({ searchText }: { searchText: string }): ReactElement => 
         initialState={{
           pagination: { paginationModel: { page: 0, pageSize: 4 } },
         }}
-        // autoPageSize
         slots={{
           loadingOverlay: CircularProgress as GridSlots['loadingOverlay'],
           pagination: CustomPagination as GridSlots['pagination'],
@@ -181,7 +179,6 @@ const CustomerTable = ({ searchText }: { searchText: string }): ReactElement => 
           tableLayout: 'fixed',
         }}
       />
-      {/* <DataGridFooter apiRef={apiRef} /> */}
     </>
   );
 };

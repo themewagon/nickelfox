@@ -66,6 +66,7 @@ const Level = (): ReactElement => {
               sx={{
                 width: 8,
                 height: 8,
+                mb: 1,
                 bgcolor: 'primary.main',
                 borderRadius: 400,
               }}
@@ -97,6 +98,7 @@ const Level = (): ReactElement => {
               sx={{
                 width: 8,
                 height: 8,
+                mb: 1,
                 bgcolor: 'grey.800',
                 borderRadius: 400,
               }}

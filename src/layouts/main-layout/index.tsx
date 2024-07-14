@@ -38,7 +38,6 @@ const MainLayout = ({ children }: PropsWithChildren): ReactElement => {
         sx={(theme) => ({
           width: 1,
           flexGrow: 1,
-          // overflow: 'hidden',
           pt: 5,
           pr: { xs: 2.5875, sm: 5.175 },
           pb: 6.25,

@@ -5,7 +5,6 @@ const ListItemButton: Components<Omit<Theme, 'components'>>['MuiListItemButton']
   defaultProps: {},
   styleOverrides: {
     root: ({ theme }) => ({
-      // height: theme.spacing(9.5),
       borderRadius: theme.shape.borderRadius * 1.5,
       padding: theme.spacing(2.5, 4),
       justifyContent: 'center',
