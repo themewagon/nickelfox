@@ -21,7 +21,7 @@ const Level = (): ReactElement => {
   }, [chartRef]);
 
   return (
-    <Paper sx={{ p: 8, height: 1 }}>
+    <Paper sx={{ p: { xs: 6, sm: 8 }, height: 1 }}>
       <Typography variant="h4" color="common.white">
         Level
       </Typography>

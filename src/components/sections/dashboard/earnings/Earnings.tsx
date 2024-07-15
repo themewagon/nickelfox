@@ -20,7 +20,7 @@ const Earnings = (): ReactElement => {
   }, [chartRef]);
 
   return (
-    <Paper sx={{ p: 8, height: 1 }}>
+    <Paper sx={{ p: { xs: 6, sm: 8 }, height: 1 }}>
       <Typography variant="h4" color="common.white" mb={2.5}>
         Earnings
       </Typography>
@@ -39,7 +39,15 @@ const Earnings = (): ReactElement => {
           position: 'relative',
         }}
       >
-        <EarningsChart chartRef={chartRef} sx={{ height: '163px !important', flexGrow: 1 }} />
+        <EarningsChart
+          chartRef={chartRef}
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            flex: '1 1 0%',
+            maxHeight: 163,
+          }}
+        />
         <Typography
           variant="h1"
           color="common.white"

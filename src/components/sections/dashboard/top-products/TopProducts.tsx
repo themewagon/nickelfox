@@ -14,7 +14,7 @@ import ProductItemRow from './ProductItemRow';
 
 const TopProducts = (): ReactElement => {
   return (
-    <Paper sx={{ p: 8, height: 1 }}>
+    <Paper sx={{ p: { xs: 6, sm: 8 }, height: 1 }}>
       <Typography variant="h4" color="common.white" mb={6}>
         Top Products
       </Typography>

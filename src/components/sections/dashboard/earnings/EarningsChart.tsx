@@ -84,7 +84,7 @@ const EarningsChart = ({ chartRef, ...rest }: EarningsChartProps): ReactElement 
     [],
   );
 
-  return <ReactEChart ref={chartRef} option={option} echarts={echarts} {...rest}></ReactEChart>;
+  return <ReactEChart ref={chartRef} option={option} echarts={echarts} {...rest} />;
 };
 
 export default EarningsChart;

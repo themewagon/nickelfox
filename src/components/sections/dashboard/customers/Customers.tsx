@@ -11,7 +11,7 @@ const Customers = (): ReactElement => {
   }, []);
 
   return (
-    <Paper sx={{ p: 8, height: 1 }}>
+    <Paper sx={{ p: { xs: 4, sm: 8 }, height: 1 }}>
       <Stack
         direction="row"
         justifyContent="space-between"

@@ -11,6 +11,7 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import { ReactElement } from 'react';
 import { drawerCloseWidth, drawerOpenWidth } from '..';
 import UserDropdown from './UserDropdown';
+import { useBreakpoints } from 'providers/BreakpointsProvider';
 
 const Topbar = ({
   open,
@@ -19,24 +20,23 @@ const Topbar = ({
   open: boolean;
   handleDrawerToggle: () => void;
 }): ReactElement => {
+  const { down } = useBreakpoints();
+
+  const isMobileScreen = down('sm');
+
   return (
     <AppBar
       position="fixed"
-      sx={(theme) => ({
-        zIndex: theme.zIndex.drawer + 1,
+      sx={{
         left: 0,
-        ml: open ? 65 : 33.5,
-        width: open ? `calc(100% - ${drawerOpenWidth}px)` : `calc(100% - ${drawerCloseWidth}px)`,
-        transition: open
-          ? theme.transitions.create(['width', 'margin'], {
-              easing: theme.transitions.easing.sharp,
-              duration: theme.transitions.duration.enteringScreen,
-            })
-          : theme.transitions.create(['width', 'margin'], {
-              easing: theme.transitions.easing.sharp,
-              duration: theme.transitions.duration.leavingScreen,
-            }),
-      })}
+        ml: isMobileScreen ? 0 : open ? 65 : 33.5,
+        width: isMobileScreen
+          ? 1
+          : open
+          ? `calc(100% - ${drawerOpenWidth}px)`
+          : `calc(100% - ${drawerCloseWidth}px)`,
+        paddingRight: '0 !important',
+      }}
     >
       <Toolbar
         component={Stack}
@@ -73,7 +73,6 @@ const Topbar = ({
             fullWidth
             placeholder="Search here..."
             sx={{
-              // maxWidth: 504,
               display: { xs: 'none', sm: 'flex' },
             }}
             InputProps={{
