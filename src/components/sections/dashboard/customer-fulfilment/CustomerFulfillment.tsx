@@ -77,7 +77,6 @@ const CustomerFulfillment = (): ReactElement => {
                 sx={{
                   width: 6,
                   height: 6,
-                  mb: 1,
                   bgcolor: 'secondary.main',
                   borderRadius: 400,
                 }}
@@ -112,7 +111,6 @@ const CustomerFulfillment = (): ReactElement => {
                 sx={{
                   width: 6,
                   height: 6,
-                  mb: 1,
                   bgcolor: 'primary.main',
                   borderRadius: 400,
                 }}

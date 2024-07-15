@@ -53,7 +53,12 @@ const Customers = (): ReactElement => {
           }}
         />
       </Stack>
-      <Box width={1} flexGrow={1} height={{ xs: 325, '2xl': 'auto' }}>
+      <Box
+        width={1}
+        flexGrow={1}
+        minHeight={325}
+        // height={{ xs: 325, '2xl': 'auto' }}
+      >
         <CustomerTable searchText={search} />
       </Box>
     </Paper>
