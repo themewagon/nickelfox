@@ -11,36 +11,10 @@ const Earnings = (): ReactElement => {
     const handleResize = () => {
       if (chartRef.current) {
         const echartsInstance = chartRef.current.getEchartsInstance();
-        // console.log(echartsInstance.getWidth());
-        // if (isMobileScreen) {
-        //   echartsInstance.setOption({
-        //     series: [
-        //       {
-        //         radius: `170%`,
-        //       },
-        //     ],
-        //   });
-        // } else {
-        //   echartsInstance.setOption({
-        //     series: [
-        //       {
-        //         radius: `200%`,
-        //       },
-        //     ],
-        //   });
-        // }
-        // echartsInstance.setOption({
-        //   series: [
-        //     {
-        //       radius: `${echartsInstance.getWidth() / 2}%`,
-        //     },
-        //   ],
-        // });
         echartsInstance.resize({ width: 'auto', height: 'auto' });
       }
     };
     window.addEventListener('resize', handleResize);
-
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -54,7 +28,12 @@ const Earnings = (): ReactElement => {
       <Typography variant="body1" color="text.primary" mb={4.5}>
         Total Expense
       </Typography>
-      <Typography variant="h1" color="primary.main" mb={4.5}>
+      <Typography
+        variant="h1"
+        color="primary.main"
+        mb={4.5}
+        fontSize={{ xs: 'h2.fontSize', sm: 'h1.fontSize' }}
+      >
         {currencyFormat(6078.76, { useGrouping: false })}
       </Typography>
       <Typography variant="body1" color="text.primary" mb={15}>

@@ -11,6 +11,7 @@ import {
 } from '@mui/material';
 import { productTableRows } from 'data/product-data';
 import ProductItemRow from './ProductItemRow';
+import SimpleBar from 'simplebar-react';
 
 const TopProducts = (): ReactElement => {
   return (
@@ -18,7 +19,7 @@ const TopProducts = (): ReactElement => {
       <Typography variant="h4" color="common.white" mb={6}>
         Top Products
       </Typography>
-      <TableContainer>
+      <TableContainer component={SimpleBar}>
         <Table sx={{ minWidth: 440 }}>
           <TableHead>
             <TableRow>

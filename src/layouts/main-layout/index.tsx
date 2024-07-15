@@ -4,7 +4,7 @@ import Topbar from './Topbar/Topbar';
 import Sidebar from './Sidebar/Sidebar';
 // import { useBreakpoints } from 'providers/BreakpointsProvider';
 
-export const drawerOpenWidth = 200;
+export const drawerOpenWidth = 240;
 export const drawerCloseWidth = 110;
 
 const MainLayout = ({ children }: PropsWithChildren): ReactElement => {

@@ -177,6 +177,7 @@ const CustomerTable = ({ searchText }: { searchText: string }): ReactElement => 
           height: 1,
           width: 1,
           tableLayout: 'fixed',
+          scrollbarWidth: 'thin',
         }}
       />
     </>

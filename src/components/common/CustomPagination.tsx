@@ -30,7 +30,7 @@ const CustomPagination = (): ReactElement => {
       {available !== 0 ? (
         <>
           <Typography
-            variant="body1"
+            variant="body2"
             color="text.secondary"
             sx={{
               textWrap: 'wrap',
@@ -43,7 +43,7 @@ const CustomPagination = (): ReactElement => {
       ) : (
         <>
           <Typography
-            variant="body1"
+            variant="body2"
             color="text.secondary"
             sx={{
               textWrap: 'wrap',

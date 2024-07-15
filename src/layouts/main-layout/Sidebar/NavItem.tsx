@@ -16,13 +16,6 @@ const NavItem = ({ navItem, open }: { navItem: NavItemProps; open: boolean }) =>
             ? `3px solid ${theme.palette.primary.main}`
             : `3px solid transparent`
           : '',
-        // transition:
-        //   pathname === navItem.path
-        //     ? theme.transitions.create('all', {
-        //         easing: theme.transitions.easing.sharp,
-        //         duration: theme.transitions.duration.leavingScreen,
-        //       })
-        //     : '',
       })}
     >
       <ListItemButton

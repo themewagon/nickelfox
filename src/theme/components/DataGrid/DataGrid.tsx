@@ -23,8 +23,7 @@ const DataGrid: DataGridComponents<Omit<Theme, 'components'>>['MuiDataGrid'] = {
         visibility: 'hidden',
       },
       '& .MuiDataGrid-scrollbar--horizontal': {
-        visibility: 'hidden',
-        display: 'none',
+        scrollbarWidth: 'thin',
       },
       '& .MuiDataGrid-filler': {
         height: '0 !important',
