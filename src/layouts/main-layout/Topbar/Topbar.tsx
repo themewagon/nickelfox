@@ -29,7 +29,7 @@ const Topbar = ({
       position="fixed"
       sx={{
         left: 0,
-        ml: isMobileScreen ? 0 : open ? 65 : 33.5,
+        ml: isMobileScreen ? 0 : open ? 50 : 27.5,
         width: isMobileScreen
           ? 1
           : open

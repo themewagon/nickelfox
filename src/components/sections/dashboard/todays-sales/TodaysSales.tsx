@@ -5,7 +5,7 @@ import SaleCard from './SaleCard';
 
 const TodaysSales = (): ReactElement => {
   return (
-    <Paper sx={{ p: { xs: 6, sm: 8 }, height: 1 }}>
+    <Paper sx={{ p: { xs: 4, sm: 8 }, height: 1 }}>
       <Typography variant="h4" color="common.white" mb={1.25}>
         Today’s Sales
       </Typography>

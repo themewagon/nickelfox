@@ -15,7 +15,7 @@ const TrendingNow = (): ReactElement => {
   return (
     <Paper
       sx={{
-        p: { xs: 6, sm: 8 },
+        p: { xs: 4, sm: 8 },
         height: 1,
       }}
     >

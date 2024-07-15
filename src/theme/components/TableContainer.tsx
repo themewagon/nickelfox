@@ -6,7 +6,7 @@ const TableContainer: Components<Omit<Theme, 'components'>>['MuiTableContainer']
   styleOverrides: {
     root: ({}) => ({
       overflowX: 'auto',
-      scrollbarWidth: 'none',
+      scrollbarWidth: 'thin',
     }),
   },
 };

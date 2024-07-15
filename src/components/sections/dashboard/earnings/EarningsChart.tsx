@@ -1,6 +1,6 @@
 import { SxProps, useTheme } from '@mui/material';
 import ReactEChart from 'components/base/ReactEChart';
-import * as echarts from 'echarts';
+import * as echarts from 'echarts/core';
 import EChartsReactCore from 'echarts-for-react/lib/core';
 import { GaugeSeriesOption } from 'echarts/charts';
 import {
@@ -30,7 +30,7 @@ const EarningsChart = ({ chartRef, ...rest }: EarningsChartProps): ReactElement 
           endAngle: 0,
           min: 0,
           max: 100,
-          radius: '200%',
+          radius: '190%',
           center: ['50%', '100%'],
           splitNumber: 10,
           itemStyle: {
@@ -46,7 +46,7 @@ const EarningsChart = ({ chartRef, ...rest }: EarningsChartProps): ReactElement 
             icon: 'roundRect',
             length: '50%',
             width: 5,
-            offsetCenter: [0, -102],
+            offsetCenter: [0, -90],
             itemStyle: {
               borderWidth: 20,
             },
@@ -84,7 +84,7 @@ const EarningsChart = ({ chartRef, ...rest }: EarningsChartProps): ReactElement 
     [],
   );
 
-  return <ReactEChart ref={chartRef} option={option} echarts={echarts} {...rest} />;
+  return <ReactEChart ref={chartRef} option={option} echarts={echarts} {...rest} mx="auto" />;
 };
 
 export default EarningsChart;

@@ -10,17 +10,44 @@ const Earnings = (): ReactElement => {
   useEffect(() => {
     const handleResize = () => {
       if (chartRef.current) {
-        chartRef.current.getEchartsInstance().resize();
+        const echartsInstance = chartRef.current.getEchartsInstance();
+        // console.log(echartsInstance.getWidth());
+        // if (isMobileScreen) {
+        //   echartsInstance.setOption({
+        //     series: [
+        //       {
+        //         radius: `170%`,
+        //       },
+        //     ],
+        //   });
+        // } else {
+        //   echartsInstance.setOption({
+        //     series: [
+        //       {
+        //         radius: `200%`,
+        //       },
+        //     ],
+        //   });
+        // }
+        // echartsInstance.setOption({
+        //   series: [
+        //     {
+        //       radius: `${echartsInstance.getWidth() / 2}%`,
+        //     },
+        //   ],
+        // });
+        echartsInstance.resize({ width: 'auto', height: 'auto' });
       }
     };
     window.addEventListener('resize', handleResize);
+
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, [chartRef]);
 
   return (
-    <Paper sx={{ p: { xs: 6, sm: 8 }, height: 1 }}>
+    <Paper sx={{ p: { xs: 4, sm: 8 }, height: 1 }}>
       <Typography variant="h4" color="common.white" mb={2.5}>
         Earnings
       </Typography>
@@ -45,7 +72,7 @@ const Earnings = (): ReactElement => {
             display: 'flex',
             justifyContent: 'center',
             flex: '1 1 0%',
-            maxHeight: 163,
+            maxHeight: 152,
           }}
         />
         <Typography
