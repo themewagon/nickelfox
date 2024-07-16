@@ -5,7 +5,7 @@ import { SaleItem } from 'data/sales-data';
 
 const SaleCard = ({ saleItem }: { saleItem: SaleItem }): ReactElement => {
   return (
-    <Stack gap={6} p={6} borderRadius={4} height={1} bgcolor="background.default">
+    <Stack gap={6} p={5} borderRadius={4} height={1} bgcolor="background.default">
       <Image src={saleItem.icon} alt={saleItem.subtitle} width={26} height={26} />
       <Box>
         <Typography variant="h4" color="common.white" mb={4}>

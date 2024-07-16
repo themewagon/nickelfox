@@ -73,6 +73,7 @@ const UserDropdown = (): ReactElement => {
                 color: userMenuItem.color,
                 width: 14,
                 height: 10,
+                mb: 1.5,
               }}
             >
               <IconifyIcon icon={userMenuItem.icon} color={userMenuItem.color} />

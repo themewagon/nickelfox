@@ -16,19 +16,12 @@ const NavItem = ({ navItem, open }: { navItem: NavItemProps; open: boolean }) =>
             ? `3px solid ${theme.palette.primary.main}`
             : `3px solid transparent`
           : '',
-        transition:
-          pathname === navItem.path
-            ? theme.transitions.create('all', {
-                easing: theme.transitions.easing.sharp,
-                duration: theme.transitions.duration.leavingScreen,
-              })
-            : '',
       })}
     >
       <ListItemButton
         LinkComponent={Link}
         href={navItem.path}
-        sx={(theme) => ({
+        sx={{
           opacity: navItem.active ? 1 : 0.5,
           bgcolor: pathname === navItem.path ? (open ? 'primary.main' : '') : 'background.default',
           '&:hover': {
@@ -42,19 +35,10 @@ const NavItem = ({ navItem, open }: { navItem: NavItemProps; open: boolean }) =>
           '& .MuiTouchRipple-root': {
             color: pathname === navItem.path ? 'primary.main' : 'text.disabled',
           },
-          transition: open
-            ? theme.transitions.create('all', {
-                easing: theme.transitions.easing.sharp,
-                duration: theme.transitions.duration.enteringScreen,
-              })
-            : theme.transitions.create('all', {
-                easing: theme.transitions.easing.sharp,
-                duration: theme.transitions.duration.leavingScreen,
-              }),
-        })}
+        }}
       >
         <ListItemIcon
-          sx={(theme) => ({
+          sx={{
             width: 20,
             height: 20,
             mr: open ? 'auto' : 0,
@@ -64,16 +48,7 @@ const NavItem = ({ navItem, open }: { navItem: NavItemProps; open: boolean }) =>
                   ? 'background.default'
                   : 'primary.main'
                 : 'text.primary',
-            transition: open
-              ? theme.transitions.create('all', {
-                  easing: theme.transitions.easing.sharp,
-                  duration: theme.transitions.duration.enteringScreen,
-                })
-              : theme.transitions.create('all', {
-                  easing: theme.transitions.easing.sharp,
-                  duration: theme.transitions.duration.leavingScreen,
-                }),
-          })}
+          }}
         >
           <IconifyIcon icon={navItem.icon} width={1} height={1} />
         </ListItemIcon>

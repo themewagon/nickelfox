@@ -5,7 +5,8 @@ const CardMedia: Components<Omit<Theme, 'components'>>['MuiCardMedia'] = {
   defaultProps: {},
   styleOverrides: {
     root: ({}) => ({
-      // height: theme.spacing(48.125),
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
     }),
   },
 };

@@ -8,8 +8,7 @@ const Menu: Components<Omit<Theme, 'components'>>['MuiMenu'] = {
   styleOverrides: {
     list: ({ theme }) => ({
       gap: 4,
-      paddingTop: theme.spacing(1),
-      paddingBottom: theme.spacing(1),
+      padding: theme.spacing(1),
     }),
   },
 };

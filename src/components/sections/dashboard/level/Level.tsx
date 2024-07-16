@@ -21,7 +21,7 @@ const Level = (): ReactElement => {
   }, [chartRef]);
 
   return (
-    <Paper sx={{ p: 8, height: 1 }}>
+    <Paper sx={{ p: { xs: 4, sm: 8 }, height: 1 }}>
       <Typography variant="h4" color="common.white">
         Level
       </Typography>
@@ -66,6 +66,7 @@ const Level = (): ReactElement => {
               sx={{
                 width: 8,
                 height: 8,
+                mb: 1,
                 bgcolor: 'primary.main',
                 borderRadius: 400,
               }}
@@ -97,6 +98,7 @@ const Level = (): ReactElement => {
               sx={{
                 width: 8,
                 height: 8,
+                mb: 1,
                 bgcolor: 'grey.800',
                 borderRadius: 400,
               }}

@@ -1,6 +1,6 @@
 import { SxProps, useTheme } from '@mui/material';
 import ReactEChart from 'components/base/ReactEChart';
-import * as echarts from 'echarts';
+import * as echarts from 'echarts/core';
 import EChartsReactCore from 'echarts-for-react/lib/core';
 import { LineSeriesOption } from 'echarts/charts';
 import {

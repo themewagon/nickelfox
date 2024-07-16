@@ -10,7 +10,8 @@ const Earnings = (): ReactElement => {
   useEffect(() => {
     const handleResize = () => {
       if (chartRef.current) {
-        chartRef.current.getEchartsInstance().resize();
+        const echartsInstance = chartRef.current.getEchartsInstance();
+        echartsInstance.resize({ width: 'auto', height: 'auto' });
       }
     };
     window.addEventListener('resize', handleResize);
@@ -20,14 +21,19 @@ const Earnings = (): ReactElement => {
   }, [chartRef]);
 
   return (
-    <Paper sx={{ p: 8, height: 1 }}>
+    <Paper sx={{ p: { xs: 4, sm: 8 }, height: 1 }}>
       <Typography variant="h4" color="common.white" mb={2.5}>
         Earnings
       </Typography>
       <Typography variant="body1" color="text.primary" mb={4.5}>
         Total Expense
       </Typography>
-      <Typography variant="h1" color="primary.main" mb={4.5}>
+      <Typography
+        variant="h1"
+        color="primary.main"
+        mb={4.5}
+        fontSize={{ xs: 'h2.fontSize', sm: 'h1.fontSize' }}
+      >
         {currencyFormat(6078.76, { useGrouping: false })}
       </Typography>
       <Typography variant="body1" color="text.primary" mb={15}>
@@ -39,7 +45,15 @@ const Earnings = (): ReactElement => {
           position: 'relative',
         }}
       >
-        <EarningsChart chartRef={chartRef} sx={{ height: '163px !important', flexGrow: 1 }} />
+        <EarningsChart
+          chartRef={chartRef}
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            flex: '1 1 0%',
+            maxHeight: 152,
+          }}
+        />
         <Typography
           variant="h1"
           color="common.white"

@@ -2,5 +2,10 @@
 @import 'simplebar-react/dist/simplebar.min.css';
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow: auto !important;
+  padding-right: 0 !important;
 }

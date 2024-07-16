@@ -20,12 +20,13 @@ const VisitorInsights = (): ReactElement => {
   }, [chartRef]);
 
   return (
-    <Paper sx={{ p: 8, height: 1 }}>
+    <Paper sx={{ p: { xs: 4, sm: 8 }, height: 1 }}>
       <Stack
         direction="row"
         justifyContent="space-between"
         alignItems="center"
         flexWrap="wrap"
+        gap={2}
         mb={6}
       >
         <Typography variant="h4" color="common.white">

@@ -12,7 +12,6 @@ const InputBase: Components<Omit<Theme, 'components'>>['MuiInputBase'] = {
     }),
     input: ({ theme }) => ({
       '&::placeholder': {
-        // opacity: 1,
         color: theme.palette.action.focus,
       },
     }),
