@@ -1,0 +1,1 @@
+import{j as t,S as s,B as a}from"./index-DKS14ERi.js";const r=({children:e})=>t.jsx(t.Fragment,{children:t.jsx(s,{minHeight:"100vh",justifyContent:"center",py:10,children:t.jsx(a,{maxWidth:640,width:1,mx:"auto",px:5,children:e})})});export{r as default};
