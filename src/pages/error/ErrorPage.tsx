@@ -2,6 +2,7 @@ import { ReactElement } from 'react';
 import { Link, Stack, Button, Typography } from '@mui/material';
 import Image from 'components/base/Image';
 import errorSvg from 'assets/images/error/error.svg';
+import { rootPaths } from 'routes/paths';
 
 const ErrorPage = (): ReactElement => {
   return (
@@ -37,7 +38,7 @@ const ErrorPage = (): ReactElement => {
           width: { xs: 1, sm: 340 },
         }}
       />
-      <Button href="/" size="large" variant="contained" component={Link}>
+      <Button href={rootPaths.homeRoot} size="large" variant="contained" component={Link}>
         Go to Home
       </Button>
     </Stack>

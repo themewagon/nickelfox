@@ -3,23 +3,13 @@ import { Box, Drawer, Toolbar } from '@mui/material';
 import Topbar from './Topbar/Topbar';
 import Sidebar from './Sidebar/Sidebar';
 import Footer from './Footer/Footer';
-// import { useBreakpoints } from 'providers/BreakpointsProvider';
 
 export const drawerOpenWidth = 240;
 export const drawerCloseWidth = 110;
 
 const MainLayout = ({ children }: PropsWithChildren): ReactElement => {
   const [open, setOpen] = useState<boolean>(false);
-  // const { down } = useBreakpoints();
   const handleDrawerToggle = () => setOpen(!open);
-
-  // const isMobileScreen = down('sm');
-
-  // useEffect(() => {
-  //   if (isMobileScreen) {
-  //     setOpen(false);
-  //   }
-  // }, [isMobileScreen]);
 
   return (
     <>

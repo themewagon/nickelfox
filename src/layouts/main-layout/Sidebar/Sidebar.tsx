@@ -7,6 +7,7 @@ import { drawerCloseWidth, drawerOpenWidth } from '..';
 import Image from 'components/base/Image';
 import logoWithText from '/Logo-with-text.png';
 import logo from '/LOGO.png';
+import { rootPaths } from 'routes/paths';
 
 const Sidebar = ({ open }: { open: boolean }): ReactElement => {
   return (
@@ -23,7 +24,7 @@ const Sidebar = ({ open }: { open: boolean }): ReactElement => {
         }}
       >
         <Link
-          href="/"
+          href={rootPaths.homeRoot}
           sx={{
             mt: 3,
           }}

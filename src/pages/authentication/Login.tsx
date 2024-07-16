@@ -35,7 +35,7 @@ const Login = (): ReactElement => {
   return (
     <>
       <Box component="figure" mb={5} mx="auto" textAlign="center">
-        <Link href="/">
+        <Link href={rootPaths.homeRoot}>
           <Image src={logoWithText} alt="logo with text" height={60} />
         </Link>
       </Box>
