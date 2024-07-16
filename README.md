@@ -5,8 +5,8 @@
 <!-- PROJECT LOGO -->
 <div align="left" >
 <center>
-      <a href="public/elegent-logo.png" align="center">
-        <img src="public/elegent-logo.png" alt="Logo" width="50" height="50">
+      <a href="public/LOGO.png" align="center">
+        <img src="public/LOGO.png" alt="Logo" width="50" height="50">
       </a>    
 </center>
 <center>

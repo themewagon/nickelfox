@@ -2,7 +2,7 @@ import { Box, SxProps } from '@mui/material';
 import { ImgHTMLAttributes } from 'react';
 
 interface ImageProps extends ImgHTMLAttributes<HTMLImageElement> {
-  src: string;
+  src?: string;
   alt?: string;
   sx?: SxProps;
 }
